@@ -2,3 +2,9 @@
 # PROJECT FLOW 
 
 1. Built the privat repo online ,cloned and started working on the Project . 
+
+
+# PROBLEM 1 
+# Preparation of Dataset 
+
+-> Make our own data using (manual labelling + llm based labelling ) 
