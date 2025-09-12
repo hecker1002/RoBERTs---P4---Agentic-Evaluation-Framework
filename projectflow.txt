@@ -1,0 +1,4 @@
+
+# PROJECT FLOW 
+
+1. Built the privat repo online ,cloned and started working on the Project . 
