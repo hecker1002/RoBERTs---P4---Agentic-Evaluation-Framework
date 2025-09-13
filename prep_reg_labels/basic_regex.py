@@ -10,12 +10,20 @@ def validate_with_regex(pattern: str, text: str, flags=0) -> bool:
     match = compiled_pattern.search(text)
     # Return True if a match is found, otherwise False
     return match is not None
+def find_len_bool(k:int,ans:str)->bool:
+    leni=len(ans.split(" "))+1
+    delta=0.34*k//1+1
+    return leni<=k+delta and leni>=k-delta
+
 
 bullet_pattern = r"^\s*[\*\-\•]\s+.+"
 single_para_pattern = r"^(?!.*(\r?\n){2,}).*$"
 csv_pattern = r"^[^,]+(,\s*[^,]+)*$"
 bold_pattern= r"\*{2}(.*?)\*{2}"
 date_pattern = r"\b(?:\d{1,2}[/-]\d{1,2}[/-]\d{2,4}|(?:Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:tember)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)\s+\d{1,2}(?:,)?\s+\d{2,4}|\d{4}-\d{2}-\d{2})\b"
+url_pattern=r"https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/\/=]*)"
+capital_pattern=r"\b[A-Z]+\b"
+question_pattern=r"\b\w+\?"
 
 
 
