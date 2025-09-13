@@ -1,5 +1,6 @@
 import os
 import json
+import tempfile
 from typing import List, Dict, Any
 from langchain.chains import LLMChain
 from langchain_core.prompts import PromptTemplate
@@ -33,7 +34,7 @@ def create_agents() :
 
     # Agent 1: The Factual Reporter (simulates the "best" agent)
     reporter_template = """
-    You are a professional news reporter. Your goal is to provide a concise, factual, and unbiased answer to the following question. Avoid any conversational filler.
+    You are a good news reporter. Your goal is to provide a Concise, Factual, and Unbiased answer to the following question as you think is correct. Avoid any conversational filler.
     Strictly answer in {word_count} words.
     Question: {question}
     """
@@ -43,7 +44,7 @@ def create_agents() :
 
     # Agent 2: The Enthusiastic Storyteller (simulates the "hallucinating" agent)
     storyteller_template = """
-    You are an enthusiastic storyteller. Answer the question in a friendly, conversational, and engaging tone. Feel free to add interesting, but potentially unverified, anecdotes.
+    You are an enthusiastic, carefree storyteller. Answer the question in a friendly, conversational, and super engaging tone. Feel free to add interesting, but potentially unverified, anecdotes for the sake of storytelling.
     Strictly answer in {word_count} words.
     Question: {question}
     """
@@ -53,7 +54,8 @@ def create_agents() :
 
     # Agent 3: The Skeptical Analyst (simulates the "medium" agent)
     analyst_template = """
-    You are a cautious and skeptical analyst. Answer the following question but be sure to qualify your answer with phrases like "It is believed that..." or "Sources suggest...". Do not state anything as an absolute fact.
+    You are a cautious skeptical and a very deep critical analyst. You try to NOT share Wrong info. Answer the following question but be sure to qualify your answer with phrases like "It is believed that..." or "Sources suggest...". 
+    Do not state anything as an absolute fact unless you are very sure.
     Strictly answer in {word_count} words.
     Question: {question}
     """
@@ -67,50 +69,94 @@ def create_agents() :
     }
 
 def main():
-    """
-    Main function to run the agents, get their responses, and save them to a JSON file.
-    """
-    questions = quesn_prompts
+    OUTPUT_FILENAME = "results.json"
+    CHUNK_SIZE = 5  # <-- Set your desired chunk size here
 
-    if not questions:
-        print("No questions found in 'questions.txt'. Exiting.")
+    all_questions = quesn_prompts
+
+    all_results = []
+    if os.path.exists(OUTPUT_FILENAME):
+        try:
+            with open(OUTPUT_FILENAME, 'r') as f:
+                all_results = json.load(f)
+            print(f"✅ Loaded {len(all_results)} existing results from {OUTPUT_FILENAME}")
+        except json.JSONDecodeError:
+            print(f"⚠ Warning: Could not parse {OUTPUT_FILENAME}. Starting fresh.")
+    
+    processed_questions = {result.get('question') for result in all_results}
+    questions_to_process = [q for q in all_questions if q not in processed_questions]
+    random.shuffle(questions_to_process) # Randomize the order
+
+    if not questions_to_process:
+        print("\n✅ All questions have already been processed and saved. Nothing to do.")
         return
 
+    print(f"\nTotal questions to process: {len(questions_to_process)} | Chunk Size: {CHUNK_SIZE}\n")
+
     agents = create_agents()
-    all_results = []
 
-    for i, question in enumerate(questions):
-        print(f"--- Processing Question {i+1}/{len(questions)}: '{question}' ---")
-        
-        question_result = {
-            "question": question,
-            "responses": {}
-        }
+    for i, question in enumerate(questions_to_process):
+        print(f"--- Processing Question {i+1}/{len(questions_to_process)}: '{question}' ---")
 
-        for agent_name, agent_chain in agents.items():
-            # Generate a NEW random word count for each agent
-            random_word_count = random.randint(50, 200)
+        current_result = {"question": question, "responses": {}}
 
-            print(f"--> Running agent: {agent_name} with a word count of {random_word_count}...")
+        try:
+            for agent_name, agent_chain in agents.items():
+                # Generate a NEW random word count for each agent
+                random_word_count = random.randint(20, 80)
+                
+                print(f"--> Running agent: {agent_name} with word count: {random_word_count}...")
+                agent_response = agent_chain.invoke({"question": question, "word_count": random_word_count})['text'].strip()
+                print(f"Agent Response: {agent_response}")
+                print("-" * 20)
+
+                current_result["responses"][agent_name] = agent_response
             
-            # Get agent response by passing both the question and the word count
-            agent_response = agent_chain.invoke({"question": question, "word_count": random_word_count})['text'].strip()
-            print(f"Agent Response: {agent_response}")
-            print("-" * 20)
+            # Add the completed result to our in-memory list
+            all_results.append(current_result)
+            
+            # --- Conditional Save Logic with Atomic Write ---
+            is_last_question = (i == len(questions_to_process) - 1)
+            if (i + 1) % CHUNK_SIZE == 0 or is_last_question:
+                print("\n" + "="*25)
+                print(f"CHUNK COMPLETE. Saving progress...")
+                
+                # Create a temporary file
+                temp_file = None
+                try:
+                    temp_file = tempfile.NamedTemporaryFile(mode='w', delete=False, dir='.', suffix='.tmp', encoding='utf-8')
+                    json.dump(all_results, temp_file, indent=4)
+                    temp_file.flush()
+                    temp_file.close()
+                    os.replace(temp_file.name, OUTPUT_FILENAME)
+                    print(f"✅ Successfully saved {len(all_results)} total results to {OUTPUT_FILENAME}.")
+                except Exception as e:
+                    print(f"❌ Error during atomic save: {e}")
+                    if temp_file and os.path.exists(temp_file.name):
+                        os.remove(temp_file.name)
+                
+                print("="*25 + "\n")
 
-            # Add the response to the current question's result dictionary
-            question_result["responses"][agent_name] = agent_response
-        
-        # Add the complete question result to the main list
-        all_results.append(question_result)
+        except Exception as e:
+            print(f"\n❌ An error occurred while processing question: '{question}'. Error: {e}")
+            print("Attempting to save any progress made in the current chunk...")
+            if all_results:
+                # Use atomic write logic here as well for safety
+                try:
+                    temp_file = tempfile.NamedTemporaryFile(mode='w', delete=False, dir='.', suffix='.tmp', encoding='utf-8')
+                    json.dump(all_results, temp_file, indent=4)
+                    temp_file.flush()
+                    temp_file.close()
+                    os.replace(temp_file.name, OUTPUT_FILENAME)
+                    print(f"✅ Progress saved. {len(all_results)} total results are stored.")
+                except Exception as save_e:
+                    print(f"❌ Error during emergency save: {save_e}")
+                    if temp_file and os.path.exists(temp_file.name):
+                        os.remove(temp_file.name)
+            print("Stopping execution. Run the script again to resume.")
+            break
 
-    # Save the results to a JSON file
-    try:
-        with open("results.json", "w", encoding='utf-8') as json_file:
-            json.dump(all_results, json_file, indent=4)
-        print("Successfully saved all results to 'results.json'.")
-    except IOError as e:
-        print(f"Error saving file: {e}")
+    print("--- All tasks completed. ---")
 
 if __name__ == "__main__":
     main()
