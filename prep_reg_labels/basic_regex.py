@@ -28,7 +28,6 @@ question_pattern=r"\b\w+\?"
 
 
 
-
 # # Example 1: Check for bullet points
 # llm_response_bullets = """
 # Here are the key points:

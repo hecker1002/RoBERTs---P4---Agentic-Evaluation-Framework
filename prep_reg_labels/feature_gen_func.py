@@ -14,12 +14,15 @@ from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.decomposition import LatentDirichletAllocation
 from scipy.spatial.distance import jensenshannon
 
+
+
 model = SentenceTransformer('all-MiniLM-L6-v2')
 nlp_key_word = spacy.load("en_core_web_sm")
 
+
 try:
     nltk.data.find('tokenizers/punkt_tab')
-except LookupError:                  # resource missing
+except LookupError:          # resource missing
         ok = nltk.download('punkt_tab', quiet=True)
         if not ok:
             raise RuntimeError(f"Failed to download NLTK resource: {pkg_id}")
@@ -36,18 +39,22 @@ except LookupError:
     nltk.download('wordnet')
 
 
-def calculate_semantic_similarity(prompt: str, response: str) -> float:
-    """
-    input are prompt and response , then converted to embeddings and further checking its cosine similarity
-    """
-    # Encode the prompt and response into dense vector embeddings
-    embeddings = model.encode([prompt, response])
+# def calculate_semantic_similarity(prompt: str, response: str) -> float:
+#     """
+#     input are prompt and response , then converted to embeddings and further checking its cosine similarity
+#     """
+#     # Encode the prompt and response into dense vector embeddings
+#     embeddings = model.encode([prompt, response])
 
-    # Compute the cosine similarity between the two embeddings
-    # The result is a 2x2 matrix, we need the value at [0, 1]
-    similarity_score = cosine_similarity([embeddings[0]], [embeddings[1]])[0][0]
+#     # Compute the cosine similarity between the two embeddings
+#     # The result is a 2x2 matrix, we need the value at [0, 1]
+#     similarity_score = cosine_similarity([embeddings[0]], [embeddings[1]])[0][0]
 
-    return similarity_score
+#     return similarity_score
+
+
+
+
 
 def calculate_keyword_recall(prompt: str, response: str) -> dict:
     """
@@ -89,43 +96,51 @@ def calculate_keyword_recall(prompt: str, response: str) -> dict:
         "found_keywords": sorted(list(found_keywords))
     }
 
-def detect_internal_contradictions_nli(response: str):
-    """
-    Detects internal contradictions in a block of text using an NLI model.
 
-    Args:
-        response: The text to be checked for contradictions.
 
-    Returns:
-        A dictionary with the most contradictory pair of sentences and their score.
-    """
-    sentences = nltk.sent_tokenize(response)
 
-    if len(sentences) < 2:
-        print("Not enough sentences to compare.")
-        return None
 
-    # Generate all unique pairs of sentences
-    sentence_pairs = list(combinations(sentences, 2))
+# def detect_internal_contradictions_nli(response: str):
+#     """
+#     Detects internal contradictions in a block of text using an NLI model.
 
-    # The NLI model expects a list of lists/tuples: [ [sent1, sent2], [sent1, sent3], ... ]
-    scores = nli_model.predict(sentence_pairs)
+#     Args:
+#         response: The text to be checked for contradictions.
 
-    # The model outputs scores for [contradiction, entailment, neutral] for each pair
-    # We are interested in the highest contradiction score (index 0)
-    max_contradiction_score = -1
-    most_contradictory_pair = None
+#     Returns:
+#         A dictionary with the most contradictory pair of sentences and their score.
+#     """
+#     sentences = nltk.sent_tokenize(response)
 
-    for i, score in enumerate(scores):
-        contradiction_score = score[0]
-        if contradiction_score > max_contradiction_score:
-            max_contradiction_score = contradiction_score
-            most_contradictory_pair = sentence_pairs[i]
-    ## Output is a sentence pair
-    return {
-        "most_contradictory_pair": most_contradictory_pair,
-        "contradiction_score": max_contradiction_score
-    }
+#     if len(sentences) < 2:
+#         print("Not enough sentences to compare.")
+#         return None
+
+#     # Generate all unique pairs of sentences
+#     sentence_pairs = list(combinations(sentences, 2))
+
+#     # The NLI model expects a list of lists/tuples: [ [sent1, sent2], [sent1, sent3], ... ]
+#     scores = nli_model.predict(sentence_pairs)
+
+#     # The model outputs scores for [contradiction, entailment, neutral] for each pair
+#     # We are interested in the highest contradiction score (index 0)
+#     max_contradiction_score = -1
+#     most_contradictory_pair = None
+
+#     for i, score in enumerate(scores):
+#         contradiction_score = score[0]
+#         if contradiction_score > max_contradiction_score:
+#             max_contradiction_score = contradiction_score
+#             most_contradictory_pair = sentence_pairs[i]
+#     ## Output is a sentence pair
+#     return {
+#         "most_contradictory_pair": most_contradictory_pair,
+#         "contradiction_score": max_contradiction_score
+#     }
+
+
+
+
 
 def preprocess_text_topic(text: str) -> list[str]:
     """
@@ -143,62 +158,70 @@ def preprocess_text_topic(text: str) -> list[str]:
     tokens = [lemmatizer.lemmatize(word) for word in tokens]
     return tokens
 
-def calculate_topic_divergence(prompt: str, response: str, num_topics: int = 5) -> dict:
-    """
-    Calculates topic divergence between a prompt and a response using LDA and Jensen-Shannon distance.
 
-    Args:
-        prompt: The user's input string.
-        response: The AI's response string.
-        num_topics: The number of latent topics to discover.
 
-    Returns:
-        A dictionary containing the JS-divergence score and the topic distributions.
-    """
-    # 1. Preprocess both the prompt and response
-    processed_prompt = " ".join(preprocess_text_topic(prompt))
-    processed_response = " ".join(preprocess_text_topic(response))
 
-    if not processed_prompt or not processed_response:
-        return {
-            "js_divergence": 1.0, # Max divergence if one is empty
-            "prompt_topic_dist": [],
-            "response_topic_dist": [],
-            "topics": {}
-        }
 
-    documents = [processed_prompt, processed_response]
+# def calculate_topic_divergence(prompt: str, response: str, num_topics: int = 5) -> dict:
+#     """
+#     Calculates topic divergence between a prompt and a response using LDA and Jensen-Shannon distance.
 
-    # 2. Create a document-term matrix
-    vectorizer = CountVectorizer()
-    doc_term_matrix = vectorizer.fit_transform(documents)
+#     Args:
+#         prompt: The user's input string.
+#         response: The AI's response string.
+#         num_topics: The number of latent topics to discover.
 
-    # 3. Train the LDA model on the combined corpus
-    lda = LatentDirichletAllocation(n_components=num_topics, random_state=42)
-    lda.fit(doc_term_matrix)
+#     Returns:
+#         A dictionary containing the JS-divergence score and the topic distributions.
+#     """
+#     # 1. Preprocess both the prompt and response
+#     processed_prompt = " ".join(preprocess_text_topic(prompt))
+#     processed_response = " ".join(preprocess_text_topic(response))
 
-    # 4. Get the topic distributions for the prompt and response
-    topic_distributions = lda.transform(doc_term_matrix)
-    prompt_topic_dist = topic_distributions[0]
-    response_topic_dist = topic_distributions[1]
+#     if not processed_prompt or not processed_response:
+#         return {
+#             "js_divergence": 1.0, # Max divergence if one is empty
+#             "prompt_topic_dist": [],
+#             "response_topic_dist": [],
+#             "topics": {}
+#         }
 
-    # 5. Calculate the Jensen-Shannon divergence
-    # scipy's jensenshannon calculates the square root of the JS-divergence, which is a true metric.
-    js_divergence = jensenshannon(prompt_topic_dist, response_topic_dist)
+#     documents = [processed_prompt, processed_response]
 
-    # (Optional) Extract the top words for each topic for interpretability
-    feature_names = vectorizer.get_feature_names_out()
-    topics = {}
-    for topic_idx, topic in enumerate(lda.components_):
-        top_words = [feature_names[i] for i in topic.argsort()[:-5 - 1:-1]]
-        topics[f"Topic {topic_idx}"] = ", ".join(top_words)
+#     # 2. Create a document-term matrix
+#     vectorizer = CountVectorizer()
+#     doc_term_matrix = vectorizer.fit_transform(documents)
 
-    return {
-        "js_divergence": js_divergence,
-        "prompt_topic_dist": prompt_topic_dist.tolist(),
-        "response_topic_dist": response_topic_dist.tolist(),
-        "topics": topics
-    }
+#     # 3. Train the LDA model on the combined corpus
+#     lda = LatentDirichletAllocation(n_components=num_topics, random_state=42)
+#     lda.fit(doc_term_matrix)
+
+#     # 4. Get the topic distributions for the prompt and response
+#     topic_distributions = lda.transform(doc_term_matrix)
+#     prompt_topic_dist = topic_distributions[0]
+#     response_topic_dist = topic_distributions[1]
+
+#     # 5. Calculate the Jensen-Shannon divergence
+#     # scipy's jensenshannon calculates the square root of the JS-divergence, which is a true metric.
+#     js_divergence = jensenshannon(prompt_topic_dist, response_topic_dist)
+
+#     # (Optional) Extract the top words for each topic for interpretability
+#     feature_names = vectorizer.get_feature_names_out()
+#     topics = {}
+#     for topic_idx, topic in enumerate(lda.components_):
+#         top_words = [feature_names[i] for i in topic.argsort()[:-5 - 1:-1]]
+#         topics[f"Topic {topic_idx}"] = ", ".join(top_words)
+
+#     return {
+#         "js_divergence": js_divergence,
+#         "prompt_topic_dist": prompt_topic_dist.tolist(),
+#         "response_topic_dist": response_topic_dist.tolist(),
+#         "topics": topics
+#     }
+
+
+
+
 
 def main_internal_coherence():
     response_with_contradiction = (
@@ -248,6 +271,8 @@ def main_topic():
     print("--- On-Topic Analysis ---")
     print(f"JS Divergence Score: {divergence_on_topic['js_divergence']:.4f}")
     print("Identified Topics:", divergence_on_topic['topics'])
+
+
 
 
 if __name__ == "__main__":
