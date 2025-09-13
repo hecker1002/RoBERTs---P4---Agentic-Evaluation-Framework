@@ -8,3 +8,24 @@
 # Preparation of Dataset 
 
 -> Make our own data using (manual labelling + llm based labelling ) 
+( Dataset made  by - making 3 llm behave with diff eprson(carefree , serious etc ) and label their repsose by a human help )
+( had to do it in abtch as Ai limit reached )
+
+-> make the regex componet that removes the Most basic nuances nosies and also catches the msot obvious lexicla apttern 
+b/w ( prompt) and (resposne) simialrity 
+
+
+
+-> make the BERT ( promp ,resposne ,regex labels in single featuresentecne ) and fien tue on labeeld datset with ( hall + info accuarcy score )
+
+
+# thsi is Only the evaluaitor aprt , NOT the actual aprt of pipleine 
+-> LLm -ai judge to take all these ( prompt ,respose , regex , hall score ) and then check factual ifno 
+and (recheck pre  info for cross-ceckig and also gives a finals core for full pipeline )
+
+
+# and afte this we explroe More ideas to make this pipelien unique from other teams . 
+
+
+
+-- finalyl deploy it online 
