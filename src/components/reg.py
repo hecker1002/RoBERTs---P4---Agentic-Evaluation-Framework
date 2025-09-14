@@ -6,7 +6,7 @@ import statistics
 from typing import Dict, Any, List, Tuple
 from collections import Counter
 
-# ------- Optional monkeypatch for older dependency quirks -------
+''' We did this , Due to some mismatch due to Old version of Numpy'''
 try:
     import numpy as np  # noqa: F401
     if not hasattr(np, "ComplexWarning"):
@@ -15,36 +15,41 @@ try:
 except Exception:
     pass
 
-# ------- Semantic model (MiniLM) -------
+
+
+
 try:
     from sentence_transformers import SentenceTransformer, util
     SEM_MODEL = SentenceTransformer("all-MiniLM-L6-v2")
 except Exception as e:
     SEM_MODEL, util = None, None
-    print("Warning: sentence-transformers failed. Falling back to lexical features. Error:", e)
+    print("Warning: The sentence-transformers failed. Falling back to lexical features. Error:", e)
 
-# ------- Constants -------
+'''Prevented using NLTK to reduce Latency'''
 STOP_WORDS = {
     'a','an','and','the','is','in','at','of','on','by','for','with',
     'about','as','to','from','it','this','that','i','you'
 }
+
 HEDGING_WORDS = {'maybe','might','could','possibly','probably','suggest','likely','may','seems'}
 ASSUMPTION_PHRASES = {'assume','assuming',"let's assume",'suppose','in case','given that','presume','presuming'}
 RECOMMENDATION_VERBS = {'recommend','suggest','should','advise','you should','i suggest','i recommend'}
 IMPERATIVE_KEYWORDS = {'list','summarize','explain','compare','describe','provide','give','write','outline'}
 PRONOUNS = {'he','she','they','it','them','his','her','their','this','that','those','these'}
 
-# ------- Basic text utils -------
+
+''' basic NLP processing '''
 def preprocess_text(text: str) -> set:
     if not text: return set()
     tokens = re.findall(r'\b[a-zA-Z0-9]+\b', text.lower())
     return {t for t in tokens if t not in STOP_WORDS}
 
+
 def split_sentences(text: str) -> List[str]:
     if not text.strip(): return []
     return [s.strip() for s in re.split(r'(?<=[.!?])\s+', text.strip()) if s.strip()]
 
-# ------- Prompt chunking & emphasis -------
+''' Prompt Chunking '''
 def chunk_prompt(prompt: str) -> List[str]:
     if not prompt: return []
     pieces = re.split(r'[\n;]+', prompt)
@@ -63,7 +68,9 @@ def chunk_prompt(prompt: str) -> List[str]:
             seen.add(c); out.append(c)
     return out
 
-def prompt_chunk_weights(chunks: List[str], prompt: str) -> List[float]:
+
+''' Prompt Chunk Weights '''
+def prompt_chunk_weights(chunks , prompt ) :
     prompt_tokens = re.findall(r'\b[a-zA-Z0-9]+\b', prompt.lower())
     freq = Counter(prompt_tokens)
     weights = []
@@ -78,35 +85,46 @@ def prompt_chunk_weights(chunks: List[str], prompt: str) -> List[float]:
     s = sum(weights) or 1.0
     return [round(w/s,4) for w in weights]
 
-# ------- Semantic helpers -------
-def semantic_sim(a: str, b: str) -> float:
+''' using Mini Lm to calcualted embeeding simialrity '''
+def semantic_sim(a , b ) :
     if not a or not b: return 0.0
+
     if SEM_MODEL is None:
         return round(calculate_jaccard_similarity(preprocess_text(a), preprocess_text(b)),3)
     emb = SEM_MODEL.encode([a,b], convert_to_tensor=True)
     return round(float(util.cos_sim(emb[0],emb[1]).item()),3)
 
-def batch_similarity_matrix(a_list: List[str], b_list: List[str]) -> List[List[float]]:
+
+
+
+def batch_similarity_matrix(a_list , b_list ) :
     if not a_list or not b_list: return []
     if SEM_MODEL is None:
         return [[round(calculate_jaccard_similarity(preprocess_text(a),preprocess_text(b)),3) for b in b_list] for a in a_list]
     a_emb = SEM_MODEL.encode(a_list, convert_to_tensor=True)
     b_emb = SEM_MODEL.encode(b_list, convert_to_tensor=True)
+
+    # COSINE SIM clacualtion 
     sim = util.cos_sim(a_emb,b_emb)
     return [[round(float(sim[i][j].item()),3) for j in range(sim.shape[1])] for i in range(sim.shape[0])]
 
-# ------- Heuristic detectors -------
-def extract_numbers(text: str) -> List[str]: return re.findall(r'\b\d+(?:\.\d+)?\b', text)
+'''Heuristic detectors  '''
+def extract_numbers(text: str) : return re.findall(r'\b\d+(?:\.\d+)?\b', text)
+
 def detect_entity_candidates(text: str) -> List[str]:
     return [m.strip() for m in re.findall(r'\b[A-Z][a-zA-Z0-9\-]*(?:\s+[A-Z][a-zA-Z0-9\-]*)*\b', text)]
+
 def contains_assumption(text: str) -> bool: return any(p in text.lower() for p in ASSUMPTION_PHRASES)
+
+
 def contains_recommendation(resp: str) -> bool: return any(rv in resp.lower() for rv in RECOMMENDATION_VERBS)
+
 def hedging_ratio(resp: str) -> float:
     sents = split_sentences(resp)
     if not sents: return 0.0
     return round(sum(1 for s in sents if any(h in s.lower() for h in HEDGING_WORDS))/len(sents),3)
 
-# ------- Backtracking -------
+''' backtrack from the reponse'''
 def map_response_to_prompt_chunks(prompt_chunks: List[str], response_sentences: List[str],
                                    sim_threshold: float=0.45) -> Tuple[List[Dict[str, Any]],float,float]:
     mapping=[];
@@ -115,46 +133,59 @@ def map_response_to_prompt_chunks(prompt_chunks: List[str], response_sentences: 
         for s in response_sentences:
             mapping.append({"sentence":s,"best_chunk_idx":None,"best_chunk":None,"sim":0.0,"is_orphan":True})
         return mapping,0.0,0.0
+    
+    # for faster calculation of Semantic SImialrity b/w Chucks of Prompt and Reposnes 
     sim_matrix = batch_similarity_matrix(response_sentences,prompt_chunks)
+
     mapped_flags=[False]*len(response_sentences); chunk_covered=[False]*len(prompt_chunks)
+
     for i,row in enumerate(sim_matrix):
         best_j = max(range(len(row)), key=lambda j: row[j]); best_sim=row[best_j]
         is_mapped = best_sim>=sim_threshold; mapped_flags[i]=is_mapped
+
         if is_mapped: chunk_covered[best_j]=True
         mapping.append({"sentence":response_sentences[i],"best_chunk_idx":int(best_j),
                          "best_chunk":prompt_chunks[best_j],"sim":round(best_sim,3),"is_orphan":not is_mapped})
+        
     backtrackability=round(sum(mapped_flags)/len(mapped_flags),3)
     prompt_cov=round(sum(chunk_covered)/len(chunk_covered),3) if chunk_covered else 0.0
     return mapping, backtrackability, prompt_cov
 
-# ------- Simple metrics -------
+''' Basic Metrics for Calculation '''
 def calculate_jaccard_similarity(s1:set,s2:set)->float:
     if not s1 or not s2: return 0.0
     return len(s1&s2)/len(s1|s2)
 
-def calculate_keyword_recall(prompt:str,response:str)->Dict[str,Any]:
+
+
+def calculate_keyword_recall(prompt ,response ):
     kws={t for t in re.findall(r'\b[a-zA-Z]{3,}\b',prompt.lower()) if t not in STOP_WORDS}
     rw=preprocess_text(response); found=sorted(list(kws&rw))
     return {"recall_percentage": round((len(found)/max(1,len(kws)))*100,2) if kws else 0.0,
              "prompt_keywords":sorted(list(kws)),"found_keywords":found}
 
-def calculate_extraneous_content_ratio(prompt:str,response:str)->float:
+def calculate_extraneous_content_ratio(prompt ,response ) :
     pw,rw=preprocess_text(prompt),preprocess_text(response)
     return round(len(rw-pw)/len(rw),3) if rw else 0.0
 
-def detect_entity_mismatch(prompt:str,response:str)->Dict[str,Any]:
+def detect_entity_mismatch(prompt ,response ) :
     return {"mismatch_count":len(set(detect_entity_candidates(response))-set(detect_entity_candidates(prompt))),
              "mismatched_entities":sorted(list(set(detect_entity_candidates(response))-set(detect_entity_candidates(prompt))))}
 
-def detect_number_mismatch(prompt:str,response:str)->Dict[str,Any]:
+def detect_number_mismatch(prompt ,response ) :
     pnums,rnums=set(extract_numbers(prompt)),set(extract_numbers(response))
+
     return {"missing_numbers":sorted(list(pnums-rnums)),"extra_numbers":sorted(list(rnums-pnums)),
              "extra_numbers_count":len(rnums-pnums)}
 
-def detect_internal_contradictions_lexical(resp:str)->Dict[str,Any]:
+def detect_internal_contradictions_lexical(resp ):
     sents=split_sentences(resp)
+
+    '''at least 2 sentences in responses to be used for contradiction detection'''
     if len(sents)<2: return {"contradiction_detected":False,"pair":None}
-    neg_kw={"no","not","never","without","impossible","n't"}
+
+    neg_kw={"no","not","never","without","impossible","n't" , "don't" , "do not" , "cannot" , "can't" , "none" , "neither" , "nor"}
+
     for i in range(len(sents)-1):
         a,b=sents[i],sents[i+1]
         if not (preprocess_text(a)&preprocess_text(b)): continue
@@ -162,54 +193,61 @@ def detect_internal_contradictions_lexical(resp:str)->Dict[str,Any]:
             return {"contradiction_detected":True,"pair":(a,b)}
     return {"contradiction_detected":False,"pair":None}
 
-def calculate_sentence_variety_score(resp:str)->float:
+def calculate_sentence_variety_score(resp )->float:
     sents=split_sentences(resp)
     if len(sents)<2: return 5.0
     lengths=[len(re.findall(r'\b\w+\b',s)) for s in sents]
     mean=sum(lengths)/len(lengths); std=statistics.stdev(lengths) if len(lengths)>1 else 0
     return round(min(max((std/mean)*10,0),10),2)
 
-def calculate_repetition_penalty(resp:str)->Dict[str,Any]:
+
+''' Same concept/Phrase repetition in the Response ''' 
+def calculate_repetition_penalty(resp):
     words=re.findall(r'\b\w+\b',resp.lower())
+
     if len(words)<2: return {"repetition_percentage":0.0,"repeated_bigrams":[]}
     bigrams=[(words[i],words[i+1]) for i in range(len(words)-1)]
     uniq=set(bigrams); rep_ratio=1-(len(uniq)/len(bigrams)) if bigrams else 0
     top_repeats=[bg for bg in uniq if bigrams.count(bg)>1][:3]
     return {"repetition_percentage":round(rep_ratio*100,2),"repeated_bigrams":top_repeats}
 
-# ------- Creative proxies -------
-def compute_instruction_coverage(prompt:str,response:str)->float:
+
+def compute_instruction_coverage(prompt ,response) :
     chunks=chunk_prompt(prompt); sents=split_sentences(response)
     _,_,cov=map_response_to_prompt_chunks(chunks,sents); return cov
 
-def compute_assumption_risk(resp:str)->float:
+def compute_assumption_risk(resp ) :
     ass=1 if contains_assumption(resp) else 0
     ass+=len(re.findall(r'\bas you know\b|\bgiven that\b|\bsuppose\b',resp.lower()))
     denom=max(1,len(split_sentences(resp))); return round(min(1.0,ass/denom),3)
 
-def compute_user_frustration_proxy(prompt:str,response:str,mapping:List[Dict[str,Any]])->float:
+def compute_user_frustration_proxy(prompt ,response ,mapping ) :
     sents=split_sentences(response);
     if not sents: return 0.0
+
+    '''meaning of is orphan => '''
     orphan=sum(1 for m in mapping if m.get("is_orphan"))/len(sents)
     rec=1 if contains_recommendation(response) and not re.search(r'\b(recommend|should|advice)\b',prompt,re.I) else 0
     extr=calculate_extraneous_content_ratio(prompt,response)
     return round(min(1.0,0.6*orphan+0.2*extr+0.2*rec),3)
 
-def compute_overconfidence_score(prompt:str,response:str)->float:
+''' method of calculating over confidence ratio '''
+def compute_overconfidence_score(prompt ,response ) :
     return round(min(1.0,calculate_extraneous_content_ratio(prompt,response)*(1-hedging_ratio(response))),3)
 
-def compute_hallucination_risk(prompt:str,response:str)->float:
+def compute_hallucination_risk(prompt ,response ) :
     extr=calculate_extraneous_content_ratio(prompt,response)
     ent=detect_entity_mismatch(prompt,response)['mismatch_count']
     num=detect_number_mismatch(prompt,response)['extra_numbers_count']
     mapping,_,_=map_response_to_prompt_chunks(chunk_prompt(prompt),split_sentences(response))
     orphan=sum(1 for m in mapping if m.get("is_orphan"))/max(1,len(split_sentences(response)))
+    
     raw=0.4*extr+0.25*(ent/(ent+1))+0.2*(num/(num+1))+0.15*orphan
     return round(min(1.0,raw),3)
 
 
 
-def pronoun_resolution_score(prompt:str,response:str)->float:
+def pronoun_resolution_score(prompt ,response ) :
     sents=split_sentences(response);
     if not sents: return 1.0
     pronoun_count=0; unresolved=0; ptoks=preprocess_text(prompt)
@@ -220,7 +258,9 @@ def pronoun_resolution_score(prompt:str,response:str)->float:
                 if not (ptoks&preprocess_text(sent)): unresolved+=1
     return 1.0 if pronoun_count==0 else round(1-(unresolved/pronoun_count),3)
 
-# ------- Domain classification (MiniLM prototypes) -------
+''' To Genertae specfc Embedding for Prompt classifcation ,leveraging Mini-Lm 6 power '''
+
+# defined Globally 
 DOMAIN_PROTOTYPES = {
     "QA": [
         "What is the capital of France?",
@@ -259,10 +299,15 @@ def classify_domain(prompt:str)->str:
     emb=SEM_MODEL.encode([prompt],convert_to_tensor=True)
     best_score,best_domain=0.0,"Other"
     for d,ex_emb in DOMAIN_EMBS.items():
+        # cosine similarity
         sims=util.cos_sim(emb,ex_emb).cpu().numpy().flatten()
         avg=sims.mean()
         if avg>best_score: best_score,best_domain=avg,d
     return best_domain if best_score>=0.10 else "Other"
+
+
+
+'''final clasifcation of Prompt '''
 
 def _classify_domain_rules(prompt:str)->str:
     pl=prompt.lower()
@@ -271,7 +316,7 @@ def _classify_domain_rules(prompt:str)->str:
     if any(r in pl for r in ["explain","reason","prove","why","step-by-step"]): return "Reasoning"
     return "Other"
 
-# ------- Domain adherence -------
+''' Is response  inSAME domain of Question or NOT .'''
 def domain_adherence(domain:str,prompt:str,response:str)->float:
     sents=split_sentences(response); words=preprocess_text(response)
     plen,rlen=len(preprocess_text(prompt)),len(words)
@@ -284,8 +329,9 @@ def domain_adherence(domain:str,prompt:str,response:str)->float:
         chain_ok=len(sents)>=2; return round((0.5*has_conn+0.5*chain_ok),3)
     return 0.5
 
-# ------- Builder -------
-def build_compact_feature_vector(prompt:str,response:str)->Dict[str,Any]:
+''' Extract ALL the numericla feature info from the Response ( wrt prompt ) '''
+def build_compact_feature_vector(prompt,response ):
+
     sents=split_sentences(response); chunks=chunk_prompt(prompt)
     mapping,backtrackability,prompt_cov=map_response_to_prompt_chunks(chunks,sents)
     extr=calculate_extraneous_content_ratio(prompt,response)
@@ -312,11 +358,14 @@ def build_compact_feature_vector(prompt:str,response:str)->Dict[str,Any]:
         "domain_adherence":domain_adherence(classify_domain(prompt),prompt,response),
     }
 
+
+''' Non-Nuemrical Info + Numerical ( Hybrid features )'''
 def build_full_diagnostic(prompt:str,response:str)->Dict[str,Any]:
     sents=split_sentences(response); chunks=chunk_prompt(prompt)
     mapping,backtrackability,prompt_cov=map_response_to_prompt_chunks(chunks,sents)
     compact=build_compact_feature_vector(prompt,response)
     diag={
+
         "prompt":prompt,"response":response,"prompt_chunks":chunks,
         "prompt_chunk_weights":prompt_chunk_weights(chunks,prompt),
         "sentence_mappings":mapping,"backtrackability":backtrackability,
@@ -336,48 +385,53 @@ def build_full_diagnostic(prompt:str,response:str)->Dict[str,Any]:
     }
     return diag
 
-# ------- IO -------
+
+'''SAVING the FINAL FEATURES for BERT FINE-Tuning '''
 def save_results(results:List[Dict[str,Any]],json_path="eval_results_full.json",csv_path="eval_results_compact.csv"):
+
     with open(json_path,"w",encoding="utf-8") as f: json.dump(results,f,indent=2,ensure_ascii=False)
+
     rows=[]
     for r in results:
         compact=r.get("compact_features") or build_compact_feature_vector(r.get("prompt",""),r.get("response",""))
         row={"prompt":r.get("prompt",""),"response":r.get("response","")}
         for k,v in compact.items(): row[f"feat.{k}"]=json.dumps(v,ensure_ascii=False) if isinstance(v,(list,dict)) else v
         rows.append(row)
+
     if rows:
         with open(csv_path,"w",newline="",encoding="utf-8") as f:
             writer=csv.DictWriter(f,fieldnames=list(rows[0].keys())); writer.writeheader(); writer.writerows(rows)
 
-# ------- Main Execution Block (Modified to iterate through all data) -------
+
+''' iterate throughALL dataset '''
 if __name__ == "__main__":
-    # Load the results.json file
+    '''# Load the results.json file '''
     try:
         with open("results.json", 'r', encoding='utf-8') as f:
             data = json.load(f)
     except FileNotFoundError:
-        print("Error: 'results.json' file not found. Please ensure it's in the same directory.")
+        print("Error: 'results.json' file NOT found.")
         data = []
 
-    # This list will hold all the diagnostic results
+    '''# This list will hold all the diagnostic results'''
     all_results = []
-    
-    # Iterate through each entry in the loaded data
+
+    # we are iterating through each entry in the loaded data of prompt,responses to generate the features for each PAIR
     if data:
-        print("Starting evaluation of all prompts and responses...")
+        print("starting evaluation of all prompts and responses NOW ---> ")
         for entry in data:
             question = entry.get("question")
             responses = entry.get("responses", {})
             
             # Ensure the entry has a question and at least one response
             if question and responses:
-                print(f"\nProcessing prompt: '{question}'")
-                
-                # Iterate through each persona's response for the current prompt
+                print(f"Processing prompt: '{question}'")
+
+                # we are iterate through each AGENT (person's) response for the current prompt
                 for persona, response_text in responses.items():
                     print(f"  - Evaluating response from: {persona}")
                     
-                    # Call the full diagnostic function for the current pair
+                    # calling  the full diagnostic function for the current pair
                     diagnostic = build_full_diagnostic(question, response_text)
                     
                     # Add prompt and persona context to the diagnostic result
@@ -386,8 +440,8 @@ if __name__ == "__main__":
                     
                     # Append the complete result to our list
                     all_results.append(diagnostic)
-        
-        # Save all the results to JSON and CSV files
+
+        ''' Saving ALL the info into json and CSV BOTH and sent it to KKaggle for fine-tuning '''
         if all_results:
             save_results(all_results)
             print("\nEvaluation complete!")
