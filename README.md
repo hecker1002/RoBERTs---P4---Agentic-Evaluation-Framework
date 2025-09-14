@@ -2,11 +2,11 @@
 # Agentic Evaluation Framework - RoBERTs---P4
 
 ## Overview
-We tried to mimic a real-world setup where different AI agents give very different kinds of answers to the same prompt. So, we built 3 agents with fixed personas  a Reporter, a Deep Critical Thinker and a Carefree Storyteller using system prompts. We then labeled these responses across dimensions like  “Hallucination Score,” "Conciseness Score", "Assumption Control Score", "Instruction-Following Score" using a hybrid approach of human based  and using an open-source model using Few-Shot Learning. These became our ground truth labels.
+We tried to mimic a real-world setup where different AI agents give very different kinds of answers to the same prompt. So, we built 3 agents with fixed personas  **a Reporter, a Deep Critical Thinker and a Carefree Storyteller** using system prompts. We then labeled these responses across dimensions like  **“Hallucination Score,” "Conciseness Score", "Assumption Control Score", "Instruction-Following Score"** using a hybrid approach of human based  and using an open-source model using **Few-Shot Learning**. These became our ground truth labels.
 
-From there, we designed a hybrid evaluation pipeline. First, we generated features from each {prompt, response} pair using regex rules + a small Language Model (things like how closely the response sticks to the prompt, assumptions made, contradictions, domain type  using a DUAL Encoder , overconfidence score .). Then we trained a BERT model on those features + our ground truth labels, so it can predict scores automatically.
+From there, we designed a hybrid evaluation pipeline. First, we generated features from each {prompt, response} pair using regex rules + a small Language Model (things like how closely the response sticks to the prompt, assumptions made, contradictions, domain type  using a DUAL Encoder , overconfidence score .). Then we **fine-tuned** a **BERT model on those features + our ground truth labels**, so it can predict scores automatically.
 
-Finally, during evaluation, when a new response comes in, we run it through the feature extractor → fine-tuned BERT for scoring → and also through a factual check step using a Mistral model. The “AI Judge” (Mistral) looks at both the response and the BERT score, and gives a verdict on whether the evaluation seems valid and also gives the reason for the score evaluated and its alignment with the BERT score . We show all of this in a Streamlit dashboard that tracks score trends, compares agents on the same prompt, and makes the whole process more transparent.
+Finally, during evaluation, when a new response comes in, we run it through the feature extractor → fine-tuned BERT for scoring → and also through a factual check step using a Mistral model. The **“AI Judge” (Mistral)** looks at both the response and the BERT score, and gives a verdict on whether the evaluation seems valid and also gives the reason for the score evaluated and its alignment with the BERT score using a detailed **CoT - Chain of Thought reasoning**. We show all of this in a Streamlit dashboard that tracks score trends, compares agents on the same prompt, and makes the whole process more transparent.
 
 The idea is that this pipeline can scale beyond just our 3 toy agents, and help evaluate lots of different models in a more explainable, layered way — not just “one black-box score.”
 
@@ -24,7 +24,7 @@ The Agentic Evaluation Framework employs a multi-stage pipeline:
 5.  **Reporting:** Generate a comprehensive report summarizing the evaluation results.
 
 ### Flowchart (Suggested)
-![alt text](flowchart.png)
+![alt text](flowchart_1.png)
 
 [Prompt] --> [Agent 1] --> [Response 1] --> [Agent 2] --> [Response 2] --> [Feature Extraction (reg.py)] --> [BERT Fine-Tuning] --> [BERT Prediction] --> [LLM Judge] --> [Final Report] --> [Agent 3] --> [Response 3]
 
@@ -128,6 +128,6 @@ The framework addresses the evaluation specifics as follows:
 
 *   RobERTs
 
-## CONCLLUSION
+## CONCLUSION
 
 We believe that the Agentic Evaluation Framework offers a novel and effective solution for evaluating AI agent responses at scale. Its combination of diverse agents, feature extraction, BERT fine-tuning, and LLM-based judgment provides a comprehensive and interpretable assessment of agent performance. We are confident that this project will contribute to the development of more reliable and trustworthy AI system in the future of e6data . 
