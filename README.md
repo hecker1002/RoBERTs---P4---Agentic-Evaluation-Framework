@@ -27,6 +27,8 @@ The Agentic Evaluation Framework employs a multi-stage pipeline:
 5.  **Reporting:** Generate a comprehensive report summarizing the evaluation results.
 
 ### Flowchart (Suggested)
+![alt text](flowchart.png)
+
 [Prompt] --> [Agent 1] --> [Response 1] --> [Agent 2] --> [Response 2] --> [Feature Extraction (reg.py)] --> [BERT Fine-Tuning] --> [BERT Prediction] --> [LLM Judge] --> [Final Report] --> [Agent 3] --> [Response 3]
 
 
