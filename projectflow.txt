@@ -29,3 +29,20 @@ and (recheck pre  info for cross-ceckig and also gives a finals core for full pi
 
 
 -- finalyl deploy it online 
+
+
+For explainalbity we need  the LLmas ai judge to that sue labels from BERT (in turn usign featrie from regex+mini lm simply) 
+that  
+
+
+BERT --> gives what is the score" base don repsose nature 
+
+But to reaosn WHy this occured abse on all quesn , reposne ,scores ,bert predictions ,etc ,it reasons "WHY"
+
+
+## Shortcomign of our Project 
+
+Our project is somwhat weak on Summarization ....( as prompt we designed were nOT too logn anf fir for Summarozation Task) 
+and the reposne were restricted in the Length of ( 20 , 60 words) ONLY . 
+
+

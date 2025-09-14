@@ -9,7 +9,11 @@ from api_call import google_api
 import random
 from e4_data.ques import quesn_prompts
 
-''' random response length for each prompt and each ai agent pair '''
+'''
+This script generates responses for a list of prompts using three different LLM agents.
+It processes the prompts in the original order they appear in the 'quesn_prompts' list,
+without any random shuffling.
+'''
 
 # Set up environment variable for the Gemini API key.
 os.environ["GOOGLE_API_KEY"] = google_api 
@@ -28,11 +32,11 @@ def get_llm(temperature = 0.7, model_name= "gemini-2.5-flash-preview-05-20"):
 def create_agents() :
     """
     Creates three distinct LLMChain "agents" with different personas.
-    The word count is now a dynamic variable in the prompt template.
+    The word count is a dynamic variable in the prompt template.
     """
     llm = get_llm()
 
-    # Agent 1: The Factual Reporter (simulates the "best" agent)
+    # Agent 1: The Factual Reporter
     reporter_template = """
     You are a good news reporter. Your goal is to provide a Concise, Factual, and Unbiased answer to the following question as you think is correct. Avoid any conversational filler.
     Strictly answer in {word_count} words.
@@ -42,7 +46,7 @@ def create_agents() :
     reporter_chain = LLMChain(llm=llm, prompt=reporter_prompt)
 
 
-    # Agent 2: The Enthusiastic Storyteller (simulates the "hallucinating" agent)
+    # Agent 2: The Enthusiastic Storyteller
     storyteller_template = """
     You are an enthusiastic, carefree storyteller. Answer the question in a friendly, conversational, and super engaging tone. Feel free to add interesting, but potentially unverified, anecdotes for the sake of storytelling.
     Strictly answer in {word_count} words.
@@ -52,7 +56,7 @@ def create_agents() :
     storyteller_chain = LLMChain(llm=llm, prompt=storyteller_prompt)
 
 
-    # Agent 3: The Skeptical Analyst (simulates the "medium" agent)
+    # Agent 3: The Skeptical Analyst
     analyst_template = """
     You are a cautious skeptical and a very deep critical analyst. You try to NOT share Wrong info. Answer the following question but be sure to qualify your answer with phrases like "It is believed that..." or "Sources suggest...". 
     Do not state anything as an absolute fact unless you are very sure.
@@ -84,8 +88,9 @@ def main():
             print(f"⚠ Warning: Could not parse {OUTPUT_FILENAME}. Starting fresh.")
     
     processed_questions = {result.get('question') for result in all_results}
+    
+    # Process the questions in the original order without shuffling
     questions_to_process = [q for q in all_questions if q not in processed_questions]
-    random.shuffle(questions_to_process) # Randomize the order
 
     if not questions_to_process:
         print("\n✅ All questions have already been processed and saved. Nothing to do.")

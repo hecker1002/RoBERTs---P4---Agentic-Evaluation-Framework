@@ -1,14 +1,3 @@
-
-"""
-hybrid_evaluator.py
-
-Hybrid Lightweight Evaluator:
-- Regex + heuristics + MiniLM (all-MiniLM-L6-v2)
-- Backtracking: map response sentences -> prompt chunks (with weighted chunk importance)
-- Domain-aware: QA / Summarization / Reasoning classification + adherence metrics
-- Produces: full_diagnostic (human-friendly) + compact_features (ML-ready for BERT)
-"""
-
 from __future__ import annotations
 import re
 import json
@@ -119,8 +108,8 @@ def hedging_ratio(resp: str) -> float:
 
 # ------- Backtracking -------
 def map_response_to_prompt_chunks(prompt_chunks: List[str], response_sentences: List[str],
-                                  sim_threshold: float=0.45) -> Tuple[List[Dict[str, Any]],float,float]:
-    mapping=[]; 
+                                   sim_threshold: float=0.45) -> Tuple[List[Dict[str, Any]],float,float]:
+    mapping=[];
     if not response_sentences: return mapping,0.0,0.0
     if not prompt_chunks:
         for s in response_sentences:
@@ -133,7 +122,7 @@ def map_response_to_prompt_chunks(prompt_chunks: List[str], response_sentences: 
         is_mapped = best_sim>=sim_threshold; mapped_flags[i]=is_mapped
         if is_mapped: chunk_covered[best_j]=True
         mapping.append({"sentence":response_sentences[i],"best_chunk_idx":int(best_j),
-                        "best_chunk":prompt_chunks[best_j],"sim":round(best_sim,3),"is_orphan":not is_mapped})
+                         "best_chunk":prompt_chunks[best_j],"sim":round(best_sim,3),"is_orphan":not is_mapped})
     backtrackability=round(sum(mapped_flags)/len(mapped_flags),3)
     prompt_cov=round(sum(chunk_covered)/len(chunk_covered),3) if chunk_covered else 0.0
     return mapping, backtrackability, prompt_cov
@@ -147,7 +136,7 @@ def calculate_keyword_recall(prompt:str,response:str)->Dict[str,Any]:
     kws={t for t in re.findall(r'\b[a-zA-Z]{3,}\b',prompt.lower()) if t not in STOP_WORDS}
     rw=preprocess_text(response); found=sorted(list(kws&rw))
     return {"recall_percentage": round((len(found)/max(1,len(kws)))*100,2) if kws else 0.0,
-            "prompt_keywords":sorted(list(kws)),"found_keywords":found}
+             "prompt_keywords":sorted(list(kws)),"found_keywords":found}
 
 def calculate_extraneous_content_ratio(prompt:str,response:str)->float:
     pw,rw=preprocess_text(prompt),preprocess_text(response)
@@ -155,12 +144,12 @@ def calculate_extraneous_content_ratio(prompt:str,response:str)->float:
 
 def detect_entity_mismatch(prompt:str,response:str)->Dict[str,Any]:
     return {"mismatch_count":len(set(detect_entity_candidates(response))-set(detect_entity_candidates(prompt))),
-            "mismatched_entities":sorted(list(set(detect_entity_candidates(response))-set(detect_entity_candidates(prompt))))}
+             "mismatched_entities":sorted(list(set(detect_entity_candidates(response))-set(detect_entity_candidates(prompt))))}
 
 def detect_number_mismatch(prompt:str,response:str)->Dict[str,Any]:
     pnums,rnums=set(extract_numbers(prompt)),set(extract_numbers(response))
     return {"missing_numbers":sorted(list(pnums-rnums)),"extra_numbers":sorted(list(rnums-pnums)),
-            "extra_numbers_count":len(rnums-pnums)}
+             "extra_numbers_count":len(rnums-pnums)}
 
 def detect_internal_contradictions_lexical(resp:str)->Dict[str,Any]:
     sents=split_sentences(resp)
@@ -199,7 +188,7 @@ def compute_assumption_risk(resp:str)->float:
     denom=max(1,len(split_sentences(resp))); return round(min(1.0,ass/denom),3)
 
 def compute_user_frustration_proxy(prompt:str,response:str,mapping:List[Dict[str,Any]])->float:
-    sents=split_sentences(response); 
+    sents=split_sentences(response);
     if not sents: return 0.0
     orphan=sum(1 for m in mapping if m.get("is_orphan"))/len(sents)
     rec=1 if contains_recommendation(response) and not re.search(r'\b(recommend|should|advice)\b',prompt,re.I) else 0
@@ -218,8 +207,10 @@ def compute_hallucination_risk(prompt:str,response:str)->float:
     raw=0.4*extr+0.25*(ent/(ent+1))+0.2*(num/(num+1))+0.15*orphan
     return round(min(1.0,raw),3)
 
+
+
 def pronoun_resolution_score(prompt:str,response:str)->float:
-    sents=split_sentences(response); 
+    sents=split_sentences(response);
     if not sents: return 1.0
     pronoun_count=0; unresolved=0; ptoks=preprocess_text(prompt)
     for sent in sents:
@@ -231,9 +222,32 @@ def pronoun_resolution_score(prompt:str,response:str)->float:
 
 # ------- Domain classification (MiniLM prototypes) -------
 DOMAIN_PROTOTYPES = {
-    "QA":["What is the capital of France?","Who invented the telephone?","When did World War II end?"],
-    "Summarization":["Summarize this text.","Give me a TLDR of the passage.","Condense the following article."],
-    "Reasoning":["Explain why the sky is blue.","Prove that triangles have 180 degrees.","Reason step by step about this math problem."]
+    "QA": [
+        "What is the capital of France?",
+        "Who invented the telephone?",
+        "When did World War II end?",
+        "How do you make a chocolate cake?",
+        "What are the symptoms of the common cold?",
+        "Where is the Great Barrier Reef located?",
+        "Is it possible to travel faster than light?",
+        "Does this sentence contain a verb?"
+    ],
+    "Summarization": [
+        "Summarize this text.",
+        "Give me a TLDR of the passage.",
+        "Condense the following article.",
+        "Provide a brief overview of this document.",
+        "Create a short abstract for the research paper.",
+        "Please provide the main points of the presentation."
+    ],
+    "Reasoning": [
+        "Explain why the sky is blue.",
+        "Prove that triangles have 180 degrees.",
+        "Reason step by step about this math problem.",
+        "Deduce the cause of the fire based on the evidence.",
+        "Analyze the arguments presented in this essay.",
+        "Justify your solution to the logic puzzle."
+    ]
 }
 DOMAIN_EMBS={}
 if SEM_MODEL:
@@ -248,7 +262,7 @@ def classify_domain(prompt:str)->str:
         sims=util.cos_sim(emb,ex_emb).cpu().numpy().flatten()
         avg=sims.mean()
         if avg>best_score: best_score,best_domain=avg,d
-    return best_domain if best_score>=0.35 else "Other"
+    return best_domain if best_score>=0.10 else "Other"
 
 def _classify_domain_rules(prompt:str)->str:
     pl=prompt.lower()
@@ -335,15 +349,50 @@ def save_results(results:List[Dict[str,Any]],json_path="eval_results_full.json",
         with open(csv_path,"w",newline="",encoding="utf-8") as f:
             writer=csv.DictWriter(f,fieldnames=list(rows[0].keys())); writer.writeheader(); writer.writerows(rows)
 
-# ------- Demo -------
-if __name__=="__main__":
-    demo=[{"prompt":"List 3 benefits of meditation in 3 bullets. Do NOT use the word 'calm'.",
-            "response":"1. Meditation improves focus. My favorite fruit is APple by the way :)"}]
+# ------- Main Execution Block (Modified to iterate through all data) -------
+if __name__ == "__main__":
+    # Load the results.json file
+    try:
+        with open("results.json", 'r', encoding='utf-8') as f:
+            data = json.load(f)
+    except FileNotFoundError:
+        print("Error: 'results.json' file not found. Please ensure it's in the same directory.")
+        data = []
+
+    # This list will hold all the diagnostic results
+    all_results = []
     
-    
-    results=[]
-    for ex in demo:
-        diag=build_full_diagnostic(ex["prompt"],ex["response"]); results.append(diag)
-        print(json.dumps(diag,indent=2,ensure_ascii=False)); print("-"*80)
-    save_results(results)
-    print("\nSaved eval_results_full.json and eval_results_compact.csv")
+    # Iterate through each entry in the loaded data
+    if data:
+        print("Starting evaluation of all prompts and responses...")
+        for entry in data:
+            question = entry.get("question")
+            responses = entry.get("responses", {})
+            
+            # Ensure the entry has a question and at least one response
+            if question and responses:
+                print(f"\nProcessing prompt: '{question}'")
+                
+                # Iterate through each persona's response for the current prompt
+                for persona, response_text in responses.items():
+                    print(f"  - Evaluating response from: {persona}")
+                    
+                    # Call the full diagnostic function for the current pair
+                    diagnostic = build_full_diagnostic(question, response_text)
+                    
+                    # Add prompt and persona context to the diagnostic result
+                    diagnostic['prompt'] = question
+                    diagnostic['persona'] = persona
+                    
+                    # Append the complete result to our list
+                    all_results.append(diagnostic)
+        
+        # Save all the results to JSON and CSV files
+        if all_results:
+            save_results(all_results)
+            print("\nEvaluation complete!")
+            print("Results saved to 'eval_results_full.json' and 'eval_results_compact.csv'")
+        else:
+            print("\nNo valid prompt-response pairs found to evaluate.")
+    else:
+        print("No data to process. Exiting.")

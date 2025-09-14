@@ -1,0 +1,3174 @@
+[
+  {
+    "prompt": "Write a short poem about the seasons, ensuring each stanza is dedicated to a different season.",
+    "response": "Green shoots emerge, soft rains descend, new life's gentle, vibrant birth starts.\nWarm sun shines bright, long days extend, joy fills the whole wide earth.\nLeaves turn gold and red, crisp air, harvest's bounty, nature's worth.\nSnow blankets earth, cold winds blow, a dormant, quiet, peaceful dearth.",
+    "prompt_chunks": [
+      "Write a short poem about the seasons",
+      "ensuring each stanza is dedicated to a different season."
+    ],
+    "prompt_chunk_weights": [
+      0.5,
+      0.5
+    ],
+    "sentence_mappings": [
+      {
+        "sentence": "Green shoots emerge, soft rains descend, new life's gentle, vibrant birth starts.",
+        "best_chunk_idx": 0,
+        "best_chunk": "Write a short poem about the seasons",
+        "sim": 0.317,
+        "is_orphan": true
+      },
+      {
+        "sentence": "Warm sun shines bright, long days extend, joy fills the whole wide earth.",
+        "best_chunk_idx": 0,
+        "best_chunk": "Write a short poem about the seasons",
+        "sim": 0.437,
+        "is_orphan": true
+      },
+      {
+        "sentence": "Leaves turn gold and red, crisp air, harvest's bounty, nature's worth.",
+        "best_chunk_idx": 0,
+        "best_chunk": "Write a short poem about the seasons",
+        "sim": 0.336,
+        "is_orphan": true
+      },
+      {
+        "sentence": "Snow blankets earth, cold winds blow, a dormant, quiet, peaceful dearth.",
+        "best_chunk_idx": 0,
+        "best_chunk": "Write a short poem about the seasons",
+        "sim": 0.46,
+        "is_orphan": false
+      }
+    ],
+    "backtrackability": 0.25,
+    "prompt_coverage": 0.5,
+    "keyword_recall": {
+      "recall_percentage": 0.0,
+      "prompt_keywords": [
+        "dedicated",
+        "different",
+        "each",
+        "ensuring",
+        "poem",
+        "season",
+        "seasons",
+        "short",
+        "stanza",
+        "write"
+      ],
+      "found_keywords": []
+    },
+    "extraneous_content": {
+      "extraneous_ratio": 1.0
+    },
+    "entity_mismatch": {
+      "mismatch_count": 4,
+      "mismatched_entities": [
+        "Green",
+        "Leaves",
+        "Snow",
+        "Warm"
+      ]
+    },
+    "number_mismatch": {
+      "missing_numbers": [],
+      "extra_numbers": [],
+      "extra_numbers_count": 0
+    },
+    "sentence_variety_score": 0.8,
+    "repetition": {
+      "repetition_percentage": 0.0,
+      "repeated_bigrams": []
+    },
+    "contradiction": {
+      "contradiction_detected": false,
+      "pair": null
+    },
+    "assumption_risk": 0.0,
+    "user_frustration_proxy": 0.65,
+    "overconfidence": 1.0,
+    "semantic_alignment": 0.458,
+    "semantic_drift": 0.611,
+    "compact_features": {
+      "alignment_balance": -1.0,
+      "keyword_recall": 0.0,
+      "extraneous_ratio": 1.0,
+      "semantic_alignment": 0.458,
+      "semantic_drift": 0.611,
+      "backtrackability": 0.25,
+      "prompt_chunk_coverage": 0.5,
+      "instruction_coverage": 0.5,
+      "sentence_variety": 0.8,
+      "repetition_penalty_pct": 0.0,
+      "contradiction_flag": 0,
+      "pronoun_resolution_score": 1.0,
+      "assumption_risk": 0.0,
+      "user_frustration_proxy": 0.65,
+      "overconfidence": 1.0,
+      "hallucination_risk": 0.713,
+      "domain": "Other",
+      "domain_adherence": 0.5
+    },
+    "persona": "Factual Reporter"
+  },
+  {
+    "prompt": "Write a short poem about the seasons, ensuring each stanza is dedicated to a different season.",
+    "response": "Wow, check out nature's vibe!\n\nSpring's buds burst, a joyous green! (Fairies' secret!)\nSummer's sun, a beachy scene.\nAutumn leaves, a fiery gleam.\nWinter's snow, a silent dream.",
+    "prompt_chunks": [
+      "Write a short poem about the seasons",
+      "ensuring each stanza is dedicated to a different season."
+    ],
+    "prompt_chunk_weights": [
+      0.5,
+      0.5
+    ],
+    "sentence_mappings": [
+      {
+        "sentence": "Wow, check out nature's vibe!",
+        "best_chunk_idx": 0,
+        "best_chunk": "Write a short poem about the seasons",
+        "sim": 0.217,
+        "is_orphan": true
+      },
+      {
+        "sentence": "Spring's buds burst, a joyous green!",
+        "best_chunk_idx": 0,
+        "best_chunk": "Write a short poem about the seasons",
+        "sim": 0.293,
+        "is_orphan": true
+      },
+      {
+        "sentence": "(Fairies' secret!)\nSummer's sun, a beachy scene.",
+        "best_chunk_idx": 0,
+        "best_chunk": "Write a short poem about the seasons",
+        "sim": 0.359,
+        "is_orphan": true
+      },
+      {
+        "sentence": "Autumn leaves, a fiery gleam.",
+        "best_chunk_idx": 0,
+        "best_chunk": "Write a short poem about the seasons",
+        "sim": 0.449,
+        "is_orphan": true
+      },
+      {
+        "sentence": "Winter's snow, a silent dream.",
+        "best_chunk_idx": 0,
+        "best_chunk": "Write a short poem about the seasons",
+        "sim": 0.477,
+        "is_orphan": false
+      }
+    ],
+    "backtrackability": 0.2,
+    "prompt_coverage": 0.5,
+    "keyword_recall": {
+      "recall_percentage": 0.0,
+      "prompt_keywords": [
+        "dedicated",
+        "different",
+        "each",
+        "ensuring",
+        "poem",
+        "season",
+        "seasons",
+        "short",
+        "stanza",
+        "write"
+      ],
+      "found_keywords": []
+    },
+    "extraneous_content": {
+      "extraneous_ratio": 1.0
+    },
+    "entity_mismatch": {
+      "mismatch_count": 6,
+      "mismatched_entities": [
+        "Autumn",
+        "Fairies",
+        "Spring",
+        "Summer",
+        "Winter",
+        "Wow"
+      ]
+    },
+    "number_mismatch": {
+      "missing_numbers": [],
+      "extra_numbers": [],
+      "extra_numbers_count": 0
+    },
+    "sentence_variety_score": 1.78,
+    "repetition": {
+      "repetition_percentage": 0.0,
+      "repeated_bigrams": []
+    },
+    "contradiction": {
+      "contradiction_detected": false,
+      "pair": null
+    },
+    "assumption_risk": 0.0,
+    "user_frustration_proxy": 0.68,
+    "overconfidence": 1.0,
+    "semantic_alignment": 0.462,
+    "semantic_drift": 0.862,
+    "compact_features": {
+      "alignment_balance": -1.0,
+      "keyword_recall": 0.0,
+      "extraneous_ratio": 1.0,
+      "semantic_alignment": 0.462,
+      "semantic_drift": 0.862,
+      "backtrackability": 0.2,
+      "prompt_chunk_coverage": 0.5,
+      "instruction_coverage": 0.5,
+      "sentence_variety": 1.78,
+      "repetition_penalty_pct": 0.0,
+      "contradiction_flag": 0,
+      "pronoun_resolution_score": 1.0,
+      "assumption_risk": 0.0,
+      "user_frustration_proxy": 0.68,
+      "overconfidence": 1.0,
+      "hallucination_risk": 0.734,
+      "domain": "Other",
+      "domain_adherence": 0.5
+    },
+    "persona": "Enthusiastic Storyteller"
+  },
+  {
+    "prompt": "Write a short poem about the seasons, ensuring each stanza is dedicated to a different season.",
+    "response": "Spring's gentle touch, it is believed, awakes the land,\nWith blossoms bright, a tender, hopeful hand.\n\nSummer's long days, sources suggest, bring golden light,\nAnd warmth profound, from morning until night.\n\nAutumn's crisp air, some observe, makes leaves fall,\nA fiery show, before winter's final call.\n\nWinter's quiet hush, often noted, brings the snow,\nA frosty sleep, where dormant spirits grow.",
+    "prompt_chunks": [
+      "Write a short poem about the seasons",
+      "ensuring each stanza is dedicated to a different season."
+    ],
+    "prompt_chunk_weights": [
+      0.5,
+      0.5
+    ],
+    "sentence_mappings": [
+      {
+        "sentence": "Spring's gentle touch, it is believed, awakes the land,\nWith blossoms bright, a tender, hopeful hand.",
+        "best_chunk_idx": 0,
+        "best_chunk": "Write a short poem about the seasons",
+        "sim": 0.374,
+        "is_orphan": true
+      },
+      {
+        "sentence": "Summer's long days, sources suggest, bring golden light,\nAnd warmth profound, from morning until night.",
+        "best_chunk_idx": 0,
+        "best_chunk": "Write a short poem about the seasons",
+        "sim": 0.483,
+        "is_orphan": false
+      },
+      {
+        "sentence": "Autumn's crisp air, some observe, makes leaves fall,\nA fiery show, before winter's final call.",
+        "best_chunk_idx": 0,
+        "best_chunk": "Write a short poem about the seasons",
+        "sim": 0.477,
+        "is_orphan": false
+      },
+      {
+        "sentence": "Winter's quiet hush, often noted, brings the snow,\nA frosty sleep, where dormant spirits grow.",
+        "best_chunk_idx": 0,
+        "best_chunk": "Write a short poem about the seasons",
+        "sim": 0.359,
+        "is_orphan": true
+      }
+    ],
+    "backtrackability": 0.5,
+    "prompt_coverage": 0.5,
+    "keyword_recall": {
+      "recall_percentage": 0.0,
+      "prompt_keywords": [
+        "dedicated",
+        "different",
+        "each",
+        "ensuring",
+        "poem",
+        "season",
+        "seasons",
+        "short",
+        "stanza",
+        "write"
+      ],
+      "found_keywords": []
+    },
+    "extraneous_content": {
+      "extraneous_ratio": 1.0
+    },
+    "entity_mismatch": {
+      "mismatch_count": 7,
+      "mismatched_entities": [
+        "A",
+        "And",
+        "Autumn",
+        "Spring",
+        "Summer",
+        "Winter",
+        "With"
+      ]
+    },
+    "number_mismatch": {
+      "missing_numbers": [],
+      "extra_numbers": [],
+      "extra_numbers_count": 0
+    },
+    "sentence_variety_score": 0.35,
+    "repetition": {
+      "repetition_percentage": 1.54,
+      "repeated_bigrams": [
+        [
+          "winter",
+          "s"
+        ]
+      ]
+    },
+    "contradiction": {
+      "contradiction_detected": true,
+      "pair": [
+        "Autumn's crisp air, some observe, makes leaves fall,\nA fiery show, before winter's final call.",
+        "Winter's quiet hush, often noted, brings the snow,\nA frosty sleep, where dormant spirits grow."
+      ]
+    },
+    "assumption_risk": 0.0,
+    "user_frustration_proxy": 0.7,
+    "overconfidence": 0.75,
+    "semantic_alignment": 0.515,
+    "semantic_drift": 0.724,
+    "compact_features": {
+      "alignment_balance": -1.0,
+      "keyword_recall": 0.0,
+      "extraneous_ratio": 1.0,
+      "semantic_alignment": 0.515,
+      "semantic_drift": 0.724,
+      "backtrackability": 0.5,
+      "prompt_chunk_coverage": 0.5,
+      "instruction_coverage": 0.5,
+      "sentence_variety": 0.35,
+      "repetition_penalty_pct": 1.54,
+      "contradiction_flag": 1,
+      "pronoun_resolution_score": 0.0,
+      "assumption_risk": 0.0,
+      "user_frustration_proxy": 0.7,
+      "overconfidence": 0.75,
+      "hallucination_risk": 0.694,
+      "domain": "Other",
+      "domain_adherence": 0.5
+    },
+    "persona": "Skeptical Analyst"
+  },
+  {
+    "prompt": "List ten words that rhyme with \"cat.\"",
+    "response": "Ten words that rhyme with 'cat' are: bat, hat, mat, sat, fat, rat, pat, splat, chat, and flat. These common examples clearly share the same 'at' sound.",
+    "prompt_chunks": [
+      "List ten words that rhyme with \"cat.\""
+    ],
+    "prompt_chunk_weights": [
+      1.0
+    ],
+    "sentence_mappings": [
+      {
+        "sentence": "Ten words that rhyme with 'cat' are: bat, hat, mat, sat, fat, rat, pat, splat, chat, and flat.",
+        "best_chunk_idx": 0,
+        "best_chunk": "List ten words that rhyme with \"cat.\"",
+        "sim": 0.832,
+        "is_orphan": false
+      },
+      {
+        "sentence": "These common examples clearly share the same 'at' sound.",
+        "best_chunk_idx": 0,
+        "best_chunk": "List ten words that rhyme with \"cat.\"",
+        "sim": 0.2,
+        "is_orphan": true
+      }
+    ],
+    "backtrackability": 0.5,
+    "prompt_coverage": 1.0,
+    "keyword_recall": {
+      "recall_percentage": 80.0,
+      "prompt_keywords": [
+        "cat",
+        "list",
+        "rhyme",
+        "ten",
+        "words"
+      ],
+      "found_keywords": [
+        "cat",
+        "rhyme",
+        "ten",
+        "words"
+      ]
+    },
+    "extraneous_content": {
+      "extraneous_ratio": 0.818
+    },
+    "entity_mismatch": {
+      "mismatch_count": 2,
+      "mismatched_entities": [
+        "Ten",
+        "These"
+      ]
+    },
+    "number_mismatch": {
+      "missing_numbers": [],
+      "extra_numbers": [],
+      "extra_numbers_count": 0
+    },
+    "sentence_variety_score": 4.71,
+    "repetition": {
+      "repetition_percentage": 0.0,
+      "repeated_bigrams": []
+    },
+    "contradiction": {
+      "contradiction_detected": false,
+      "pair": null
+    },
+    "assumption_risk": 0.0,
+    "user_frustration_proxy": 0.464,
+    "overconfidence": 0.818,
+    "semantic_alignment": 0.757,
+    "semantic_drift": 0.781,
+    "compact_features": {
+      "alignment_balance": -0.018,
+      "keyword_recall": 0.8,
+      "extraneous_ratio": 0.818,
+      "semantic_alignment": 0.757,
+      "semantic_drift": 0.781,
+      "backtrackability": 0.5,
+      "prompt_chunk_coverage": 1.0,
+      "instruction_coverage": 1.0,
+      "sentence_variety": 4.71,
+      "repetition_penalty_pct": 0.0,
+      "contradiction_flag": 0,
+      "pronoun_resolution_score": 0.5,
+      "assumption_risk": 0.0,
+      "user_frustration_proxy": 0.464,
+      "overconfidence": 0.818,
+      "hallucination_risk": 0.569,
+      "domain": "Other",
+      "domain_adherence": 0.5
+    },
+    "persona": "Factual Reporter"
+  },
+  {
+    "prompt": "List ten words that rhyme with \"cat.\"",
+    "response": "Oh, rhyming with \"cat\"? That's a *snap*! Let's see... there's a *bat* that likes to *chat*, wearing a *hat* while sitting on a *mat*. Don't forget the *fat* *rat* who *sat* by the *pat*io! And sometimes, things just go *flat*! Oh, and my friend *Nat* always says \"what's up *Nat*?\" He's a real *brat*. That's ten! Easy peasy, lemon squeezy!",
+    "prompt_chunks": [
+      "List ten words that rhyme with \"cat.\""
+    ],
+    "prompt_chunk_weights": [
+      1.0
+    ],
+    "sentence_mappings": [
+      {
+        "sentence": "Oh, rhyming with \"cat\"?",
+        "best_chunk_idx": 0,
+        "best_chunk": "List ten words that rhyme with \"cat.\"",
+        "sim": 0.737,
+        "is_orphan": false
+      },
+      {
+        "sentence": "That's a *snap*!",
+        "best_chunk_idx": 0,
+        "best_chunk": "List ten words that rhyme with \"cat.\"",
+        "sim": 0.089,
+        "is_orphan": true
+      },
+      {
+        "sentence": "Let's see...",
+        "best_chunk_idx": 0,
+        "best_chunk": "List ten words that rhyme with \"cat.\"",
+        "sim": 0.111,
+        "is_orphan": true
+      },
+      {
+        "sentence": "there's a *bat* that likes to *chat*, wearing a *hat* while sitting on a *mat*.",
+        "best_chunk_idx": 0,
+        "best_chunk": "List ten words that rhyme with \"cat.\"",
+        "sim": 0.115,
+        "is_orphan": true
+      },
+      {
+        "sentence": "Don't forget the *fat* *rat* who *sat* by the *pat*io!",
+        "best_chunk_idx": 0,
+        "best_chunk": "List ten words that rhyme with \"cat.\"",
+        "sim": 0.213,
+        "is_orphan": true
+      },
+      {
+        "sentence": "And sometimes, things just go *flat*!",
+        "best_chunk_idx": 0,
+        "best_chunk": "List ten words that rhyme with \"cat.\"",
+        "sim": 0.106,
+        "is_orphan": true
+      },
+      {
+        "sentence": "Oh, and my friend *Nat* always says \"what's up *Nat*?\" He's a real *brat*.",
+        "best_chunk_idx": 0,
+        "best_chunk": "List ten words that rhyme with \"cat.\"",
+        "sim": 0.091,
+        "is_orphan": true
+      },
+      {
+        "sentence": "That's ten!",
+        "best_chunk_idx": 0,
+        "best_chunk": "List ten words that rhyme with \"cat.\"",
+        "sim": 0.302,
+        "is_orphan": true
+      },
+      {
+        "sentence": "Easy peasy, lemon squeezy!",
+        "best_chunk_idx": 0,
+        "best_chunk": "List ten words that rhyme with \"cat.\"",
+        "sim": 0.25,
+        "is_orphan": true
+      }
+    ],
+    "backtrackability": 0.111,
+    "prompt_coverage": 1.0,
+    "keyword_recall": {
+      "recall_percentage": 40.0,
+      "prompt_keywords": [
+        "cat",
+        "list",
+        "rhyme",
+        "ten",
+        "words"
+      ],
+      "found_keywords": [
+        "cat",
+        "ten"
+      ]
+    },
+    "extraneous_content": {
+      "extraneous_ratio": 0.956
+    },
+    "entity_mismatch": {
+      "mismatch_count": 8,
+      "mismatched_entities": [
+        "And",
+        "Don",
+        "Easy",
+        "He",
+        "Let",
+        "Nat",
+        "Oh",
+        "That"
+      ]
+    },
+    "number_mismatch": {
+      "missing_numbers": [],
+      "extra_numbers": [],
+      "extra_numbers_count": 0
+    },
+    "sentence_variety_score": 7.31,
+    "repetition": {
+      "repetition_percentage": 4.48,
+      "repeated_bigrams": [
+        [
+          "s",
+          "a"
+        ],
+        [
+          "that",
+          "s"
+        ]
+      ]
+    },
+    "contradiction": {
+      "contradiction_detected": false,
+      "pair": null
+    },
+    "assumption_risk": 0.0,
+    "user_frustration_proxy": 0.725,
+    "overconfidence": 0.956,
+    "semantic_alignment": 0.559,
+    "semantic_drift": 0.762,
+    "compact_features": {
+      "alignment_balance": -0.556,
+      "keyword_recall": 0.4,
+      "extraneous_ratio": 0.956,
+      "semantic_alignment": 0.559,
+      "semantic_drift": 0.762,
+      "backtrackability": 0.111,
+      "prompt_chunk_coverage": 1.0,
+      "instruction_coverage": 1.0,
+      "sentence_variety": 7.31,
+      "repetition_penalty_pct": 4.48,
+      "contradiction_flag": 0,
+      "pronoun_resolution_score": 0.25,
+      "assumption_risk": 0.0,
+      "user_frustration_proxy": 0.725,
+      "overconfidence": 0.956,
+      "hallucination_risk": 0.738,
+      "domain": "Other",
+      "domain_adherence": 0.5
+    },
+    "persona": "Enthusiastic Storyteller"
+  },
+  {
+    "prompt": "List ten words that rhyme with \"cat.\"",
+    "response": "It is generally believed that ten words rhyming with \"cat\" could include: bat, hat, mat, sat, fat, rat, pat, flat, chat, and splat. Sources suggest these all share a common 'at' phonetic ending.",
+    "prompt_chunks": [
+      "List ten words that rhyme with \"cat.\""
+    ],
+    "prompt_chunk_weights": [
+      1.0
+    ],
+    "sentence_mappings": [
+      {
+        "sentence": "It is generally believed that ten words rhyming with \"cat\" could include: bat, hat, mat, sat, fat, rat, pat, flat, chat, and splat.",
+        "best_chunk_idx": 0,
+        "best_chunk": "List ten words that rhyme with \"cat.\"",
+        "sim": 0.8,
+        "is_orphan": false
+      },
+      {
+        "sentence": "Sources suggest these all share a common 'at' phonetic ending.",
+        "best_chunk_idx": 0,
+        "best_chunk": "List ten words that rhyme with \"cat.\"",
+        "sim": 0.322,
+        "is_orphan": true
+      }
+    ],
+    "backtrackability": 0.5,
+    "prompt_coverage": 1.0,
+    "keyword_recall": {
+      "recall_percentage": 60.0,
+      "prompt_keywords": [
+        "cat",
+        "list",
+        "rhyme",
+        "ten",
+        "words"
+      ],
+      "found_keywords": [
+        "cat",
+        "ten",
+        "words"
+      ]
+    },
+    "extraneous_content": {
+      "extraneous_ratio": 0.885
+    },
+    "entity_mismatch": {
+      "mismatch_count": 2,
+      "mismatched_entities": [
+        "It",
+        "Sources"
+      ]
+    },
+    "number_mismatch": {
+      "missing_numbers": [],
+      "extra_numbers": [],
+      "extra_numbers_count": 0
+    },
+    "sentence_variety_score": 5.57,
+    "repetition": {
+      "repetition_percentage": 0.0,
+      "repeated_bigrams": []
+    },
+    "contradiction": {
+      "contradiction_detected": false,
+      "pair": null
+    },
+    "assumption_risk": 0.0,
+    "user_frustration_proxy": 0.677,
+    "overconfidence": 0.0,
+    "semantic_alignment": 0.723,
+    "semantic_drift": 0.67,
+    "compact_features": {
+      "alignment_balance": -0.285,
+      "keyword_recall": 0.6,
+      "extraneous_ratio": 0.885,
+      "semantic_alignment": 0.723,
+      "semantic_drift": 0.67,
+      "backtrackability": 0.5,
+      "prompt_chunk_coverage": 1.0,
+      "instruction_coverage": 1.0,
+      "sentence_variety": 5.57,
+      "repetition_penalty_pct": 0.0,
+      "contradiction_flag": 0,
+      "pronoun_resolution_score": 0.667,
+      "assumption_risk": 0.0,
+      "user_frustration_proxy": 0.677,
+      "overconfidence": 0.0,
+      "hallucination_risk": 0.596,
+      "domain": "Other",
+      "domain_adherence": 0.5
+    },
+    "persona": "Skeptical Analyst"
+  },
+  {
+    "prompt": "Write a short summary of the rules of chess for a beginner.",
+    "response": "Chess involves two players alternating turns on an 8x8 board. The objective is to checkmate the opponent's king. Each unique piece has specific movement and capture rules. Checkmate means the king has no escape.",
+    "prompt_chunks": [
+      "Write a short summary of the rules of chess for a beginner."
+    ],
+    "prompt_chunk_weights": [
+      1.0
+    ],
+    "sentence_mappings": [
+      {
+        "sentence": "Chess involves two players alternating turns on an 8x8 board.",
+        "best_chunk_idx": 0,
+        "best_chunk": "Write a short summary of the rules of chess for a beginner.",
+        "sim": 0.452,
+        "is_orphan": false
+      },
+      {
+        "sentence": "The objective is to checkmate the opponent's king.",
+        "best_chunk_idx": 0,
+        "best_chunk": "Write a short summary of the rules of chess for a beginner.",
+        "sim": 0.376,
+        "is_orphan": true
+      },
+      {
+        "sentence": "Each unique piece has specific movement and capture rules.",
+        "best_chunk_idx": 0,
+        "best_chunk": "Write a short summary of the rules of chess for a beginner.",
+        "sim": 0.292,
+        "is_orphan": true
+      },
+      {
+        "sentence": "Checkmate means the king has no escape.",
+        "best_chunk_idx": 0,
+        "best_chunk": "Write a short summary of the rules of chess for a beginner.",
+        "sim": 0.282,
+        "is_orphan": true
+      }
+    ],
+    "backtrackability": 0.25,
+    "prompt_coverage": 1.0,
+    "keyword_recall": {
+      "recall_percentage": 33.33,
+      "prompt_keywords": [
+        "beginner",
+        "chess",
+        "rules",
+        "short",
+        "summary",
+        "write"
+      ],
+      "found_keywords": [
+        "chess",
+        "rules"
+      ]
+    },
+    "extraneous_content": {
+      "extraneous_ratio": 0.917
+    },
+    "entity_mismatch": {
+      "mismatch_count": 4,
+      "mismatched_entities": [
+        "Checkmate",
+        "Chess",
+        "Each",
+        "The"
+      ]
+    },
+    "number_mismatch": {
+      "missing_numbers": [],
+      "extra_numbers": [],
+      "extra_numbers_count": 0
+    },
+    "sentence_variety_score": 1.44,
+    "repetition": {
+      "repetition_percentage": 0.0,
+      "repeated_bigrams": []
+    },
+    "contradiction": {
+      "contradiction_detected": true,
+      "pair": [
+        "Each unique piece has specific movement and capture rules.",
+        "Checkmate means the king has no escape."
+      ]
+    },
+    "assumption_risk": 0.0,
+    "user_frustration_proxy": 0.633,
+    "overconfidence": 0.917,
+    "semantic_alignment": 0.53,
+    "semantic_drift": 0.784,
+    "compact_features": {
+      "alignment_balance": -0.584,
+      "keyword_recall": 0.333,
+      "extraneous_ratio": 0.917,
+      "semantic_alignment": 0.53,
+      "semantic_drift": 0.784,
+      "backtrackability": 0.25,
+      "prompt_chunk_coverage": 1.0,
+      "instruction_coverage": 1.0,
+      "sentence_variety": 1.44,
+      "repetition_penalty_pct": 0.0,
+      "contradiction_flag": 1,
+      "pronoun_resolution_score": 1.0,
+      "assumption_risk": 0.0,
+      "user_frustration_proxy": 0.633,
+      "overconfidence": 0.917,
+      "hallucination_risk": 0.679,
+      "domain": "Other",
+      "domain_adherence": 0.5
+    },
+    "persona": "Factual Reporter"
+  },
+  {
+    "prompt": "Write a short summary of the rules of chess for a beginner.",
+    "response": "Okay, you move unique pieces, capture opponent's, always protect your king! Checkmate their king to win! Some say it's an ancient battlefield simulation!",
+    "prompt_chunks": [
+      "Write a short summary of the rules of chess for a beginner."
+    ],
+    "prompt_chunk_weights": [
+      1.0
+    ],
+    "sentence_mappings": [
+      {
+        "sentence": "Okay, you move unique pieces, capture opponent's, always protect your king!",
+        "best_chunk_idx": 0,
+        "best_chunk": "Write a short summary of the rules of chess for a beginner.",
+        "sim": 0.303,
+        "is_orphan": true
+      },
+      {
+        "sentence": "Checkmate their king to win!",
+        "best_chunk_idx": 0,
+        "best_chunk": "Write a short summary of the rules of chess for a beginner.",
+        "sim": 0.203,
+        "is_orphan": true
+      },
+      {
+        "sentence": "Some say it's an ancient battlefield simulation!",
+        "best_chunk_idx": 0,
+        "best_chunk": "Write a short summary of the rules of chess for a beginner.",
+        "sim": 0.115,
+        "is_orphan": true
+      }
+    ],
+    "backtrackability": 0.0,
+    "prompt_coverage": 0.0,
+    "keyword_recall": {
+      "recall_percentage": 0.0,
+      "prompt_keywords": [
+        "beginner",
+        "chess",
+        "rules",
+        "short",
+        "summary",
+        "write"
+      ],
+      "found_keywords": []
+    },
+    "extraneous_content": {
+      "extraneous_ratio": 1.0
+    },
+    "entity_mismatch": {
+      "mismatch_count": 3,
+      "mismatched_entities": [
+        "Checkmate",
+        "Okay",
+        "Some"
+      ]
+    },
+    "number_mismatch": {
+      "missing_numbers": [],
+      "extra_numbers": [],
+      "extra_numbers_count": 0
+    },
+    "sentence_variety_score": 4.21,
+    "repetition": {
+      "repetition_percentage": 0.0,
+      "repeated_bigrams": []
+    },
+    "contradiction": {
+      "contradiction_detected": false,
+      "pair": null
+    },
+    "assumption_risk": 0.0,
+    "user_frustration_proxy": 0.8,
+    "overconfidence": 1.0,
+    "semantic_alignment": 0.397,
+    "semantic_drift": 0.772,
+    "compact_features": {
+      "alignment_balance": -1.0,
+      "keyword_recall": 0.0,
+      "extraneous_ratio": 1.0,
+      "semantic_alignment": 0.397,
+      "semantic_drift": 0.772,
+      "backtrackability": 0.0,
+      "prompt_chunk_coverage": 0.0,
+      "instruction_coverage": 0.0,
+      "sentence_variety": 4.21,
+      "repetition_penalty_pct": 0.0,
+      "contradiction_flag": 0,
+      "pronoun_resolution_score": 0.0,
+      "assumption_risk": 0.0,
+      "user_frustration_proxy": 0.8,
+      "overconfidence": 1.0,
+      "hallucination_risk": 0.738,
+      "domain": "Other",
+      "domain_adherence": 0.5
+    },
+    "persona": "Enthusiastic Storyteller"
+  },
+  {
+    "prompt": "Write a short summary of the rules of chess for a beginner.",
+    "response": "It is believed that chess involves two players moving distinct pieces on an 8x8 board. Sources suggest the objective is to checkmate the opponent's king, meaning it is under attack with no escape. Each piece—King, Queen, Rook, Bishop, Knight, Pawn—reportedly moves in a unique, specific manner. Players alternate turns, capturing opponent pieces by moving onto their square. The game concludes when a king is checkmated.",
+    "prompt_chunks": [
+      "Write a short summary of the rules of chess for a beginner."
+    ],
+    "prompt_chunk_weights": [
+      1.0
+    ],
+    "sentence_mappings": [
+      {
+        "sentence": "It is believed that chess involves two players moving distinct pieces on an 8x8 board.",
+        "best_chunk_idx": 0,
+        "best_chunk": "Write a short summary of the rules of chess for a beginner.",
+        "sim": 0.479,
+        "is_orphan": false
+      },
+      {
+        "sentence": "Sources suggest the objective is to checkmate the opponent's king, meaning it is under attack with no escape.",
+        "best_chunk_idx": 0,
+        "best_chunk": "Write a short summary of the rules of chess for a beginner.",
+        "sim": 0.325,
+        "is_orphan": true
+      },
+      {
+        "sentence": "Each piece—King, Queen, Rook, Bishop, Knight, Pawn—reportedly moves in a unique, specific manner.",
+        "best_chunk_idx": 0,
+        "best_chunk": "Write a short summary of the rules of chess for a beginner.",
+        "sim": 0.475,
+        "is_orphan": false
+      },
+      {
+        "sentence": "Players alternate turns, capturing opponent pieces by moving onto their square.",
+        "best_chunk_idx": 0,
+        "best_chunk": "Write a short summary of the rules of chess for a beginner.",
+        "sim": 0.373,
+        "is_orphan": true
+      },
+      {
+        "sentence": "The game concludes when a king is checkmated.",
+        "best_chunk_idx": 0,
+        "best_chunk": "Write a short summary of the rules of chess for a beginner.",
+        "sim": 0.367,
+        "is_orphan": true
+      }
+    ],
+    "backtrackability": 0.4,
+    "prompt_coverage": 1.0,
+    "keyword_recall": {
+      "recall_percentage": 16.67,
+      "prompt_keywords": [
+        "beginner",
+        "chess",
+        "rules",
+        "short",
+        "summary",
+        "write"
+      ],
+      "found_keywords": [
+        "chess"
+      ]
+    },
+    "extraneous_content": {
+      "extraneous_ratio": 0.977
+    },
+    "entity_mismatch": {
+      "mismatch_count": 11,
+      "mismatched_entities": [
+        "Bishop",
+        "Each",
+        "It",
+        "King",
+        "Knight",
+        "Pawn",
+        "Players",
+        "Queen",
+        "Rook",
+        "Sources",
+        "The"
+      ]
+    },
+    "number_mismatch": {
+      "missing_numbers": [],
+      "extra_numbers": [],
+      "extra_numbers_count": 0
+    },
+    "sentence_variety_score": 3.1,
+    "repetition": {
+      "repetition_percentage": 1.49,
+      "repeated_bigrams": [
+        [
+          "it",
+          "is"
+        ]
+      ]
+    },
+    "contradiction": {
+      "contradiction_detected": true,
+      "pair": [
+        "Sources suggest the objective is to checkmate the opponent's king, meaning it is under attack with no escape.",
+        "Each piece—King, Queen, Rook, Bishop, Knight, Pawn—reportedly moves in a unique, specific manner."
+      ]
+    },
+    "assumption_risk": 0.0,
+    "user_frustration_proxy": 0.755,
+    "overconfidence": 0.782,
+    "semantic_alignment": 0.511,
+    "semantic_drift": 0.654,
+    "compact_features": {
+      "alignment_balance": -0.81,
+      "keyword_recall": 0.167,
+      "extraneous_ratio": 0.977,
+      "semantic_alignment": 0.511,
+      "semantic_drift": 0.654,
+      "backtrackability": 0.4,
+      "prompt_chunk_coverage": 1.0,
+      "instruction_coverage": 1.0,
+      "sentence_variety": 3.1,
+      "repetition_penalty_pct": 1.49,
+      "contradiction_flag": 1,
+      "pronoun_resolution_score": 0.5,
+      "assumption_risk": 0.0,
+      "user_frustration_proxy": 0.755,
+      "overconfidence": 0.782,
+      "hallucination_risk": 0.71,
+      "domain": "Other",
+      "domain_adherence": 0.5
+    },
+    "persona": "Skeptical Analyst"
+  },
+  {
+    "prompt": "Name the capital of Brazil and the two largest rivers that flow through the country.",
+    "response": "Brasília is the capital of Brazil. The two largest rivers flowing through the country are the Amazon River and the Paraná River. The Amazon, the world's largest by discharge, profoundly shapes northern Brazil's ecology. The Paraná, a major South American river system, significantly aids southern Brazil's economy via hydropower and agriculture. Both rivers are vital for the nation's biodiversity, economic development, and transportation, underpinning Brazil's natural resources.",
+    "prompt_chunks": [
+      "Name the capital of Brazil and the two largest rivers that flow through the country."
+    ],
+    "prompt_chunk_weights": [
+      1.0
+    ],
+    "sentence_mappings": [
+      {
+        "sentence": "Brasília is the capital of Brazil.",
+        "best_chunk_idx": 0,
+        "best_chunk": "Name the capital of Brazil and the two largest rivers that flow through the country.",
+        "sim": 0.678,
+        "is_orphan": false
+      },
+      {
+        "sentence": "The two largest rivers flowing through the country are the Amazon River and the Paraná River.",
+        "best_chunk_idx": 0,
+        "best_chunk": "Name the capital of Brazil and the two largest rivers that flow through the country.",
+        "sim": 0.76,
+        "is_orphan": false
+      },
+      {
+        "sentence": "The Amazon, the world's largest by discharge, profoundly shapes northern Brazil's ecology.",
+        "best_chunk_idx": 0,
+        "best_chunk": "Name the capital of Brazil and the two largest rivers that flow through the country.",
+        "sim": 0.507,
+        "is_orphan": false
+      },
+      {
+        "sentence": "The Paraná, a major South American river system, significantly aids southern Brazil's economy via hydropower and agriculture.",
+        "best_chunk_idx": 0,
+        "best_chunk": "Name the capital of Brazil and the two largest rivers that flow through the country.",
+        "sim": 0.625,
+        "is_orphan": false
+      },
+      {
+        "sentence": "Both rivers are vital for the nation's biodiversity, economic development, and transportation, underpinning Brazil's natural resources.",
+        "best_chunk_idx": 0,
+        "best_chunk": "Name the capital of Brazil and the two largest rivers that flow through the country.",
+        "sim": 0.755,
+        "is_orphan": false
+      }
+    ],
+    "backtrackability": 1.0,
+    "prompt_coverage": 1.0,
+    "keyword_recall": {
+      "recall_percentage": 77.78,
+      "prompt_keywords": [
+        "brazil",
+        "capital",
+        "country",
+        "flow",
+        "largest",
+        "name",
+        "rivers",
+        "through",
+        "two"
+      ],
+      "found_keywords": [
+        "brazil",
+        "capital",
+        "country",
+        "largest",
+        "rivers",
+        "through",
+        "two"
+      ]
+    },
+    "extraneous_content": {
+      "extraneous_ratio": 0.821
+    },
+    "entity_mismatch": {
+      "mismatch_count": 6,
+      "mismatched_entities": [
+        "Amazon River",
+        "Both",
+        "River",
+        "South American",
+        "The",
+        "The Amazon"
+      ]
+    },
+    "number_mismatch": {
+      "missing_numbers": [],
+      "extra_numbers": [],
+      "extra_numbers_count": 0
+    },
+    "sentence_variety_score": 3.46,
+    "repetition": {
+      "repetition_percentage": 5.63,
+      "repeated_bigrams": [
+        [
+          "the",
+          "paraná"
+        ],
+        [
+          "the",
+          "amazon"
+        ],
+        [
+          "brazil",
+          "s"
+        ]
+      ]
+    },
+    "contradiction": {
+      "contradiction_detected": true,
+      "pair": [
+        "The two largest rivers flowing through the country are the Amazon River and the Paraná River.",
+        "The Amazon, the world's largest by discharge, profoundly shapes northern Brazil's ecology."
+      ]
+    },
+    "assumption_risk": 0.0,
+    "user_frustration_proxy": 0.164,
+    "overconfidence": 0.821,
+    "semantic_alignment": 0.856,
+    "semantic_drift": 0.513,
+    "compact_features": {
+      "alignment_balance": -0.043,
+      "keyword_recall": 0.778,
+      "extraneous_ratio": 0.821,
+      "semantic_alignment": 0.856,
+      "semantic_drift": 0.513,
+      "backtrackability": 1.0,
+      "prompt_chunk_coverage": 1.0,
+      "instruction_coverage": 1.0,
+      "sentence_variety": 3.46,
+      "repetition_penalty_pct": 5.63,
+      "contradiction_flag": 1,
+      "pronoun_resolution_score": 1.0,
+      "assumption_risk": 0.0,
+      "user_frustration_proxy": 0.164,
+      "overconfidence": 0.821,
+      "hallucination_risk": 0.543,
+      "domain": "Other",
+      "domain_adherence": 0.5
+    },
+    "persona": "Factual Reporter"
+  },
+  {
+    "prompt": "Name the capital of Brazil and the two largest rivers that flow through the country.",
+    "response": "Oh, Brazil! What a vibrant place! Its beating heart, the capital, is none other than **Brasília** – a city famously shaped like an airplane! And those mighty rivers? You've got the incredible **Amazon**, so wide some say you can't see the other side, and the powerful **Paraná**, which helps form those magnificent Iguaçu Falls! Imagine the adventures!",
+    "prompt_chunks": [
+      "Name the capital of Brazil and the two largest rivers that flow through the country."
+    ],
+    "prompt_chunk_weights": [
+      1.0
+    ],
+    "sentence_mappings": [
+      {
+        "sentence": "Oh, Brazil!",
+        "best_chunk_idx": 0,
+        "best_chunk": "Name the capital of Brazil and the two largest rivers that flow through the country.",
+        "sim": 0.301,
+        "is_orphan": true
+      },
+      {
+        "sentence": "What a vibrant place!",
+        "best_chunk_idx": 0,
+        "best_chunk": "Name the capital of Brazil and the two largest rivers that flow through the country.",
+        "sim": 0.116,
+        "is_orphan": true
+      },
+      {
+        "sentence": "Its beating heart, the capital, is none other than **Brasília** – a city famously shaped like an airplane!",
+        "best_chunk_idx": 0,
+        "best_chunk": "Name the capital of Brazil and the two largest rivers that flow through the country.",
+        "sim": 0.571,
+        "is_orphan": false
+      },
+      {
+        "sentence": "And those mighty rivers?",
+        "best_chunk_idx": 0,
+        "best_chunk": "Name the capital of Brazil and the two largest rivers that flow through the country.",
+        "sim": 0.401,
+        "is_orphan": true
+      },
+      {
+        "sentence": "You've got the incredible **Amazon**, so wide some say you can't see the other side, and the powerful **Paraná**, which helps form those magnificent Iguaçu Falls!",
+        "best_chunk_idx": 0,
+        "best_chunk": "Name the capital of Brazil and the two largest rivers that flow through the country.",
+        "sim": 0.319,
+        "is_orphan": true
+      },
+      {
+        "sentence": "Imagine the adventures!",
+        "best_chunk_idx": 0,
+        "best_chunk": "Name the capital of Brazil and the two largest rivers that flow through the country.",
+        "sim": 0.017,
+        "is_orphan": true
+      }
+    ],
+    "backtrackability": 0.167,
+    "prompt_coverage": 1.0,
+    "keyword_recall": {
+      "recall_percentage": 33.33,
+      "prompt_keywords": [
+        "brazil",
+        "capital",
+        "country",
+        "flow",
+        "largest",
+        "name",
+        "rivers",
+        "through",
+        "two"
+      ],
+      "found_keywords": [
+        "brazil",
+        "capital",
+        "rivers"
+      ]
+    },
+    "extraneous_content": {
+      "extraneous_ratio": 0.925
+    },
+    "entity_mismatch": {
+      "mismatch_count": 8,
+      "mismatched_entities": [
+        "Amazon",
+        "And",
+        "Falls",
+        "Imagine",
+        "Its",
+        "Oh",
+        "What",
+        "You"
+      ]
+    },
+    "number_mismatch": {
+      "missing_numbers": [],
+      "extra_numbers": [],
+      "extra_numbers_count": 0
+    },
+    "sentence_variety_score": 10,
+    "repetition": {
+      "repetition_percentage": 0.0,
+      "repeated_bigrams": []
+    },
+    "contradiction": {
+      "contradiction_detected": true,
+      "pair": [
+        "And those mighty rivers?",
+        "You've got the incredible **Amazon**, so wide some say you can't see the other side, and the powerful **Paraná**, which helps form those magnificent Iguaçu Falls!"
+      ]
+    },
+    "assumption_risk": 0.0,
+    "user_frustration_proxy": 0.685,
+    "overconfidence": 0.771,
+    "semantic_alignment": 0.602,
+    "semantic_drift": 0.786,
+    "compact_features": {
+      "alignment_balance": -0.592,
+      "keyword_recall": 0.333,
+      "extraneous_ratio": 0.925,
+      "semantic_alignment": 0.602,
+      "semantic_drift": 0.786,
+      "backtrackability": 0.167,
+      "prompt_chunk_coverage": 1.0,
+      "instruction_coverage": 1.0,
+      "sentence_variety": 10,
+      "repetition_penalty_pct": 0.0,
+      "contradiction_flag": 1,
+      "pronoun_resolution_score": 0.5,
+      "assumption_risk": 0.0,
+      "user_frustration_proxy": 0.685,
+      "overconfidence": 0.771,
+      "hallucination_risk": 0.717,
+      "domain": "Other",
+      "domain_adherence": 0.5
+    },
+    "persona": "Enthusiastic Storyteller"
+  },
+  {
+    "prompt": "Name the capital of Brazil and the two largest rivers that flow through the country.",
+    "response": "It is widely understood that the capital of Brazil is Brasília. Sources suggest the two largest rivers flowing through the country are the Amazon River and the Paraná River. The Amazon is globally recognized for its immense flow. The Paraná, a major South American waterway, significantly impacts Brazil. It is believed these represent the most prominent by discharge and influence.",
+    "prompt_chunks": [
+      "Name the capital of Brazil and the two largest rivers that flow through the country."
+    ],
+    "prompt_chunk_weights": [
+      1.0
+    ],
+    "sentence_mappings": [
+      {
+        "sentence": "It is widely understood that the capital of Brazil is Brasília.",
+        "best_chunk_idx": 0,
+        "best_chunk": "Name the capital of Brazil and the two largest rivers that flow through the country.",
+        "sim": 0.69,
+        "is_orphan": false
+      },
+      {
+        "sentence": "Sources suggest the two largest rivers flowing through the country are the Amazon River and the Paraná River.",
+        "best_chunk_idx": 0,
+        "best_chunk": "Name the capital of Brazil and the two largest rivers that flow through the country.",
+        "sim": 0.748,
+        "is_orphan": false
+      },
+      {
+        "sentence": "The Amazon is globally recognized for its immense flow.",
+        "best_chunk_idx": 0,
+        "best_chunk": "Name the capital of Brazil and the two largest rivers that flow through the country.",
+        "sim": 0.382,
+        "is_orphan": true
+      },
+      {
+        "sentence": "The Paraná, a major South American waterway, significantly impacts Brazil.",
+        "best_chunk_idx": 0,
+        "best_chunk": "Name the capital of Brazil and the two largest rivers that flow through the country.",
+        "sim": 0.613,
+        "is_orphan": false
+      },
+      {
+        "sentence": "It is believed these represent the most prominent by discharge and influence.",
+        "best_chunk_idx": 0,
+        "best_chunk": "Name the capital of Brazil and the two largest rivers that flow through the country.",
+        "sim": 0.069,
+        "is_orphan": true
+      }
+    ],
+    "backtrackability": 0.6,
+    "prompt_coverage": 1.0,
+    "keyword_recall": {
+      "recall_percentage": 88.89,
+      "prompt_keywords": [
+        "brazil",
+        "capital",
+        "country",
+        "flow",
+        "largest",
+        "name",
+        "rivers",
+        "through",
+        "two"
+      ],
+      "found_keywords": [
+        "brazil",
+        "capital",
+        "country",
+        "flow",
+        "largest",
+        "rivers",
+        "through",
+        "two"
+      ]
+    },
+    "extraneous_content": {
+      "extraneous_ratio": 0.758
+    },
+    "entity_mismatch": {
+      "mismatch_count": 7,
+      "mismatched_entities": [
+        "Amazon River",
+        "It",
+        "River",
+        "Sources",
+        "South American",
+        "The",
+        "The Amazon"
+      ]
+    },
+    "number_mismatch": {
+      "missing_numbers": [],
+      "extra_numbers": [],
+      "extra_numbers_count": 0
+    },
+    "sentence_variety_score": 2.95,
+    "repetition": {
+      "repetition_percentage": 5.08,
+      "repeated_bigrams": [
+        [
+          "the",
+          "paraná"
+        ],
+        [
+          "the",
+          "amazon"
+        ],
+        [
+          "it",
+          "is"
+        ]
+      ]
+    },
+    "contradiction": {
+      "contradiction_detected": false,
+      "pair": null
+    },
+    "assumption_risk": 0.0,
+    "user_frustration_proxy": 0.592,
+    "overconfidence": 0.606,
+    "semantic_alignment": 0.885,
+    "semantic_drift": 0.937,
+    "compact_features": {
+      "alignment_balance": 0.131,
+      "keyword_recall": 0.889,
+      "extraneous_ratio": 0.758,
+      "semantic_alignment": 0.885,
+      "semantic_drift": 0.937,
+      "backtrackability": 0.6,
+      "prompt_chunk_coverage": 1.0,
+      "instruction_coverage": 1.0,
+      "sentence_variety": 2.95,
+      "repetition_penalty_pct": 5.08,
+      "contradiction_flag": 0,
+      "pronoun_resolution_score": 0.5,
+      "assumption_risk": 0.0,
+      "user_frustration_proxy": 0.592,
+      "overconfidence": 0.606,
+      "hallucination_risk": 0.582,
+      "domain": "Other",
+      "domain_adherence": 0.5
+    },
+    "persona": "Skeptical Analyst"
+  },
+  {
+    "prompt": "Write a one-sentence summary of the plot of Hamlet.",
+    "response": "Prince Hamlet of Denmark, grieving his father King Hamlet's recent death and his mother Queen Gertrude's hasty marriage to his uncle Claudius, encounters his father's ghost, who reveals Claudius murdered him for the throne. Driven by a quest for revenge, Hamlet feigns madness, stages a play to confirm Claudius's guilt, and in pursuing his vengeance, inadvertently causes the tragic deaths of Polonius, Ophelia, Laertes, Gertrude, Claudius, and ultimately himself, leaving the kingdom to Fortinbras.",
+    "prompt_chunks": [
+      "Write a one-sentence summary of the plot of Hamlet."
+    ],
+    "prompt_chunk_weights": [
+      1.0
+    ],
+    "sentence_mappings": [
+      {
+        "sentence": "Prince Hamlet of Denmark, grieving his father King Hamlet's recent death and his mother Queen Gertrude's hasty marriage to his uncle Claudius, encounters his father's ghost, who reveals Claudius murdered him for the throne.",
+        "best_chunk_idx": 0,
+        "best_chunk": "Write a one-sentence summary of the plot of Hamlet.",
+        "sim": 0.498,
+        "is_orphan": false
+      },
+      {
+        "sentence": "Driven by a quest for revenge, Hamlet feigns madness, stages a play to confirm Claudius's guilt, and in pursuing his vengeance, inadvertently causes the tragic deaths of Polonius, Ophelia, Laertes, Gertrude, Claudius, and ultimately himself, leaving the kingdom to Fortinbras.",
+        "best_chunk_idx": 0,
+        "best_chunk": "Write a one-sentence summary of the plot of Hamlet.",
+        "sim": 0.591,
+        "is_orphan": false
+      }
+    ],
+    "backtrackability": 1.0,
+    "prompt_coverage": 1.0,
+    "keyword_recall": {
+      "recall_percentage": 16.67,
+      "prompt_keywords": [
+        "hamlet",
+        "one",
+        "plot",
+        "sentence",
+        "summary",
+        "write"
+      ],
+      "found_keywords": [
+        "hamlet"
+      ]
+    },
+    "extraneous_content": {
+      "extraneous_ratio": 0.979
+    },
+    "entity_mismatch": {
+      "mismatch_count": 11,
+      "mismatched_entities": [
+        "Claudius",
+        "Denmark",
+        "Driven",
+        "Fortinbras",
+        "Gertrude",
+        "King Hamlet",
+        "Laertes",
+        "Ophelia",
+        "Polonius",
+        "Prince Hamlet",
+        "Queen Gertrude"
+      ]
+    },
+    "number_mismatch": {
+      "missing_numbers": [],
+      "extra_numbers": [],
+      "extra_numbers_count": 0
+    },
+    "sentence_variety_score": 0.73,
+    "repetition": {
+      "repetition_percentage": 1.3,
+      "repeated_bigrams": [
+        [
+          "his",
+          "father"
+        ]
+      ]
+    },
+    "contradiction": {
+      "contradiction_detected": false,
+      "pair": null
+    },
+    "assumption_risk": 0.0,
+    "user_frustration_proxy": 0.196,
+    "overconfidence": 0.979,
+    "semantic_alignment": 0.555,
+    "semantic_drift": 0.479,
+    "compact_features": {
+      "alignment_balance": -0.812,
+      "keyword_recall": 0.167,
+      "extraneous_ratio": 0.979,
+      "semantic_alignment": 0.555,
+      "semantic_drift": 0.479,
+      "backtrackability": 1.0,
+      "prompt_chunk_coverage": 1.0,
+      "instruction_coverage": 1.0,
+      "sentence_variety": 0.73,
+      "repetition_penalty_pct": 1.3,
+      "contradiction_flag": 0,
+      "pronoun_resolution_score": 1.0,
+      "assumption_risk": 0.0,
+      "user_frustration_proxy": 0.196,
+      "overconfidence": 0.979,
+      "hallucination_risk": 0.621,
+      "domain": "Summarization",
+      "domain_adherence": -6.483
+    },
+    "persona": "Factual Reporter"
+  },
+  {
+    "prompt": "Write a one-sentence summary of the plot of Hamlet.",
+    "response": "Oh, a prince's ghostly father demands revenge for his wicked uncle's cruel murder, plunging Hamlet into madness, a bloody quest for justice, and ultimately everyone's tragic demise!",
+    "prompt_chunks": [
+      "Write a one-sentence summary of the plot of Hamlet."
+    ],
+    "prompt_chunk_weights": [
+      1.0
+    ],
+    "sentence_mappings": [
+      {
+        "sentence": "Oh, a prince's ghostly father demands revenge for his wicked uncle's cruel murder, plunging Hamlet into madness, a bloody quest for justice, and ultimately everyone's tragic demise!",
+        "best_chunk_idx": 0,
+        "best_chunk": "Write a one-sentence summary of the plot of Hamlet.",
+        "sim": 0.502,
+        "is_orphan": false
+      }
+    ],
+    "backtrackability": 1.0,
+    "prompt_coverage": 1.0,
+    "keyword_recall": {
+      "recall_percentage": 16.67,
+      "prompt_keywords": [
+        "hamlet",
+        "one",
+        "plot",
+        "sentence",
+        "summary",
+        "write"
+      ],
+      "found_keywords": [
+        "hamlet"
+      ]
+    },
+    "extraneous_content": {
+      "extraneous_ratio": 0.957
+    },
+    "entity_mismatch": {
+      "mismatch_count": 1,
+      "mismatched_entities": [
+        "Oh"
+      ]
+    },
+    "number_mismatch": {
+      "missing_numbers": [],
+      "extra_numbers": [],
+      "extra_numbers_count": 0
+    },
+    "sentence_variety_score": 5.0,
+    "repetition": {
+      "repetition_percentage": 0.0,
+      "repeated_bigrams": []
+    },
+    "contradiction": {
+      "contradiction_detected": false,
+      "pair": null
+    },
+    "assumption_risk": 0.0,
+    "user_frustration_proxy": 0.191,
+    "overconfidence": 0.957,
+    "semantic_alignment": 0.502,
+    "semantic_drift": 0.0,
+    "compact_features": {
+      "alignment_balance": -0.79,
+      "keyword_recall": 0.167,
+      "extraneous_ratio": 0.957,
+      "semantic_alignment": 0.502,
+      "semantic_drift": 0.0,
+      "backtrackability": 1.0,
+      "prompt_chunk_coverage": 1.0,
+      "instruction_coverage": 1.0,
+      "sentence_variety": 5.0,
+      "repetition_penalty_pct": 0.0,
+      "contradiction_flag": 0,
+      "pronoun_resolution_score": 1.0,
+      "assumption_risk": 0.0,
+      "user_frustration_proxy": 0.191,
+      "overconfidence": 0.957,
+      "hallucination_risk": 0.508,
+      "domain": "Summarization",
+      "domain_adherence": -2.483
+    },
+    "persona": "Enthusiastic Storyteller"
+  },
+  {
+    "prompt": "Write a one-sentence summary of the plot of Hamlet.",
+    "response": "It is widely believed that Prince Hamlet seeks revenge on his uncle Claudius, who sources suggest murdered his father and married his mother, ultimately leading to a cascade of tragic events and numerous deaths within the Danish court itself.",
+    "prompt_chunks": [
+      "Write a one-sentence summary of the plot of Hamlet."
+    ],
+    "prompt_chunk_weights": [
+      1.0
+    ],
+    "sentence_mappings": [
+      {
+        "sentence": "It is widely believed that Prince Hamlet seeks revenge on his uncle Claudius, who sources suggest murdered his father and married his mother, ultimately leading to a cascade of tragic events and numerous deaths within the Danish court itself.",
+        "best_chunk_idx": 0,
+        "best_chunk": "Write a one-sentence summary of the plot of Hamlet.",
+        "sim": 0.542,
+        "is_orphan": false
+      }
+    ],
+    "backtrackability": 1.0,
+    "prompt_coverage": 1.0,
+    "keyword_recall": {
+      "recall_percentage": 16.67,
+      "prompt_keywords": [
+        "hamlet",
+        "one",
+        "plot",
+        "sentence",
+        "summary",
+        "write"
+      ],
+      "found_keywords": [
+        "hamlet"
+      ]
+    },
+    "extraneous_content": {
+      "extraneous_ratio": 0.963
+    },
+    "entity_mismatch": {
+      "mismatch_count": 4,
+      "mismatched_entities": [
+        "Claudius",
+        "Danish",
+        "It",
+        "Prince Hamlet"
+      ]
+    },
+    "number_mismatch": {
+      "missing_numbers": [],
+      "extra_numbers": [],
+      "extra_numbers_count": 0
+    },
+    "sentence_variety_score": 5.0,
+    "repetition": {
+      "repetition_percentage": 0.0,
+      "repeated_bigrams": []
+    },
+    "contradiction": {
+      "contradiction_detected": false,
+      "pair": null
+    },
+    "assumption_risk": 0.0,
+    "user_frustration_proxy": 0.393,
+    "overconfidence": 0.0,
+    "semantic_alignment": 0.542,
+    "semantic_drift": 0.0,
+    "compact_features": {
+      "alignment_balance": -0.796,
+      "keyword_recall": 0.167,
+      "extraneous_ratio": 0.963,
+      "semantic_alignment": 0.542,
+      "semantic_drift": 0.0,
+      "backtrackability": 1.0,
+      "prompt_chunk_coverage": 1.0,
+      "instruction_coverage": 1.0,
+      "sentence_variety": 5.0,
+      "repetition_penalty_pct": 0.0,
+      "contradiction_flag": 0,
+      "pronoun_resolution_score": 1.0,
+      "assumption_risk": 0.0,
+      "user_frustration_proxy": 0.393,
+      "overconfidence": 0.0,
+      "hallucination_risk": 0.585,
+      "domain": "Summarization",
+      "domain_adherence": -3.15
+    },
+    "persona": "Skeptical Analyst"
+  },
+  {
+    "prompt": "What are the three primary states of matter? List them.",
+    "response": "The three primary states of matter are solid, liquid, and gas. Solids maintain a fixed shape and volume. Liquids have a fixed volume but take their container's shape. Gases lack fixed shape or volume, expanding freely. These fundamental states define how matter exists universally.",
+    "prompt_chunks": [
+      "What are the three primary states of matter? List them."
+    ],
+    "prompt_chunk_weights": [
+      1.0
+    ],
+    "sentence_mappings": [
+      {
+        "sentence": "The three primary states of matter are solid, liquid, and gas.",
+        "best_chunk_idx": 0,
+        "best_chunk": "What are the three primary states of matter? List them.",
+        "sim": 0.871,
+        "is_orphan": false
+      },
+      {
+        "sentence": "Solids maintain a fixed shape and volume.",
+        "best_chunk_idx": 0,
+        "best_chunk": "What are the three primary states of matter? List them.",
+        "sim": 0.346,
+        "is_orphan": true
+      },
+      {
+        "sentence": "Liquids have a fixed volume but take their container's shape.",
+        "best_chunk_idx": 0,
+        "best_chunk": "What are the three primary states of matter? List them.",
+        "sim": 0.195,
+        "is_orphan": true
+      },
+      {
+        "sentence": "Gases lack fixed shape or volume, expanding freely.",
+        "best_chunk_idx": 0,
+        "best_chunk": "What are the three primary states of matter? List them.",
+        "sim": 0.269,
+        "is_orphan": true
+      },
+      {
+        "sentence": "These fundamental states define how matter exists universally.",
+        "best_chunk_idx": 0,
+        "best_chunk": "What are the three primary states of matter? List them.",
+        "sim": 0.623,
+        "is_orphan": false
+      }
+    ],
+    "backtrackability": 0.4,
+    "prompt_coverage": 1.0,
+    "keyword_recall": {
+      "recall_percentage": 62.5,
+      "prompt_keywords": [
+        "are",
+        "list",
+        "matter",
+        "primary",
+        "states",
+        "them",
+        "three",
+        "what"
+      ],
+      "found_keywords": [
+        "are",
+        "matter",
+        "primary",
+        "states",
+        "three"
+      ]
+    },
+    "extraneous_content": {
+      "extraneous_ratio": 0.839
+    },
+    "entity_mismatch": {
+      "mismatch_count": 5,
+      "mismatched_entities": [
+        "Gases",
+        "Liquids",
+        "Solids",
+        "The",
+        "These"
+      ]
+    },
+    "number_mismatch": {
+      "missing_numbers": [],
+      "extra_numbers": [],
+      "extra_numbers_count": 0
+    },
+    "sentence_variety_score": 2.08,
+    "repetition": {
+      "repetition_percentage": 4.55,
+      "repeated_bigrams": [
+        [
+          "a",
+          "fixed"
+        ],
+        [
+          "fixed",
+          "shape"
+        ]
+      ]
+    },
+    "contradiction": {
+      "contradiction_detected": false,
+      "pair": null
+    },
+    "assumption_risk": 0.0,
+    "user_frustration_proxy": 0.528,
+    "overconfidence": 0.839,
+    "semantic_alignment": 0.776,
+    "semantic_drift": 0.443,
+    "compact_features": {
+      "alignment_balance": -0.214,
+      "keyword_recall": 0.625,
+      "extraneous_ratio": 0.839,
+      "semantic_alignment": 0.776,
+      "semantic_drift": 0.443,
+      "backtrackability": 0.4,
+      "prompt_chunk_coverage": 1.0,
+      "instruction_coverage": 1.0,
+      "sentence_variety": 2.08,
+      "repetition_penalty_pct": 4.55,
+      "contradiction_flag": 0,
+      "pronoun_resolution_score": 0.5,
+      "assumption_risk": 0.0,
+      "user_frustration_proxy": 0.528,
+      "overconfidence": 0.839,
+      "hallucination_risk": 0.634,
+      "domain": "Other",
+      "domain_adherence": 0.5
+    },
+    "persona": "Factual Reporter"
+  },
+  {
+    "prompt": "What are the three primary states of matter? List them.",
+    "response": "Oh, let's dive in! The three primary states of matter are **solids**, **liquids**, and **gases**! Think a firm rock, a flowing river, and the air you breathe! Some whisper ancient wizards could even bend these states with pure thought! Wild!",
+    "prompt_chunks": [
+      "What are the three primary states of matter? List them."
+    ],
+    "prompt_chunk_weights": [
+      1.0
+    ],
+    "sentence_mappings": [
+      {
+        "sentence": "Oh, let's dive in!",
+        "best_chunk_idx": 0,
+        "best_chunk": "What are the three primary states of matter? List them.",
+        "sim": -0.016,
+        "is_orphan": true
+      },
+      {
+        "sentence": "The three primary states of matter are **solids**, **liquids**, and **gases**!",
+        "best_chunk_idx": 0,
+        "best_chunk": "What are the three primary states of matter? List them.",
+        "sim": 0.862,
+        "is_orphan": false
+      },
+      {
+        "sentence": "Think a firm rock, a flowing river, and the air you breathe!",
+        "best_chunk_idx": 0,
+        "best_chunk": "What are the three primary states of matter? List them.",
+        "sim": 0.289,
+        "is_orphan": true
+      },
+      {
+        "sentence": "Some whisper ancient wizards could even bend these states with pure thought!",
+        "best_chunk_idx": 0,
+        "best_chunk": "What are the three primary states of matter? List them.",
+        "sim": 0.18,
+        "is_orphan": true
+      },
+      {
+        "sentence": "Wild!",
+        "best_chunk_idx": 0,
+        "best_chunk": "What are the three primary states of matter? List them.",
+        "sim": 0.019,
+        "is_orphan": true
+      }
+    ],
+    "backtrackability": 0.2,
+    "prompt_coverage": 1.0,
+    "keyword_recall": {
+      "recall_percentage": 62.5,
+      "prompt_keywords": [
+        "are",
+        "list",
+        "matter",
+        "primary",
+        "states",
+        "them",
+        "three",
+        "what"
+      ],
+      "found_keywords": [
+        "are",
+        "matter",
+        "primary",
+        "states",
+        "three"
+      ]
+    },
+    "extraneous_content": {
+      "extraneous_ratio": 0.833
+    },
+    "entity_mismatch": {
+      "mismatch_count": 5,
+      "mismatched_entities": [
+        "Oh",
+        "Some",
+        "The",
+        "Think",
+        "Wild"
+      ]
+    },
+    "number_mismatch": {
+      "missing_numbers": [],
+      "extra_numbers": [],
+      "extra_numbers_count": 0
+    },
+    "sentence_variety_score": 6.06,
+    "repetition": {
+      "repetition_percentage": 0.0,
+      "repeated_bigrams": []
+    },
+    "contradiction": {
+      "contradiction_detected": false,
+      "pair": null
+    },
+    "assumption_risk": 0.0,
+    "user_frustration_proxy": 0.647,
+    "overconfidence": 0.666,
+    "semantic_alignment": 0.723,
+    "semantic_drift": 0.678,
+    "compact_features": {
+      "alignment_balance": -0.208,
+      "keyword_recall": 0.625,
+      "extraneous_ratio": 0.833,
+      "semantic_alignment": 0.723,
+      "semantic_drift": 0.678,
+      "backtrackability": 0.2,
+      "prompt_chunk_coverage": 1.0,
+      "instruction_coverage": 1.0,
+      "sentence_variety": 6.06,
+      "repetition_penalty_pct": 0.0,
+      "contradiction_flag": 0,
+      "pronoun_resolution_score": 1.0,
+      "assumption_risk": 0.0,
+      "user_frustration_proxy": 0.647,
+      "overconfidence": 0.666,
+      "hallucination_risk": 0.662,
+      "domain": "Other",
+      "domain_adherence": 0.5
+    },
+    "persona": "Enthusiastic Storyteller"
+  },
+  {
+    "prompt": "What are the three primary states of matter? List them.",
+    "response": "It is widely believed that the three primary states of matter are solid, liquid, and gas. Sources suggest these fundamental forms exhibit distinct properties, extensively studied in physics and chemistry, forming the essential basis for much scientific understanding.",
+    "prompt_chunks": [
+      "What are the three primary states of matter? List them."
+    ],
+    "prompt_chunk_weights": [
+      1.0
+    ],
+    "sentence_mappings": [
+      {
+        "sentence": "It is widely believed that the three primary states of matter are solid, liquid, and gas.",
+        "best_chunk_idx": 0,
+        "best_chunk": "What are the three primary states of matter? List them.",
+        "sim": 0.843,
+        "is_orphan": false
+      },
+      {
+        "sentence": "Sources suggest these fundamental forms exhibit distinct properties, extensively studied in physics and chemistry, forming the essential basis for much scientific understanding.",
+        "best_chunk_idx": 0,
+        "best_chunk": "What are the three primary states of matter? List them.",
+        "sim": 0.414,
+        "is_orphan": true
+      }
+    ],
+    "backtrackability": 0.5,
+    "prompt_coverage": 1.0,
+    "keyword_recall": {
+      "recall_percentage": 62.5,
+      "prompt_keywords": [
+        "are",
+        "list",
+        "matter",
+        "primary",
+        "states",
+        "them",
+        "three",
+        "what"
+      ],
+      "found_keywords": [
+        "are",
+        "matter",
+        "primary",
+        "states",
+        "three"
+      ]
+    },
+    "extraneous_content": {
+      "extraneous_ratio": 0.821
+    },
+    "entity_mismatch": {
+      "mismatch_count": 2,
+      "mismatched_entities": [
+        "It",
+        "Sources"
+      ]
+    },
+    "number_mismatch": {
+      "missing_numbers": [],
+      "extra_numbers": [],
+      "extra_numbers_count": 0
+    },
+    "sentence_variety_score": 2.23,
+    "repetition": {
+      "repetition_percentage": 0.0,
+      "repeated_bigrams": []
+    },
+    "contradiction": {
+      "contradiction_detected": false,
+      "pair": null
+    },
+    "assumption_risk": 0.0,
+    "user_frustration_proxy": 0.664,
+    "overconfidence": 0.41,
+    "semantic_alignment": 0.797,
+    "semantic_drift": 0.578,
+    "compact_features": {
+      "alignment_balance": -0.196,
+      "keyword_recall": 0.625,
+      "extraneous_ratio": 0.821,
+      "semantic_alignment": 0.797,
+      "semantic_drift": 0.578,
+      "backtrackability": 0.5,
+      "prompt_chunk_coverage": 1.0,
+      "instruction_coverage": 1.0,
+      "sentence_variety": 2.23,
+      "repetition_penalty_pct": 0.0,
+      "contradiction_flag": 0,
+      "pronoun_resolution_score": 0.667,
+      "assumption_risk": 0.0,
+      "user_frustration_proxy": 0.664,
+      "overconfidence": 0.41,
+      "hallucination_risk": 0.57,
+      "domain": "Other",
+      "domain_adherence": 0.5
+    },
+    "persona": "Skeptical Analyst"
+  },
+  {
+    "prompt": "Explain the concept of photosynthesis to a child.",
+    "response": "Plants perform photosynthesis to make their own food. They absorb sunlight, water from the soil, and carbon dioxide from the air. Inside their green leaves, chlorophyll captures sun's energy. This energy transforms ingredients into sugary food for plant growth. A vital byproduct is oxygen, which plants release into the atmosphere, essential for animals, including humans, to breathe.",
+    "prompt_chunks": [
+      "Explain the concept of photosynthesis to a child."
+    ],
+    "prompt_chunk_weights": [
+      1.0
+    ],
+    "sentence_mappings": [
+      {
+        "sentence": "Plants perform photosynthesis to make their own food.",
+        "best_chunk_idx": 0,
+        "best_chunk": "Explain the concept of photosynthesis to a child.",
+        "sim": 0.635,
+        "is_orphan": false
+      },
+      {
+        "sentence": "They absorb sunlight, water from the soil, and carbon dioxide from the air.",
+        "best_chunk_idx": 0,
+        "best_chunk": "Explain the concept of photosynthesis to a child.",
+        "sim": 0.39,
+        "is_orphan": true
+      },
+      {
+        "sentence": "Inside their green leaves, chlorophyll captures sun's energy.",
+        "best_chunk_idx": 0,
+        "best_chunk": "Explain the concept of photosynthesis to a child.",
+        "sim": 0.509,
+        "is_orphan": false
+      },
+      {
+        "sentence": "This energy transforms ingredients into sugary food for plant growth.",
+        "best_chunk_idx": 0,
+        "best_chunk": "Explain the concept of photosynthesis to a child.",
+        "sim": 0.441,
+        "is_orphan": true
+      },
+      {
+        "sentence": "A vital byproduct is oxygen, which plants release into the atmosphere, essential for animals, including humans, to breathe.",
+        "best_chunk_idx": 0,
+        "best_chunk": "Explain the concept of photosynthesis to a child.",
+        "sim": 0.352,
+        "is_orphan": true
+      }
+    ],
+    "backtrackability": 0.4,
+    "prompt_coverage": 1.0,
+    "keyword_recall": {
+      "recall_percentage": 25.0,
+      "prompt_keywords": [
+        "child",
+        "concept",
+        "explain",
+        "photosynthesis"
+      ],
+      "found_keywords": [
+        "photosynthesis"
+      ]
+    },
+    "extraneous_content": {
+      "extraneous_ratio": 0.975
+    },
+    "entity_mismatch": {
+      "mismatch_count": 5,
+      "mismatched_entities": [
+        "A",
+        "Inside",
+        "Plants",
+        "They",
+        "This"
+      ]
+    },
+    "number_mismatch": {
+      "missing_numbers": [],
+      "extra_numbers": [],
+      "extra_numbers_count": 0
+    },
+    "sentence_variety_score": 3.48,
+    "repetition": {
+      "repetition_percentage": 1.75,
+      "repeated_bigrams": [
+        [
+          "from",
+          "the"
+        ]
+      ]
+    },
+    "contradiction": {
+      "contradiction_detected": false,
+      "pair": null
+    },
+    "assumption_risk": 0.0,
+    "user_frustration_proxy": 0.555,
+    "overconfidence": 0.975,
+    "semantic_alignment": 0.617,
+    "semantic_drift": 0.584,
+    "compact_features": {
+      "alignment_balance": -0.725,
+      "keyword_recall": 0.25,
+      "extraneous_ratio": 0.975,
+      "semantic_alignment": 0.617,
+      "semantic_drift": 0.584,
+      "backtrackability": 0.4,
+      "prompt_chunk_coverage": 1.0,
+      "instruction_coverage": 1.0,
+      "sentence_variety": 3.48,
+      "repetition_penalty_pct": 1.75,
+      "contradiction_flag": 0,
+      "pronoun_resolution_score": 0.25,
+      "assumption_risk": 0.0,
+      "user_frustration_proxy": 0.555,
+      "overconfidence": 0.975,
+      "hallucination_risk": 0.688,
+      "domain": "Other",
+      "domain_adherence": 0.5
+    },
+    "persona": "Factual Reporter"
+  },
+  {
+    "prompt": "Explain the concept of photosynthesis to a child.",
+    "response": "Hey, little buddy! Photosynthesis? Plants' secret superpower! They soak up sunshine, sip water, gobble air. Then, *zap*, they make their own yummy food and magically blow out fresh air for us! Ta-da!",
+    "prompt_chunks": [
+      "Explain the concept of photosynthesis to a child."
+    ],
+    "prompt_chunk_weights": [
+      1.0
+    ],
+    "sentence_mappings": [
+      {
+        "sentence": "Hey, little buddy!",
+        "best_chunk_idx": 0,
+        "best_chunk": "Explain the concept of photosynthesis to a child.",
+        "sim": 0.064,
+        "is_orphan": true
+      },
+      {
+        "sentence": "Photosynthesis?",
+        "best_chunk_idx": 0,
+        "best_chunk": "Explain the concept of photosynthesis to a child.",
+        "sim": 0.733,
+        "is_orphan": false
+      },
+      {
+        "sentence": "Plants' secret superpower!",
+        "best_chunk_idx": 0,
+        "best_chunk": "Explain the concept of photosynthesis to a child.",
+        "sim": 0.359,
+        "is_orphan": true
+      },
+      {
+        "sentence": "They soak up sunshine, sip water, gobble air.",
+        "best_chunk_idx": 0,
+        "best_chunk": "Explain the concept of photosynthesis to a child.",
+        "sim": 0.264,
+        "is_orphan": true
+      },
+      {
+        "sentence": "Then, *zap*, they make their own yummy food and magically blow out fresh air for us!",
+        "best_chunk_idx": 0,
+        "best_chunk": "Explain the concept of photosynthesis to a child.",
+        "sim": 0.094,
+        "is_orphan": true
+      },
+      {
+        "sentence": "Ta-da!",
+        "best_chunk_idx": 0,
+        "best_chunk": "Explain the concept of photosynthesis to a child.",
+        "sim": -0.045,
+        "is_orphan": true
+      }
+    ],
+    "backtrackability": 0.167,
+    "prompt_coverage": 1.0,
+    "keyword_recall": {
+      "recall_percentage": 25.0,
+      "prompt_keywords": [
+        "child",
+        "concept",
+        "explain",
+        "photosynthesis"
+      ],
+      "found_keywords": [
+        "photosynthesis"
+      ]
+    },
+    "extraneous_content": {
+      "extraneous_ratio": 0.966
+    },
+    "entity_mismatch": {
+      "mismatch_count": 6,
+      "mismatched_entities": [
+        "Hey",
+        "Photosynthesis",
+        "Plants",
+        "Ta-da",
+        "Then",
+        "They"
+      ]
+    },
+    "number_mismatch": {
+      "missing_numbers": [],
+      "extra_numbers": [],
+      "extra_numbers_count": 0
+    },
+    "sentence_variety_score": 10,
+    "repetition": {
+      "repetition_percentage": 0.0,
+      "repeated_bigrams": []
+    },
+    "contradiction": {
+      "contradiction_detected": false,
+      "pair": null
+    },
+    "assumption_risk": 0.0,
+    "user_frustration_proxy": 0.693,
+    "overconfidence": 0.966,
+    "semantic_alignment": 0.562,
+    "semantic_drift": 0.702,
+    "compact_features": {
+      "alignment_balance": -0.716,
+      "keyword_recall": 0.25,
+      "extraneous_ratio": 0.966,
+      "semantic_alignment": 0.562,
+      "semantic_drift": 0.702,
+      "backtrackability": 0.167,
+      "prompt_chunk_coverage": 1.0,
+      "instruction_coverage": 1.0,
+      "sentence_variety": 10,
+      "repetition_penalty_pct": 0.0,
+      "contradiction_flag": 0,
+      "pronoun_resolution_score": 0.0,
+      "assumption_risk": 0.0,
+      "user_frustration_proxy": 0.693,
+      "overconfidence": 0.966,
+      "hallucination_risk": 0.726,
+      "domain": "Other",
+      "domain_adherence": 0.5
+    },
+    "persona": "Enthusiastic Storyteller"
+  },
+  {
+    "prompt": "Explain the concept of photosynthesis to a child.",
+    "response": "It is believed plants, much like tiny chefs, create their own food. Sources suggest they utilize sunlight, water from soil, and a gas, carbon dioxide, from the air. Inside leaves, a green pigment, often called chlorophyll, is understood to help. This process is thought to transform these elements into sugars for the plant's energy. And, it is believed, oxygen, for us, is released. This is a plant's food-making system.",
+    "prompt_chunks": [
+      "Explain the concept of photosynthesis to a child."
+    ],
+    "prompt_chunk_weights": [
+      1.0
+    ],
+    "sentence_mappings": [
+      {
+        "sentence": "It is believed plants, much like tiny chefs, create their own food.",
+        "best_chunk_idx": 0,
+        "best_chunk": "Explain the concept of photosynthesis to a child.",
+        "sim": 0.387,
+        "is_orphan": true
+      },
+      {
+        "sentence": "Sources suggest they utilize sunlight, water from soil, and a gas, carbon dioxide, from the air.",
+        "best_chunk_idx": 0,
+        "best_chunk": "Explain the concept of photosynthesis to a child.",
+        "sim": 0.443,
+        "is_orphan": true
+      },
+      {
+        "sentence": "Inside leaves, a green pigment, often called chlorophyll, is understood to help.",
+        "best_chunk_idx": 0,
+        "best_chunk": "Explain the concept of photosynthesis to a child.",
+        "sim": 0.417,
+        "is_orphan": true
+      },
+      {
+        "sentence": "This process is thought to transform these elements into sugars for the plant's energy.",
+        "best_chunk_idx": 0,
+        "best_chunk": "Explain the concept of photosynthesis to a child.",
+        "sim": 0.462,
+        "is_orphan": false
+      },
+      {
+        "sentence": "And, it is believed, oxygen, for us, is released.",
+        "best_chunk_idx": 0,
+        "best_chunk": "Explain the concept of photosynthesis to a child.",
+        "sim": 0.325,
+        "is_orphan": true
+      },
+      {
+        "sentence": "This is a plant's food-making system.",
+        "best_chunk_idx": 0,
+        "best_chunk": "Explain the concept of photosynthesis to a child.",
+        "sim": 0.378,
+        "is_orphan": true
+      }
+    ],
+    "backtrackability": 0.167,
+    "prompt_coverage": 1.0,
+    "keyword_recall": {
+      "recall_percentage": 0.0,
+      "prompt_keywords": [
+        "child",
+        "concept",
+        "explain",
+        "photosynthesis"
+      ],
+      "found_keywords": []
+    },
+    "extraneous_content": {
+      "extraneous_ratio": 1.0
+    },
+    "entity_mismatch": {
+      "mismatch_count": 5,
+      "mismatched_entities": [
+        "And",
+        "Inside",
+        "It",
+        "Sources",
+        "This"
+      ]
+    },
+    "number_mismatch": {
+      "missing_numbers": [],
+      "extra_numbers": [],
+      "extra_numbers_count": 0
+    },
+    "sentence_variety_score": 2.64,
+    "repetition": {
+      "repetition_percentage": 4.23,
+      "repeated_bigrams": [
+        [
+          "plant",
+          "s"
+        ],
+        [
+          "is",
+          "believed"
+        ],
+        [
+          "it",
+          "is"
+        ]
+      ]
+    },
+    "contradiction": {
+      "contradiction_detected": false,
+      "pair": null
+    },
+    "assumption_risk": 0.0,
+    "user_frustration_proxy": 0.9,
+    "overconfidence": 0.833,
+    "semantic_alignment": 0.584,
+    "semantic_drift": 0.329,
+    "compact_features": {
+      "alignment_balance": -1.0,
+      "keyword_recall": 0.0,
+      "extraneous_ratio": 1.0,
+      "semantic_alignment": 0.584,
+      "semantic_drift": 0.329,
+      "backtrackability": 0.167,
+      "prompt_chunk_coverage": 1.0,
+      "instruction_coverage": 1.0,
+      "sentence_variety": 2.64,
+      "repetition_penalty_pct": 4.23,
+      "contradiction_flag": 0,
+      "pronoun_resolution_score": 0.0,
+      "assumption_risk": 0.0,
+      "user_frustration_proxy": 0.9,
+      "overconfidence": 0.833,
+      "hallucination_risk": 0.733,
+      "domain": "Other",
+      "domain_adherence": 0.5
+    },
+    "persona": "Skeptical Analyst"
+  },
+  {
+    "prompt": "What is the square root of 64?",
+    "response": "A recent mathematical inquiry confirmed that the square root of the number 64 is precisely 8. This finding aligns with established arithmetic principles and offers a clear, unbiased resolution to the calculation. It represents a fundamental truth.",
+    "prompt_chunks": [
+      "What is the square root of 64?"
+    ],
+    "prompt_chunk_weights": [
+      1.0
+    ],
+    "sentence_mappings": [
+      {
+        "sentence": "A recent mathematical inquiry confirmed that the square root of the number 64 is precisely 8.",
+        "best_chunk_idx": 0,
+        "best_chunk": "What is the square root of 64?",
+        "sim": 0.841,
+        "is_orphan": false
+      },
+      {
+        "sentence": "This finding aligns with established arithmetic principles and offers a clear, unbiased resolution to the calculation.",
+        "best_chunk_idx": 0,
+        "best_chunk": "What is the square root of 64?",
+        "sim": 0.303,
+        "is_orphan": true
+      },
+      {
+        "sentence": "It represents a fundamental truth.",
+        "best_chunk_idx": 0,
+        "best_chunk": "What is the square root of 64?",
+        "sim": 0.134,
+        "is_orphan": true
+      }
+    ],
+    "backtrackability": 0.333,
+    "prompt_coverage": 1.0,
+    "keyword_recall": {
+      "recall_percentage": 66.67,
+      "prompt_keywords": [
+        "root",
+        "square",
+        "what"
+      ],
+      "found_keywords": [
+        "root",
+        "square"
+      ]
+    },
+    "extraneous_content": {
+      "extraneous_ratio": 0.87
+    },
+    "entity_mismatch": {
+      "mismatch_count": 3,
+      "mismatched_entities": [
+        "A",
+        "It",
+        "This"
+      ]
+    },
+    "number_mismatch": {
+      "missing_numbers": [],
+      "extra_numbers": [
+        "8"
+      ],
+      "extra_numbers_count": 1
+    },
+    "sentence_variety_score": 5.15,
+    "repetition": {
+      "repetition_percentage": 0.0,
+      "repeated_bigrams": []
+    },
+    "contradiction": {
+      "contradiction_detected": false,
+      "pair": null
+    },
+    "assumption_risk": 0.0,
+    "user_frustration_proxy": 0.574,
+    "overconfidence": 0.87,
+    "semantic_alignment": 0.815,
+    "semantic_drift": 0.847,
+    "compact_features": {
+      "alignment_balance": -0.203,
+      "keyword_recall": 0.667,
+      "extraneous_ratio": 0.87,
+      "semantic_alignment": 0.815,
+      "semantic_drift": 0.847,
+      "backtrackability": 0.333,
+      "prompt_chunk_coverage": 1.0,
+      "instruction_coverage": 1.0,
+      "sentence_variety": 5.15,
+      "repetition_penalty_pct": 0.0,
+      "contradiction_flag": 0,
+      "pronoun_resolution_score": 0.333,
+      "assumption_risk": 0.0,
+      "user_frustration_proxy": 0.574,
+      "overconfidence": 0.87,
+      "hallucination_risk": 0.736,
+      "domain": "Other",
+      "domain_adherence": 0.5
+    },
+    "persona": "Factual Reporter"
+  },
+  {
+    "prompt": "What is the square root of 64?",
+    "response": "Oh, what a brilliant question! The square root of 64? That's a super-duper, totally awesome number! It's 8! Imagine finding 64 golden coins; you'd make a perfect 8x8 treasure grid! Some old sea dog once told me that 8 was his lucky number for finding buried treasure. So, yeah, it's definitely 8!",
+    "prompt_chunks": [
+      "What is the square root of 64?"
+    ],
+    "prompt_chunk_weights": [
+      1.0
+    ],
+    "sentence_mappings": [
+      {
+        "sentence": "Oh, what a brilliant question!",
+        "best_chunk_idx": 0,
+        "best_chunk": "What is the square root of 64?",
+        "sim": 0.109,
+        "is_orphan": true
+      },
+      {
+        "sentence": "The square root of 64?",
+        "best_chunk_idx": 0,
+        "best_chunk": "What is the square root of 64?",
+        "sim": 0.979,
+        "is_orphan": false
+      },
+      {
+        "sentence": "That's a super-duper, totally awesome number!",
+        "best_chunk_idx": 0,
+        "best_chunk": "What is the square root of 64?",
+        "sim": 0.26,
+        "is_orphan": true
+      },
+      {
+        "sentence": "It's 8!",
+        "best_chunk_idx": 0,
+        "best_chunk": "What is the square root of 64?",
+        "sim": 0.333,
+        "is_orphan": true
+      },
+      {
+        "sentence": "Imagine finding 64 golden coins; you'd make a perfect 8x8 treasure grid!",
+        "best_chunk_idx": 0,
+        "best_chunk": "What is the square root of 64?",
+        "sim": 0.341,
+        "is_orphan": true
+      },
+      {
+        "sentence": "Some old sea dog once told me that 8 was his lucky number for finding buried treasure.",
+        "best_chunk_idx": 0,
+        "best_chunk": "What is the square root of 64?",
+        "sim": 0.247,
+        "is_orphan": true
+      },
+      {
+        "sentence": "So, yeah, it's definitely 8!",
+        "best_chunk_idx": 0,
+        "best_chunk": "What is the square root of 64?",
+        "sim": 0.304,
+        "is_orphan": true
+      }
+    ],
+    "backtrackability": 0.143,
+    "prompt_coverage": 1.0,
+    "keyword_recall": {
+      "recall_percentage": 100.0,
+      "prompt_keywords": [
+        "root",
+        "square",
+        "what"
+      ],
+      "found_keywords": [
+        "root",
+        "square",
+        "what"
+      ]
+    },
+    "extraneous_content": {
+      "extraneous_ratio": 0.895
+    },
+    "entity_mismatch": {
+      "mismatch_count": 7,
+      "mismatched_entities": [
+        "Imagine",
+        "It",
+        "Oh",
+        "So",
+        "Some",
+        "That",
+        "The"
+      ]
+    },
+    "number_mismatch": {
+      "missing_numbers": [],
+      "extra_numbers": [
+        "8"
+      ],
+      "extra_numbers_count": 1
+    },
+    "sentence_variety_score": 6.2,
+    "repetition": {
+      "repetition_percentage": 1.79,
+      "repeated_bigrams": [
+        [
+          "it",
+          "s"
+        ]
+      ]
+    },
+    "contradiction": {
+      "contradiction_detected": false,
+      "pair": null
+    },
+    "assumption_risk": 0.0,
+    "user_frustration_proxy": 0.693,
+    "overconfidence": 0.895,
+    "semantic_alignment": 0.711,
+    "semantic_drift": 0.848,
+    "compact_features": {
+      "alignment_balance": 0.105,
+      "keyword_recall": 1.0,
+      "extraneous_ratio": 0.895,
+      "semantic_alignment": 0.711,
+      "semantic_drift": 0.848,
+      "backtrackability": 0.143,
+      "prompt_chunk_coverage": 1.0,
+      "instruction_coverage": 1.0,
+      "sentence_variety": 6.2,
+      "repetition_penalty_pct": 1.79,
+      "contradiction_flag": 0,
+      "pronoun_resolution_score": 0.0,
+      "assumption_risk": 0.0,
+      "user_frustration_proxy": 0.693,
+      "overconfidence": 0.895,
+      "hallucination_risk": 0.805,
+      "domain": "Other",
+      "domain_adherence": 0.5
+    },
+    "persona": "Enthusiastic Storyteller"
+  },
+  {
+    "prompt": "What is the square root of 64?",
+    "response": "Sources suggest that the principal square root of 64 is widely considered to be 8. It is also believed that negative 8 is another valid square root.",
+    "prompt_chunks": [
+      "What is the square root of 64?"
+    ],
+    "prompt_chunk_weights": [
+      1.0
+    ],
+    "sentence_mappings": [
+      {
+        "sentence": "Sources suggest that the principal square root of 64 is widely considered to be 8.",
+        "best_chunk_idx": 0,
+        "best_chunk": "What is the square root of 64?",
+        "sim": 0.812,
+        "is_orphan": false
+      },
+      {
+        "sentence": "It is also believed that negative 8 is another valid square root.",
+        "best_chunk_idx": 0,
+        "best_chunk": "What is the square root of 64?",
+        "sim": 0.602,
+        "is_orphan": false
+      }
+    ],
+    "backtrackability": 1.0,
+    "prompt_coverage": 1.0,
+    "keyword_recall": {
+      "recall_percentage": 66.67,
+      "prompt_keywords": [
+        "root",
+        "square",
+        "what"
+      ],
+      "found_keywords": [
+        "root",
+        "square"
+      ]
+    },
+    "extraneous_content": {
+      "extraneous_ratio": 0.8
+    },
+    "entity_mismatch": {
+      "mismatch_count": 2,
+      "mismatched_entities": [
+        "It",
+        "Sources"
+      ]
+    },
+    "number_mismatch": {
+      "missing_numbers": [],
+      "extra_numbers": [
+        "8"
+      ],
+      "extra_numbers_count": 1
+    },
+    "sentence_variety_score": 1.57,
+    "repetition": {
+      "repetition_percentage": 3.85,
+      "repeated_bigrams": [
+        [
+          "square",
+          "root"
+        ]
+      ]
+    },
+    "contradiction": {
+      "contradiction_detected": true,
+      "pair": [
+        "Sources suggest that the principal square root of 64 is widely considered to be 8.",
+        "It is also believed that negative 8 is another valid square root."
+      ]
+    },
+    "assumption_risk": 0.0,
+    "user_frustration_proxy": 0.36,
+    "overconfidence": 0.4,
+    "semantic_alignment": 0.772,
+    "semantic_drift": 0.355,
+    "compact_features": {
+      "alignment_balance": -0.133,
+      "keyword_recall": 0.667,
+      "extraneous_ratio": 0.8,
+      "semantic_alignment": 0.772,
+      "semantic_drift": 0.355,
+      "backtrackability": 1.0,
+      "prompt_chunk_coverage": 1.0,
+      "instruction_coverage": 1.0,
+      "sentence_variety": 1.57,
+      "repetition_penalty_pct": 3.85,
+      "contradiction_flag": 1,
+      "pronoun_resolution_score": 1.0,
+      "assumption_risk": 0.0,
+      "user_frustration_proxy": 0.36,
+      "overconfidence": 0.4,
+      "hallucination_risk": 0.587,
+      "domain": "Other",
+      "domain_adherence": 0.5
+    },
+    "persona": "Skeptical Analyst"
+  },
+  {
+    "prompt": "Describe the main characters of the movie, The Lord of the Rings.",
+    "response": "The main characters include Frodo Baggins, a hobbit tasked with destroying the One Ring, and his loyal companion, Samwise Gamgee. Gandalf, a powerful wizard, guides the Fellowship. Aragorn, a human ranger, embraces his destiny as Gondor's king. Other key members are the elf Legolas, the dwarf Gimli, and hobbits Merry and Pippin. Their epic quest confronts the Dark Lord Sauron and the Ring-obsessed creature Gollum, determining Middle-earth's fate.",
+    "prompt_chunks": [
+      "Describe the main characters of the movie",
+      "The Lord of the Rings."
+    ],
+    "prompt_chunk_weights": [
+      0.5,
+      0.5
+    ],
+    "sentence_mappings": [
+      {
+        "sentence": "The main characters include Frodo Baggins, a hobbit tasked with destroying the One Ring, and his loyal companion, Samwise Gamgee.",
+        "best_chunk_idx": 1,
+        "best_chunk": "The Lord of the Rings.",
+        "sim": 0.585,
+        "is_orphan": false
+      },
+      {
+        "sentence": "Gandalf, a powerful wizard, guides the Fellowship.",
+        "best_chunk_idx": 1,
+        "best_chunk": "The Lord of the Rings.",
+        "sim": 0.508,
+        "is_orphan": false
+      },
+      {
+        "sentence": "Aragorn, a human ranger, embraces his destiny as Gondor's king.",
+        "best_chunk_idx": 1,
+        "best_chunk": "The Lord of the Rings.",
+        "sim": 0.335,
+        "is_orphan": true
+      },
+      {
+        "sentence": "Other key members are the elf Legolas, the dwarf Gimli, and hobbits Merry and Pippin.",
+        "best_chunk_idx": 1,
+        "best_chunk": "The Lord of the Rings.",
+        "sim": 0.323,
+        "is_orphan": true
+      },
+      {
+        "sentence": "Their epic quest confronts the Dark Lord Sauron and the Ring-obsessed creature Gollum, determining Middle-earth's fate.",
+        "best_chunk_idx": 1,
+        "best_chunk": "The Lord of the Rings.",
+        "sim": 0.595,
+        "is_orphan": false
+      }
+    ],
+    "backtrackability": 0.6,
+    "prompt_coverage": 0.5,
+    "keyword_recall": {
+      "recall_percentage": 50.0,
+      "prompt_keywords": [
+        "characters",
+        "describe",
+        "lord",
+        "main",
+        "movie",
+        "rings"
+      ],
+      "found_keywords": [
+        "characters",
+        "lord",
+        "main"
+      ]
+    },
+    "extraneous_content": {
+      "extraneous_ratio": 0.943
+    },
+    "entity_mismatch": {
+      "mismatch_count": 18,
+      "mismatched_entities": [
+        "Aragorn",
+        "Dark Lord Sauron",
+        "Fellowship",
+        "Frodo Baggins",
+        "Gandalf",
+        "Gimli",
+        "Gollum",
+        "Gondor",
+        "Legolas",
+        "Merry",
+        "Middle-earth",
+        "One Ring",
+        "Other",
+        "Pippin",
+        "Ring-obsessed",
+        "Samwise Gamgee",
+        "The",
+        "Their"
+      ]
+    },
+    "number_mismatch": {
+      "missing_numbers": [],
+      "extra_numbers": [],
+      "extra_numbers_count": 0
+    },
+    "sentence_variety_score": 3.79,
+    "repetition": {
+      "repetition_percentage": 0.0,
+      "repeated_bigrams": []
+    },
+    "contradiction": {
+      "contradiction_detected": false,
+      "pair": null
+    },
+    "assumption_risk": 0.0,
+    "user_frustration_proxy": 0.429,
+    "overconfidence": 0.943,
+    "semantic_alignment": 0.706,
+    "semantic_drift": 0.415,
+    "compact_features": {
+      "alignment_balance": -0.443,
+      "keyword_recall": 0.5,
+      "extraneous_ratio": 0.943,
+      "semantic_alignment": 0.706,
+      "semantic_drift": 0.415,
+      "backtrackability": 0.6,
+      "prompt_chunk_coverage": 0.5,
+      "instruction_coverage": 0.5,
+      "sentence_variety": 3.79,
+      "repetition_penalty_pct": 0.0,
+      "contradiction_flag": 0,
+      "pronoun_resolution_score": 0.667,
+      "assumption_risk": 0.0,
+      "user_frustration_proxy": 0.429,
+      "overconfidence": 0.943,
+      "hallucination_risk": 0.674,
+      "domain": "Other",
+      "domain_adherence": 0.5
+    },
+    "persona": "Factual Reporter"
+  },
+  {
+    "prompt": "Describe the main characters of the movie, The Lord of the Rings.",
+    "response": "Oh, it's a grand fellowship! There's Frodo, the little hobbit with a massive burden, and his loyal pal Sam. Plus, wise Gandalf, noble Aragorn (the secret king!), and the fierce, unlikely duo: Legolas the elf and Gimli the dwarf! What a crew!",
+    "prompt_chunks": [
+      "Describe the main characters of the movie",
+      "The Lord of the Rings."
+    ],
+    "prompt_chunk_weights": [
+      0.5,
+      0.5
+    ],
+    "sentence_mappings": [
+      {
+        "sentence": "Oh, it's a grand fellowship!",
+        "best_chunk_idx": 1,
+        "best_chunk": "The Lord of the Rings.",
+        "sim": 0.43,
+        "is_orphan": true
+      },
+      {
+        "sentence": "There's Frodo, the little hobbit with a massive burden, and his loyal pal Sam.",
+        "best_chunk_idx": 1,
+        "best_chunk": "The Lord of the Rings.",
+        "sim": 0.392,
+        "is_orphan": true
+      },
+      {
+        "sentence": "Plus, wise Gandalf, noble Aragorn (the secret king!), and the fierce, unlikely duo: Legolas the elf and Gimli the dwarf!",
+        "best_chunk_idx": 1,
+        "best_chunk": "The Lord of the Rings.",
+        "sim": 0.462,
+        "is_orphan": false
+      },
+      {
+        "sentence": "What a crew!",
+        "best_chunk_idx": 0,
+        "best_chunk": "Describe the main characters of the movie",
+        "sim": 0.12,
+        "is_orphan": true
+      }
+    ],
+    "backtrackability": 0.25,
+    "prompt_coverage": 0.5,
+    "keyword_recall": {
+      "recall_percentage": 0.0,
+      "prompt_keywords": [
+        "characters",
+        "describe",
+        "lord",
+        "main",
+        "movie",
+        "rings"
+      ],
+      "found_keywords": []
+    },
+    "extraneous_content": {
+      "extraneous_ratio": 1.0
+    },
+    "entity_mismatch": {
+      "mismatch_count": 10,
+      "mismatched_entities": [
+        "Aragorn",
+        "Frodo",
+        "Gandalf",
+        "Gimli",
+        "Legolas",
+        "Oh",
+        "Plus",
+        "Sam",
+        "There",
+        "What"
+      ]
+    },
+    "number_mismatch": {
+      "missing_numbers": [],
+      "extra_numbers": [],
+      "extra_numbers_count": 0
+    },
+    "sentence_variety_score": 7.16,
+    "repetition": {
+      "repetition_percentage": 0.0,
+      "repeated_bigrams": []
+    },
+    "contradiction": {
+      "contradiction_detected": false,
+      "pair": null
+    },
+    "assumption_risk": 0.0,
+    "user_frustration_proxy": 0.65,
+    "overconfidence": 0.75,
+    "semantic_alignment": 0.559,
+    "semantic_drift": 0.688,
+    "compact_features": {
+      "alignment_balance": -1.0,
+      "keyword_recall": 0.0,
+      "extraneous_ratio": 1.0,
+      "semantic_alignment": 0.559,
+      "semantic_drift": 0.688,
+      "backtrackability": 0.25,
+      "prompt_chunk_coverage": 0.5,
+      "instruction_coverage": 0.5,
+      "sentence_variety": 7.16,
+      "repetition_penalty_pct": 0.0,
+      "contradiction_flag": 0,
+      "pronoun_resolution_score": 0.0,
+      "assumption_risk": 0.0,
+      "user_frustration_proxy": 0.65,
+      "overconfidence": 0.75,
+      "hallucination_risk": 0.74,
+      "domain": "Other",
+      "domain_adherence": 0.5
+    },
+    "persona": "Enthusiastic Storyteller"
+  },
+  {
+    "prompt": "Describe the main characters of the movie, The Lord of the Rings.",
+    "response": "It is believed the main characters of *The Lord of the Rings* include Frodo Baggins, the hobbit Ring-bearer, and his loyal companion Samwise Gamgee. Sources suggest Gandalf, a guiding wizard. The diverse Fellowship—Aragorn, Legolas, Gimli, Boromir, Merry, and Pippin—aids their quest against Sauron. Gollum plays a significant role.",
+    "prompt_chunks": [
+      "Describe the main characters of the movie",
+      "The Lord of the Rings."
+    ],
+    "prompt_chunk_weights": [
+      0.5,
+      0.5
+    ],
+    "sentence_mappings": [
+      {
+        "sentence": "It is believed the main characters of *The Lord of the Rings* include Frodo Baggins, the hobbit Ring-bearer, and his loyal companion Samwise Gamgee.",
+        "best_chunk_idx": 1,
+        "best_chunk": "The Lord of the Rings.",
+        "sim": 0.58,
+        "is_orphan": false
+      },
+      {
+        "sentence": "Sources suggest Gandalf, a guiding wizard.",
+        "best_chunk_idx": 1,
+        "best_chunk": "The Lord of the Rings.",
+        "sim": 0.431,
+        "is_orphan": true
+      },
+      {
+        "sentence": "The diverse Fellowship—Aragorn, Legolas, Gimli, Boromir, Merry, and Pippin—aids their quest against Sauron.",
+        "best_chunk_idx": 1,
+        "best_chunk": "The Lord of the Rings.",
+        "sim": 0.438,
+        "is_orphan": true
+      },
+      {
+        "sentence": "Gollum plays a significant role.",
+        "best_chunk_idx": 1,
+        "best_chunk": "The Lord of the Rings.",
+        "sim": 0.469,
+        "is_orphan": false
+      }
+    ],
+    "backtrackability": 0.5,
+    "prompt_coverage": 0.5,
+    "keyword_recall": {
+      "recall_percentage": 66.67,
+      "prompt_keywords": [
+        "characters",
+        "describe",
+        "lord",
+        "main",
+        "movie",
+        "rings"
+      ],
+      "found_keywords": [
+        "characters",
+        "lord",
+        "main",
+        "rings"
+      ]
+    },
+    "extraneous_content": {
+      "extraneous_ratio": 0.895
+    },
+    "entity_mismatch": {
+      "mismatch_count": 16,
+      "mismatched_entities": [
+        "Aragorn",
+        "Boromir",
+        "Fellowship",
+        "Frodo Baggins",
+        "Gandalf",
+        "Gimli",
+        "Gollum",
+        "It",
+        "Legolas",
+        "Merry",
+        "Pippin",
+        "Ring-bearer",
+        "Samwise Gamgee",
+        "Sauron",
+        "Sources",
+        "The"
+      ]
+    },
+    "number_mismatch": {
+      "missing_numbers": [],
+      "extra_numbers": [],
+      "extra_numbers_count": 0
+    },
+    "sentence_variety_score": 7.31,
+    "repetition": {
+      "repetition_percentage": 2.0,
+      "repeated_bigrams": [
+        [
+          "of",
+          "the"
+        ]
+      ]
+    },
+    "contradiction": {
+      "contradiction_detected": false,
+      "pair": null
+    },
+    "assumption_risk": 0.0,
+    "user_frustration_proxy": 0.679,
+    "overconfidence": 0.671,
+    "semantic_alignment": 0.698,
+    "semantic_drift": 0.448,
+    "compact_features": {
+      "alignment_balance": -0.228,
+      "keyword_recall": 0.667,
+      "extraneous_ratio": 0.895,
+      "semantic_alignment": 0.698,
+      "semantic_drift": 0.448,
+      "backtrackability": 0.5,
+      "prompt_chunk_coverage": 0.5,
+      "instruction_coverage": 0.5,
+      "sentence_variety": 7.31,
+      "repetition_penalty_pct": 2.0,
+      "contradiction_flag": 0,
+      "pronoun_resolution_score": 0.667,
+      "assumption_risk": 0.0,
+      "user_frustration_proxy": 0.679,
+      "overconfidence": 0.671,
+      "hallucination_risk": 0.668,
+      "domain": "Other",
+      "domain_adherence": 0.5
+    },
+    "persona": "Skeptical Analyst"
+  }
+]
