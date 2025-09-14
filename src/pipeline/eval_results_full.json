@@ -360,5 +360,423 @@
       "score": 0.5135109424591064
     },
     "llm_judgment": null
+  },
+  {
+    "prompt": "What are the primary causes of climate change, and what are two main solutions?\"",
+    "response": "The primary cause of climate change is the increase of greenhouse gases like CO2 from human activities such as burning fossil fuels. Two key solutions are transitioning to renewable energy and improving energy efficiency.\"",
+    "bert_features": {
+      "prompt": "What are the primary causes of climate change, and what are two main solutions?\"",
+      "response": "The primary cause of climate change is the increase of greenhouse gases like CO2 from human activities such as burning fossil fuels. Two key solutions are transitioning to renewable energy and improving energy efficiency.\"",
+      "user_frustration_proxy": 0.15,
+      "overconfidence": 0.75,
+      "semantic_alignment": 0.806,
+      "semantic_drift": 0.629,
+      "keyword_recall": 0.6667000000000001,
+      "domain": "Other",
+      "domain_adherence": 0.5,
+      "repetition_percentage": 0.0,
+      "contradiction_detected": false,
+      "assumption_risk": 0.0,
+      "sentence_variety_score": 4.16,
+      "extraneous_ratio": 0.75,
+      "spelling_errors": 0
+    },
+    "bert_prediction": {
+      "label": "LABEL_0",
+      "score": 0.4845406413078308
+    },
+    "llm_judgment": null
+  },
+  {
+    "prompt": "\"What are the primary causes of climate change, and what are two main solutions?\"",
+    "response": "\"The primary cause of climate change is the increase of greenhouse gases like CO2 from human activities such as burning fossil fuels. Two key solutions are transitioning to renewable energy and improving energy efficiency.\"",
+    "bert_features": {
+      "prompt": "\"What are the primary causes of climate change, and what are two main solutions?\"",
+      "response": "\"The primary cause of climate change is the increase of greenhouse gases like CO2 from human activities such as burning fossil fuels. Two key solutions are transitioning to renewable energy and improving energy efficiency.\"",
+      "user_frustration_proxy": 0.15,
+      "overconfidence": 0.75,
+      "semantic_alignment": 0.728,
+      "semantic_drift": 0.561,
+      "keyword_recall": 0.6667000000000001,
+      "domain": "Other",
+      "domain_adherence": 0.5,
+      "repetition_percentage": 0.0,
+      "contradiction_detected": false,
+      "assumption_risk": 0.0,
+      "sentence_variety_score": 4.16,
+      "extraneous_ratio": 0.75,
+      "spelling_errors": 0
+    },
+    "bert_prediction": {
+      "label": "LABEL_0",
+      "score": 0.48944297432899475
+    },
+    "llm_judgment": {
+      "scores": [
+        {
+          "criterion": "Factual Accuracy",
+          "score": 10,
+          "justification": "The statement about the primary cause of climate change is correct."
+        },
+        {
+          "criterion": "Alignment with Prompt",
+          "score": 10,
+          "justification": "The response directly addresses the question by listing the primary causes and two main solutions."
+        },
+        {
+          "criterion": "Coherence",
+          "score": 9,
+          "justification": "The response is well-structured and easy to follow, with a clear progression from the reasons for climate change to the solutions."
+        },
+        {
+          "criterion": "Relevance of Information",
+          "score": 10,
+          "justification": "All information in the response is directly relevant to the prompt."
+        },
+        {
+          "criterion": "Agreement with BERT Score",
+          "score": 10,
+          "justification": "While the BERT score is low, in this case, it appears to be an anomaly, as the response's quality aligns with the expectation for this question."
+        }
+      ],
+      "overall_score": 9.8,
+      "overall_justification": "The response effectively and accurately addresses the question about the primary causes of climate change and two main solutions. The coherence score is marginally lower due to the brevity of the response."
+    }
+  },
+  {
+    "prompt": "\"What are the primary causes of climate change, and what are two main solutions?\"",
+    "response": "\"The primary cause of climate change is the increase of greenhouse gases like CO2 from human activities such as burning fossil fuels. Two key solutions are transitioning to renewable energy and improving energy efficiency.\"",
+    "bert_features": {
+      "prompt": "\"What are the primary causes of climate change, and what are two main solutions?\"",
+      "response": "\"The primary cause of climate change is the increase of greenhouse gases like CO2 from human activities such as burning fossil fuels. Two key solutions are transitioning to renewable energy and improving energy efficiency.\"",
+      "user_frustration_proxy": 0.15,
+      "overconfidence": 0.75,
+      "semantic_alignment": 0.728,
+      "semantic_drift": 0.561,
+      "keyword_recall": 0.6667000000000001,
+      "domain": "Other",
+      "domain_adherence": 0.5,
+      "repetition_percentage": 0.0,
+      "contradiction_detected": false,
+      "assumption_risk": 0.0,
+      "sentence_variety_score": 4.16,
+      "extraneous_ratio": 0.75,
+      "spelling_errors": 0
+    },
+    "bert_prediction": {
+      "label": "LABEL_0",
+      "score": 0.4947854280471802
+    },
+    "llm_judgment": {
+      "scores": [
+        {
+          "criterion": "Factual Accuracy",
+          "score": 10,
+          "justification": "The statement accurately explains the primary cause of climate change and mentions two main solutions."
+        },
+        {
+          "criterion": "Alignment with Prompt",
+          "score": 10,
+          "justification": "The response directly answers the question by providing information about the primary causes of climate change and two main solutions."
+        },
+        {
+          "criterion": "Coherence",
+          "score": 10,
+          "justification": "The response is well-structured, easy to follow, and presents concise information."
+        },
+        {
+          "criterion": "Relevance of Information",
+          "score": 10,
+          "justification": "All information presented is pertinent to the original question."
+        },
+        {
+          "criterion": "Agreement with BERT Score",
+          "score": 9,
+          "justification": "While the BERT score suggests the response is not fully alignment with the prompt, it certainly is a good approximation."
+        }
+      ],
+      "overall_score": 9.8,
+      "overall_justification": "The response provides informative, concise, and well-structured answers to the primary causes and solutions of climate change."
+    }
+  },
+  {
+    "prompt": "\"What are the primary causes of climate change, and what are two main solutions?\"",
+    "response": "\"The primary cause of climate change is the increase of greenhouse gases like CO2 from human activities such as burning fossil fuels. Two key solutions are transitioning to renewable energy and improving energy efficiency.\"",
+    "bert_features": {
+      "prompt": "\"What are the primary causes of climate change, and what are two main solutions?\"",
+      "response": "\"The primary cause of climate change is the increase of greenhouse gases like CO2 from human activities such as burning fossil fuels. Two key solutions are transitioning to renewable energy and improving energy efficiency.\"",
+      "user_frustration_proxy": 0.15,
+      "overconfidence": 0.75,
+      "semantic_alignment": 0.728,
+      "semantic_drift": 0.561,
+      "keyword_recall": 0.6667000000000001,
+      "domain": "Other",
+      "domain_adherence": 0.5,
+      "repetition_percentage": 0.0,
+      "contradiction_detected": false,
+      "assumption_risk": 0.0,
+      "sentence_variety_score": 4.16,
+      "extraneous_ratio": 0.75,
+      "spelling_errors": 0
+    },
+    "bert_prediction": {
+      "label": "LABEL_0",
+      "score": 0.5166638493537903
+    },
+    "llm_judgment": {
+      "scores": [
+        {
+          "criterion": "Factual Accuracy",
+          "score": 10,
+          "justification": "The information about the primary cause of climate change and two main solutions is scientifically supported and correct."
+        },
+        {
+          "criterion": "Alignment with Prompt",
+          "score": 10,
+          "justification": "The assistant directly answered the question about the causes of climate change and two main solutions."
+        },
+        {
+          "criterion": "Coherence",
+          "score": 10,
+          "justification": "The response is well-structured and easy to follow, providing clear points concerning causes and solutions."
+        },
+        {
+          "criterion": "Relevance of Information",
+          "score": 10,
+          "justification": "All information provided is pertinent to the original question, focusing on primary causes and solutions."
+        },
+        {
+          "criterion": "Agreement with BERT Score",
+          "score": 0,
+          "justification": "The BERT Score seems to indicate a low alignment with the provided response, but given that the assistant directly answered the question, this might not reflect the accuracy of the score."
+        }
+      ],
+      "overall_score": 9.8,
+      "overall_justification": "The assistant provided accurate, direct, well-structured, and relevant information, but the BERT Score suggests a slight deviation from the expected response."
+    }
+  },
+  {
+    "prompt": "\"What are the primary causes of climate change, and what are two main solutions?\"",
+    "response": "\"The primary cause of climate change is the increase of greenhouse gases like CO2 from human activities such as burning fossil fuels. Two key solutions are transitioning to renewable energy and improving energy efficiency.\"",
+    "bert_features": {
+      "prompt": "\"What are the primary causes of climate change, and what are two main solutions?\"",
+      "response": "\"The primary cause of climate change is the increase of greenhouse gases like CO2 from human activities such as burning fossil fuels. Two key solutions are transitioning to renewable energy and improving energy efficiency.\"",
+      "user_frustration_proxy": 0.15,
+      "overconfidence": 0.75,
+      "semantic_alignment": 0.728,
+      "semantic_drift": 0.561,
+      "keyword_recall": 0.6667000000000001,
+      "domain": "Other",
+      "domain_adherence": 0.5,
+      "repetition_percentage": 0.0,
+      "contradiction_detected": false,
+      "assumption_risk": 0.0,
+      "sentence_variety_score": 4.16,
+      "extraneous_ratio": 0.75,
+      "spelling_errors": 0
+    },
+    "bert_prediction": {
+      "label": "LABEL_0",
+      "score": 0.48872387409210205
+    },
+    "llm_judgment": {
+      "scores": [
+        {
+          "criterion": "Factual Accuracy",
+          "score": 10,
+          "justification": "The provided response correctly identifies the primary cause of climate change and provides two viable solutions."
+        },
+        {
+          "criterion": "Alignment with Prompt",
+          "score": 10,
+          "justification": "The AI assistant directly answers the question by providing information about the causes and solutions to climate change, as asked."
+        },
+        {
+          "criterion": "Coherence",
+          "score": 10,
+          "justification": "The response is well-structured, with a clear introduction, body, and conclusion, making it easy to follow."
+        },
+        {
+          "criterion": "Relevance of Information",
+          "score": 10,
+          "justification": "All information presented is closely related to the question and helpful in understanding the causes and solutions of climate change."
+        },
+        {
+          "criterion": "Agreement with BERT Score",
+          "score": 1,
+          "justification": "The BERT predicted score is low, suggesting that the response may not accurately follow the provided prompt or may not be completely correct. However, the response provided here is factually accurate and very much in line with the prompt."
+        }
+      ],
+      "overall_score": 9.6,
+      "overall_justification": "Although the BERT score is not as high as the other criteria scores, the quality of the response is still quite good, withaccurate and relevant information, a clear answer to the question, and coherence."
+    }
+  },
+  {
+    "prompt": "\"What are the primary causes of climate change, and what are two main solutions?\"",
+    "response": "\"The primary cause of climate change is the increase of greenhouse gases like CO2 from human activities such as burning fossil fuels. Two key solutions are transitioning to renewable energy and improving energy efficiency.\"",
+    "bert_features": {
+      "prompt": "\"What are the primary causes of climate change, and what are two main solutions?\"",
+      "response": "\"The primary cause of climate change is the increase of greenhouse gases like CO2 from human activities such as burning fossil fuels. Two key solutions are transitioning to renewable energy and improving energy efficiency.\"",
+      "user_frustration_proxy": 0.15,
+      "overconfidence": 0.75,
+      "semantic_alignment": 0.728,
+      "semantic_drift": 0.561,
+      "keyword_recall": 0.6667000000000001,
+      "domain": "Other",
+      "domain_adherence": 0.5,
+      "repetition_percentage": 0.0,
+      "contradiction_detected": false,
+      "assumption_risk": 0.0,
+      "sentence_variety_score": 4.16,
+      "extraneous_ratio": 0.75,
+      "spelling_errors": 0
+    },
+    "bert_prediction": {
+      "label": "LABEL_0",
+      "score": 0.4602409899234772
+    },
+    "llm_judgment": {
+      "scores": [
+        {
+          "criterion": "Factual Accuracy",
+          "score": 10,
+          "justification": "The response accurately states the primary cause of climate change and provides two main solutions."
+        },
+        {
+          "criterion": "Alignment with Prompt",
+          "score": 10,
+          "justification": "The response directly addresses the causes and solutions of climate change as asked in the prompt."
+        },
+        {
+          "criterion": "Coherence",
+          "score": 10,
+          "justification": "The response is well-structured and easy to follow, providing a clear explanation of the causes and solutions."
+        },
+        {
+          "criterion": "Relevance of Information",
+          "score": 10,
+          "justification": "All information provided in the response is pertinent to the prompt, discussing the causes and solutions of climate change."
+        },
+        {
+          "criterion": "Agreement with BERT Score",
+          "score": 8,
+          "justification": "Although the BERT score is not very high, the response does follow the instructions accurately and coherently, which suggests a higher level of understanding than the score suggests."
+        }
+      ],
+      "overall_score": 9.6,
+      "overall_justification": "The response is accurate, follows the prompt closely, is well-structured and easy to understand, and provides relevant information on the causes and solutions of climate change. The provided BERT score suggests the response could be improved, but the high scores in other criteria indicate a strong overall performance."
+    }
+  },
+  {
+    "prompt": "\"What are the primary causes of climate change, and what are two main solutions?\"",
+    "response": "\"The primary cause of climate change is the increase of greenhouse gases like CO2 from human activities such as burning fossil fuels. Two key solutions are transitioning to renewable energy and improving energy efficiency.\"",
+    "bert_features": {
+      "prompt": "\"What are the primary causes of climate change, and what are two main solutions?\"",
+      "response": "\"The primary cause of climate change is the increase of greenhouse gases like CO2 from human activities such as burning fossil fuels. Two key solutions are transitioning to renewable energy and improving energy efficiency.\"",
+      "user_frustration_proxy": 0.15,
+      "overconfidence": 0.75,
+      "semantic_alignment": 0.728,
+      "semantic_drift": 0.561,
+      "keyword_recall": 0.6667000000000001,
+      "domain": "Other",
+      "domain_adherence": 0.5,
+      "repetition_percentage": 0.0,
+      "contradiction_detected": false,
+      "assumption_risk": 0.0,
+      "sentence_variety_score": 4.16,
+      "extraneous_ratio": 0.75,
+      "spelling_errors": 0
+    },
+    "bert_prediction": {
+      "label": "LABEL_0",
+      "score": 0.4724503755569458
+    },
+    "llm_judgment": {
+      "scores": [
+        {
+          "criterion": "Factual Accuracy",
+          "score": 10,
+          "justification": "The provided information correctly identifies the primary cause of climate change as the increase of greenhouse gases from human activities, especially burning fossil fuels."
+        },
+        {
+          "criterion": "Alignment with Prompt",
+          "score": 9,
+          "justification": "The assistant directly addresses the question by providing the primary causes of climate change and two main solutions."
+        },
+        {
+          "criterion": "Coherence",
+          "score": 10,
+          "justification": "The response is well-structured, clearly laying out the primary causes of climate change followed by the solutions in a logical order."
+        },
+        {
+          "criterion": "Relevance of Information",
+          "score": 10,
+          "justification": "All provided information is directly related to the question and important for understanding the causes and solutions of climate change."
+        },
+        {
+          "criterion": "Agreement with BERT Score",
+          "score": 9,
+          "justification": "While the BERT prediction is not perfect, the score indicates that the response is in line with the assistant providing relevant and coherent information in response to the question."
+        }
+      ],
+      "overall_score": 9.6,
+      "overall_justification": "The response accurately and coherently addresses the question with relevant information, demonstrating a high-quality response."
+    }
+  },
+  {
+    "prompt": "\"What are the primary causes of climate change, and what are two main solutions?\"",
+    "response": "\"The primary cause of climate change is the increase of greenhouse gases like CO2 from human activities such as burning fossil fuels. Two key solutions are transitioning to renewable energy and improving energy efficiency.\"",
+    "bert_features": {
+      "prompt": "\"What are the primary causes of climate change, and what are two main solutions?\"",
+      "response": "\"The primary cause of climate change is the increase of greenhouse gases like CO2 from human activities such as burning fossil fuels. Two key solutions are transitioning to renewable energy and improving energy efficiency.\"",
+      "user_frustration_proxy": 0.15,
+      "overconfidence": 0.75,
+      "semantic_alignment": 0.728,
+      "semantic_drift": 0.561,
+      "keyword_recall": 0.6667000000000001,
+      "domain": "Other",
+      "domain_adherence": 0.5,
+      "repetition_percentage": 0.0,
+      "contradiction_detected": false,
+      "assumption_risk": 0.0,
+      "sentence_variety_score": 4.16,
+      "extraneous_ratio": 0.75,
+      "spelling_errors": 0
+    },
+    "bert_prediction": {
+      "label": "LABEL_0",
+      "score": 0.4973967969417572
+    },
+    "llm_judgment": {
+      "scores": [
+        {
+          "criterion": "Factual Accuracy",
+          "score": 9,
+          "justification": "The answer correctly lists the primary causes of climate change (burning fossil fuels leading to an increase in greenhouse gases) and two main solutions (transitioning to renewable energy and improving energy efficiency)."
+        },
+        {
+          "criterion": "Alignment with Prompt",
+          "score": 9,
+          "justification": "The response directly answers the original question by providing the primary causes of climate change and two main solutions."
+        },
+        {
+          "criterion": "Coherence",
+          "score": 9,
+          "justification": "The response is well-structured and easy to follow, with a logical progression from causes to solutions."
+        },
+        {
+          "criterion": "Relevance of Information",
+          "score": 10,
+          "justification": "All information provided is directly pertinent to the original question, as it addresses both the causes and solutions of climate change."
+        },
+        {
+          "criterion": "Agreement with BERT Score",
+          "score": 6,
+          "justification": "The BERT score of 0.4974 suggests that the response may not be fully correct for some parts, but it still provides accurate and relevant information."
+        }
+      ],
+      "overall_score": 8.8,
+      "overall_justification": "While the BERT score suggests some room for improvement, the response accurately and coherently provides both the causes and solutions of climate change, demonstrating a high level of understanding and relevance."
+    }
   }
 ]

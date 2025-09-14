@@ -33,7 +33,7 @@ PRONOUNS = {'he','she','they','it','them','his','her','their','this','that','tho
 # LLM Judge Configuration
 # ==============================================================================
 
-OPENROUTER_API_KEY = "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"
+OPENROUTER_API_KEY = "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"
 API_URL = "https://openrouter.ai/api/v1/chat/completions"
 JUDGE_MODEL = "mistralai/mistral-7b-instruct"
 

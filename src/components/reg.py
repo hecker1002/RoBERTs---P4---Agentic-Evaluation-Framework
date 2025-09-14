@@ -297,6 +297,7 @@ if SEM_MODEL:
 def classify_domain(prompt:str)->str:
     if not SEM_MODEL: return _classify_domain_rules(prompt)
     emb=SEM_MODEL.encode([prompt],convert_to_tensor=True)
+    
     best_score,best_domain=0.0,"Other"
     for d,ex_emb in DOMAIN_EMBS.items():
         # cosine similarity

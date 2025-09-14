@@ -23,6 +23,7 @@ The Agentic Evaluation Framework employs a multi-stage pipeline:
 4.  **LLM-Based Judgment:** Leverage an Open Source LLM ( Mistral 7B instruct ) to cross-check factual accuracy, evaluate coherence, and provide a final verdict, incorporating the BERT score and reason through CoT (Chain of Thought) the possible reasons for High or Low variation.
 5.  **Reporting:** Generate a comprehensive report summarizing the evaluation results.
 
+
 ### Flowchart (Suggested)
 ![alt text](flowchart_1.png)
 
@@ -55,6 +56,7 @@ The Agentic Evaluation Framework employs a multi-stage pipeline:
     *   Calculates features, obtains a BERT prediction, and queries an LLM judge (using OpenRouter API).
     *   Generates a final report combining the BERT score, LLM judgment, and feature analysis
     * and in final verdict , the LLM judge also provides the reason for the score evaluated and its alignment with the BERT score through CoT (Chain of Thought) reasoning.
+![alt text](<Screenshot 2025-09-15 031419.png>)
 
 ## Key Features
 
