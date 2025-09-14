@@ -1,0 +1,364 @@
+[
+  {
+    "prompt": "Hey what is an apple",
+    "response": "A large or small red fruit friend !",
+    "bert_features": {
+      "prompt": "Hey what is an apple",
+      "response": "A large or small red fruit friend !",
+      "user_frustration_proxy": 0.8,
+      "overconfidence": 1.0,
+      "semantic_alignment": 0.338,
+      "semantic_drift": 0.0,
+      "keyword_recall": 0.0,
+      "domain": "Other",
+      "domain_adherence": 0.5,
+      "repetition_percentage": 0.0,
+      "contradiction_detected": false,
+      "assumption_risk": 0.0,
+      "sentence_variety_score": 5.0,
+      "extraneous_ratio": 1.0,
+      "spelling_errors": 0
+    },
+    "bert_prediction": {
+      "label": "LABEL_0",
+      "score": 0.5047622323036194
+    },
+    "llm_judgment": {
+      "scores": [
+        {
+          "criterion": "Factual Accuracy",
+          "score": 3,
+          "justification": "The term 'apple' generally describes a type of fruit, but the response does not provide accurate information about its specific characteristics or types."
+        },
+        {
+          "criterion": "Alignment with Prompt",
+          "score": 3,
+          "justification": "While the response refers to a fruit, it does not directly answer the question about what an apple is."
+        },
+        {
+          "criterion": "Coherence",
+          "score": 7,
+          "justification": "The response is somewhat coherent despite not directly addressing the question."
+        },
+        {
+          "criterion": "Relevance of Information",
+          "score": 3,
+          "justification": "The information provided about the fruit being a friend and large or small is not necessarily relevant to the question about what an apple is."
+        },
+        {
+          "criterion": "Agreement with BERT Score",
+          "score": 10,
+          "justification": "The BERT-predicted score is low, indicating low alignment with the question, and the response follows this low alignment."
+        }
+      ],
+      "overall_score": 3,
+      "overall_justification": "The response fails to adequately answer the question and lacks pertinent information, resulting in a low overall score."
+    }
+  },
+  {
+    "prompt": "Hey what is an apple",
+    "response": "a large Red fruit .",
+    "bert_features": {
+      "prompt": "Hey what is an apple",
+      "response": "a large Red fruit .",
+      "user_frustration_proxy": 0.8,
+      "overconfidence": 1.0,
+      "semantic_alignment": 0.356,
+      "semantic_drift": 0.0,
+      "keyword_recall": 0.0,
+      "domain": "Other",
+      "domain_adherence": 0.5,
+      "repetition_percentage": 0.0,
+      "contradiction_detected": false,
+      "assumption_risk": 0.0,
+      "sentence_variety_score": 5.0,
+      "extraneous_ratio": 1.0,
+      "spelling_errors": 0
+    },
+    "bert_prediction": {
+      "label": "LABEL_0",
+      "score": 0.490043967962265
+    },
+    "llm_judgment": {
+      "scores": [
+        {
+          "criterion": "Factual Accuracy",
+          "score": 8,
+          "justification": "The response accurately describes 'apple' as a fruit."
+        },
+        {
+          "criterion": "Alignment with Prompt",
+          "score": 5,
+          "justification": "While the response addresses the question by providing some information about the appearance of an apple, it could be more specific about what an apple is."
+        },
+        {
+          "criterion": "Coherence",
+          "score": 8,
+          "justification": "The response is brief and straightforward, making it easy to understand."
+        },
+        {
+          "criterion": "Relevance of Information",
+          "score": 7,
+          "justification": "Though the mention of the fruit's color does not significantly contribute to understanding the nature of the apple, the description of it as a fruit is pertinent."
+        },
+        {
+          "criterion": "Agreement with BERT Score",
+          "score": 6,
+          "justification": "The BERT score suggests some misalignment with the provided prompt, as the response does not answer 'What is' in a detailed manner, but it still provides information about the apple."
+        }
+      ],
+      "overall_score": 7,
+      "overall_justification": "Though the response was not entirely informative, it was coherently structured and provided accurate information about apples."
+    }
+  },
+  {
+    "prompt": "What is apple ?",
+    "response": "a large red fruit ",
+    "bert_features": {
+      "prompt": "What is apple ?",
+      "response": "a large red fruit ",
+      "user_frustration_proxy": 0.8,
+      "overconfidence": 1.0,
+      "semantic_alignment": 0.346,
+      "semantic_drift": 0.0,
+      "keyword_recall": 0.0,
+      "domain": "Other",
+      "domain_adherence": 0.5,
+      "repetition_percentage": 0.0,
+      "contradiction_detected": false,
+      "assumption_risk": 0.0,
+      "sentence_variety_score": 5.0,
+      "extraneous_ratio": 1.0,
+      "spelling_errors": 0
+    },
+    "bert_prediction": {
+      "label": "LABEL_0",
+      "score": 0.47710222005844116
+    },
+    "llm_judgment": {
+      "scores": [
+        {
+          "criterion": "Factual Accuracy",
+          "score": 10,
+          "justification": "The statement 'a large red fruit' accurately describes an apple."
+        },
+        {
+          "criterion": "Alignment with Prompt",
+          "score": 10,
+          "justification": "The provided response directly answers the question about identifying apples."
+        },
+        {
+          "criterion": "Coherence",
+          "score": 10,
+          "justification": " The response is brief yet clear in its description of an apple."
+        },
+        {
+          "criterion": "Relevance of Information",
+          "score": 10,
+          "justification": "All provided information about apples is relevant to the initial question."
+        },
+        {
+          "criterion": "Agreement with BERT Score",
+          "score": 2,
+          "justification": "The BERT score suggests a low level of alignment, but the response still directly answers the question."
+        }
+      ],
+      "overall_score": 9,
+      "overall_justification": "While there was a slight discrepancy between the BERT score and a few aspects of the response, overall, it responded accurately, directly, coherently, and relevantly to the question."
+    }
+  },
+  {
+    "prompt": "what is apple ",
+    "response": "its a red fruit ",
+    "bert_features": {
+      "prompt": "what is apple ",
+      "response": "its a red fruit ",
+      "user_frustration_proxy": 0.8,
+      "overconfidence": 1.0,
+      "semantic_alignment": 0.341,
+      "semantic_drift": 0.0,
+      "keyword_recall": 0.0,
+      "domain": "Other",
+      "domain_adherence": 0.5,
+      "repetition_percentage": 0.0,
+      "contradiction_detected": false,
+      "assumption_risk": 0.0,
+      "sentence_variety_score": 5.0,
+      "extraneous_ratio": 1.0,
+      "spelling_errors": 0
+    },
+    "bert_prediction": {
+      "label": "LABEL_0",
+      "score": 0.47481662034988403
+    },
+    "llm_judgment": {
+      "scores": [
+        {
+          "criterion": "Factual Accuracy",
+          "score": 1,
+          "justification": "Although apples can vary greatly in color, they are not inherently red."
+        },
+        {
+          "criterion": "Alignment with Prompt",
+          "score": 1,
+          "justification": "The response does not directly answer the question about the nature of an apple."
+        },
+        {
+          "criterion": "Coherence",
+          "score": 8,
+          "justification": "The response is concise, clear, and easy to understand."
+        },
+        {
+          "criterion": "Relevance of Information",
+          "score": 2,
+          "justification": "Information about the color of the apple is not relevant to answering the question about the nature of an apple."
+        },
+        {
+          "criterion": "Agreement with BERT Score",
+          "score": 10,
+          "justification": "The BERT score reflects that the response is not accurately aligned with the prompt."
+        }
+      ],
+      "overall_score": 1,
+      "overall_justification": "The response does not answer the question, provides irrelevant information, and has a low BERT score."
+    }
+  },
+  {
+    "prompt": "What is an apple ?",
+    "response": "It is a red fruit ",
+    "bert_features": {
+      "prompt": "What is an apple ?",
+      "response": "It is a red fruit ",
+      "user_frustration_proxy": 0.8,
+      "overconfidence": 1.0,
+      "semantic_alignment": 0.422,
+      "semantic_drift": 0.0,
+      "keyword_recall": 0.0,
+      "domain": "Other",
+      "domain_adherence": 0.5,
+      "repetition_percentage": 0.0,
+      "contradiction_detected": false,
+      "assumption_risk": 0.0,
+      "sentence_variety_score": 5.0,
+      "extraneous_ratio": 1.0,
+      "spelling_errors": 0
+    },
+    "bert_prediction": {
+      "label": "LABEL_0",
+      "score": 0.5099956393241882
+    },
+    "llm_judgment": {
+      "scores": [
+        {
+          "criterion": "Factual Accuracy",
+          "score": 5,
+          "justification": "Although this statement is not fully accurate, as apples can appear in various colors including red, yellow, and green, it is close to factual since red is a common color for apples."
+        },
+        {
+          "criterion": "Alignment with Prompt",
+          "score": 4,
+          "justification": "While the response does mention 'fruit', it does not explain the nature of an apple in detail as the question asked."
+        },
+        {
+          "criterion": "Coherence",
+          "score": 7,
+          "justification": "The response is well-structured and easy to follow."
+        },
+        {
+          "criterion": "Relevance of Information",
+          "score": 6,
+          "justification": "The information included in the response is somewhat relevant to the prompt, as it mentions the fruit aspect of an apple."
+        },
+        {
+          "criterion": "Agreement with BERT Score",
+          "score": 4,
+          "justification": "The BERT score is fairly low, indicating low alignment between the response and the question."
+        }
+      ],
+      "overall_score": 4.6,
+      "overall_justification": "The response has decent coherence and some relevant information albeit in brief, but it lacks detail and is not quite aligned with the question, as noted by the BERT score."
+    }
+  },
+  {
+    "prompt": "What is an apple ?",
+    "response": "Running in APRK is good.",
+    "bert_features": {
+      "prompt": "What is an apple ?",
+      "response": "Running in APRK is good.",
+      "user_frustration_proxy": 0.8,
+      "overconfidence": 1.0,
+      "semantic_alignment": 0.001,
+      "semantic_drift": 0.0,
+      "keyword_recall": 0.0,
+      "domain": "Other",
+      "domain_adherence": 0.5,
+      "repetition_percentage": 0.0,
+      "contradiction_detected": false,
+      "assumption_risk": 0.0,
+      "sentence_variety_score": 5.0,
+      "extraneous_ratio": 1.0,
+      "spelling_errors": 0
+    },
+    "bert_prediction": {
+      "label": "LABEL_0",
+      "score": 0.5440811514854431
+    },
+    "llm_judgment": {
+      "scores": [
+        {
+          "criterion": "Factual Accuracy",
+          "score": 0,
+          "justification": "The response does not provide factual information about an apple."
+        },
+        {
+          "criterion": "Alignment with Prompt",
+          "score": 0,
+          "justification": "The response does not answer the question about what an apple is."
+        },
+        {
+          "criterion": "Coherence",
+          "score": 1,
+          "justification": "The response is not well-structured or easy to follow as it does not relate to the question about an apple."
+        },
+        {
+          "criterion": "Relevance of Information",
+          "score": 0,
+          "justification": "The information provided about running in APRK is not relevant to the question about an apple."
+        },
+        {
+          "criterion": "Agreement with BERT Score",
+          "score": 10,
+          "justification": "The BERT score predicts a LABEL_0 (invalid/ irrelevant) which aligns with the low quality of this response."
+        }
+      ],
+      "overall_score": 0,
+      "overall_justification": "The response fails to provide accurate or relevant information about an apple and does not answer the question as asked."
+    }
+  },
+  {
+    "prompt": "What is an apple ?",
+    "response": "Running in PARK is good.",
+    "bert_features": {
+      "prompt": "What is an apple ?",
+      "response": "Running in PARK is good.",
+      "user_frustration_proxy": 0.8,
+      "overconfidence": 1.0,
+      "semantic_alignment": -0.019,
+      "semantic_drift": 0.0,
+      "keyword_recall": 0.0,
+      "domain": "Other",
+      "domain_adherence": 0.5,
+      "repetition_percentage": 0.0,
+      "contradiction_detected": false,
+      "assumption_risk": 0.0,
+      "sentence_variety_score": 5.0,
+      "extraneous_ratio": 1.0,
+      "spelling_errors": 0
+    },
+    "bert_prediction": {
+      "label": "LABEL_0",
+      "score": 0.5135109424591064
+    },
+    "llm_judgment": null
+  }
+]
