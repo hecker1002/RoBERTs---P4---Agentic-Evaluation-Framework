@@ -13,6 +13,7 @@ We tried to mimic a real-world setup where different AI agents give very differe
 From there, we designed a hybrid evaluation pipeline. First, we generated features from each {prompt, response} pair using regex rules + a small Language Model (things like how closely the response sticks to the prompt, assumptions made, contradictions, domain type  using a DUAL Encoder , overconfidence score .). Then we **fine-tuned** a **BERT model on those features + our ground truth labels**, so it can predict scores automatically.
 
 Finally, during evaluation, when a new response comes in, we run it through the feature extractor → fine-tuned BERT for scoring → and also through a factual check step using a Mistral model. The **“AI Judge” (Mistral)** looks at both the response and the BERT score, and gives a verdict on whether the evaluation seems valid and also gives the reason for the score evaluated and its alignment with the BERT score using a detailed **CoT - Chain of Thought reasoning**. We show all of this in a Streamlit dashboard that tracks score trends, compares agents on the same prompt, and makes the whole process more transparent.
+<img width="1920" height="1071" alt="image" src="https://github.com/user-attachments/assets/025cde34-351d-4162-b3b9-c5d7ce6ddd66" />
 
 The idea is that this pipeline can scale beyond just our 3 toy agents, and help evaluate lots of different models in a more explainable, layered way — not just “one black-box score.”
 
