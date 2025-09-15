@@ -1,5 +1,7 @@
 
-# Agentic Evaluation Framework - RoBERTs---P4
+# EthosAI 🐧
+Hola amigos! First a Demo of the Project .
+[text](git_exmp.webm)
 
 ## Overview
 We tried to mimic a real-world setup where different AI agents give very different kinds of answers to the same prompt. So, we built 3 agents with fixed personas  **a Reporter, a Deep Critical Thinker and a Carefree Storyteller** using system prompts. We then labeled these responses across dimensions like  **“Hallucination Score,” "Conciseness Score", "Assumption Control Score", "Instruction-Following Score"** using a hybrid approach of human based  and using an open-source model using **Few-Shot Learning**. These became our ground truth labels.
