@@ -33,17 +33,110 @@ PRONOUNS = {'he','she','they','it','them','his','her','their','this','that','tho
 # LLM Judge Configuration
 # ==============================================================================
 
-OPENROUTER_API_KEY = "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"
+OPENROUTER_API_KEY = "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"
 API_URL = "https://openrouter.ai/api/v1/chat/completions"
 JUDGE_MODEL = "mistralai/mistral-7b-instruct"
 
 # ==============================================================================
 # LLM Judge Function (MODIFIED)
 # ==============================================================================
+# def judge_response(question, response_to_judge, criteria, bert_score_data):
+#     """
+#     Judges an LLM's response based on a set of provided criteria,
+#     including the BERT score.
+#     """
+#     if not OPENROUTER_API_KEY:
+#         st.error("Error: OpenRouter API key not found. Please add it to your Streamlit secrets.")
+#         return None
+
+#     bert_score = bert_score_data['score']
+#     bert_label = bert_score_data['label']
+
+#     judge_prompt = f"""
+# You are an impartial judge, evaluating the quality of a response from an AI assistant.
+# Your task is to score the AI assistant's response on a scale of 1 to 10 for each of the following criteria.
+
+# For each criterion, provide a single-sentence justification.
+
+# Criteria to Judge:
+# {' - '.join(criteria)}
+
+# Evaluation Task:
+# 1. Carefully read the original question.
+# 2. Read the AI assistant's response.
+# 3. For each criterion listed above, give a score from 1 (lowest) to 10 (highest).
+# 4. Provide a brief, one-sentence justification for each score.
+# 5. Provide a single overall score for the response.
+
+# Output Format:
+# Return a JSON object with the following structure:
+# {{
+#   "scores": [
+#     {{"criterion": "...", "score": 0, "justification": "..."}},
+#     ...
+#   ],
+#   "overall_score": 0,
+#   "overall_justification": "..."
+# }}
+
+# ---
+# Original Question:
+# {question}
+
+# ---
+# AI Assistant's Response to Judge:
+# {response_to_judge}
+
+# ---
+# BERT Predicted Score (Instruction-Following Score of Response with respect to UUser Prompt is): {bert_score:.4f}
+# BERT Predicted Label: {bert_label}
+
+# ---
+# Begin JSON Output:
+# """
+#     headers = {
+#         "Authorization": f"Bearer {OPENROUTER_API_KEY}",
+#         "Content-Type": "application/json"
+#     }
+
+#     data = {
+#         "model": JUDGE_MODEL,
+#         "messages": [
+#             {"role": "user", "content": judge_prompt}
+#         ]
+#     }
+
+#     try:
+#         response = requests.post(API_URL, headers=headers, json=data)
+#         response.raise_for_status()
+
+#         response_json = response.json()
+#         judge_response_text = response_json['choices'][0]['message']['content']
+
+#         # FIX: Use a regex to extract the JSON object to handle extraneous text
+#         json_match = re.search(r'\{.*\}', judge_response_text, re.DOTALL)
+#         if json_match:
+#             clean_json_string = json_match.group(0)
+#             judge_output = json.loads(clean_json_string)
+#             return judge_output
+#         else:
+#             # If no JSON object is found, raise an error
+#             raise ValueError("No valid JSON object found in the LLM response.")
+
+#     except requests.exceptions.RequestException as e:
+#         st.error(f" API connection error: {e}")
+#     except (json.JSONDecodeError, ValueError) as e:
+#         st.error(f" Failed to parse JSON response from the judge: {e}")
+#         st.code(judge_response_text, language="json")
+#     except Exception as e:
+#         st.error(f" An unexpected error occurred: {e}")
+
+#     return None
+
+
 def judge_response(question, response_to_judge, criteria, bert_score_data):
     """
-    Judges an LLM's response based on a set of provided criteria,
-    including the BERT score.
+    Judging the AI agent's LLM's response with Chain-of-Thought (CoT) using BEERT score too, reasoning before JSON output.
     """
     if not OPENROUTER_API_KEY:
         st.error("Error: OpenRouter API key not found. Please add it to your Streamlit secrets.")
@@ -53,23 +146,26 @@ def judge_response(question, response_to_judge, criteria, bert_score_data):
     bert_label = bert_score_data['label']
 
     judge_prompt = f"""
-You are an impartial judge, evaluating the quality of a response from an AI assistant.
-Your task is to score the AI assistant's response on a scale of 1 to 10 for each of the following criteria.
+You are an impartial expert judge evaluating the quality of an AI assistant's response.
+Follow these steps carefully:
 
-For each criterion, provide a single-sentence justification.
+### REASONING ###
+1. Read the original question.
+2. Read the AI assistant's response.
+3. Think step-by-step about each evaluation criterion.
+4. Provide detailed reasoning for each criterion (but keep this hidden from the final answer).
+5. At the end, produce only the final JSON in the required format.
 
 Criteria to Judge:
 {' - '.join(criteria)}
 
 Evaluation Task:
-1. Carefully read the original question.
-2. Read the AI assistant's response.
-3. For each criterion listed above, give a score from 1 (lowest) to 10 (highest).
-4. Provide a brief, one-sentence justification for each score.
-5. Provide a single overall score for the response.
+- Each criterion: score from 1 (lowest) to 10 (highest).
+- Each criterion: provide a one-sentence justification.
+- Provide one overall score + justification.
 
-Output Format:
-Return a JSON object with the following structure:
+### FINAL OUTPUT FORMAT ###
+Return **only** the JSON object, no text outside:
 {{
   "scores": [
     {{"criterion": "...", "score": 0, "justification": "..."}},
@@ -84,59 +180,53 @@ Original Question:
 {question}
 
 ---
-AI Assistant's Response to Judge:
+AI Assistant's Response:
 {response_to_judge}
 
 ---
-BERT Predicted Score (Instruction-Following Score of Response with respect to UUser Prompt is): {bert_score:.4f}
+BERT Predicted Score (Instruction-Following in Response according to the Prompt): {bert_score:.4f}
 BERT Predicted Label: {bert_label}
 
 ---
-Begin JSON Output:
+Now begin.
 """
+
     headers = {
         "Authorization": f"Bearer {OPENROUTER_API_KEY}",
         "Content-Type": "application/json"
     }
-
     data = {
         "model": JUDGE_MODEL,
-        "messages": [
-            {"role": "user", "content": judge_prompt}
-        ]
+        "messages": [{"role": "user", "content": judge_prompt}]
     }
 
     try:
         response = requests.post(API_URL, headers=headers, json=data)
         response.raise_for_status()
-
         response_json = response.json()
         judge_response_text = response_json['choices'][0]['message']['content']
 
-        # FIX: Use a regex to extract the JSON object to handle extraneous text
+        # Extract JSON only after "FINAL OUTPUT"
         json_match = re.search(r'\{.*\}', judge_response_text, re.DOTALL)
         if json_match:
             clean_json_string = json_match.group(0)
             judge_output = json.loads(clean_json_string)
             return judge_output
         else:
-            # If no JSON object is found, raise an error
-            raise ValueError("No valid JSON object found in the LLM response.")
+            raise ValueError(" there was no valid json object found in the LLM response.")
 
     except requests.exceptions.RequestException as e:
-        st.error(f" API connection error: {e}")
+        st.error(f"API connection error: {e}")
     except (json.JSONDecodeError, ValueError) as e:
-        st.error(f" Failed to parse JSON response from the judge: {e}")
+        st.error(f"Failed to parse JSON response from the judge: {e}")
         st.code(judge_response_text, language="json")
     except Exception as e:
-        st.error(f" An unexpected error occurred: {e}")
+        st.error(f"An unexpected error occurred: {e}")
 
     return None
 
-# ==============================================================================
-# Existing Feature Calculation Functions (replicated for a self-contained script)
-# ==============================================================================
-# --- Basic text utils ---
+
+''' Basic NLP processing and Dual Encoder starts here '''
 def preprocess_text(text: str) -> set:
     if not text: return set()
     tokens = re.findall(r'\b[a-zA-Z0-9]+\b', text.lower())
@@ -165,7 +255,7 @@ def chunk_prompt(prompt) -> List[str]:
             seen.add(c); out.append(c)
     return out
 
-def prompt_chunk_weights(chunks: List[str], prompt: str) -> List[float]:
+def prompt_chunk_weights(chunks, prompt) :
     prompt_tokens = re.findall(r'\b[a-zA-Z0-9]+\b', prompt.lower())
     freq = Counter(prompt_tokens)
     weights = []
@@ -185,14 +275,16 @@ def calculate_jaccard_similarity(s1:set,s2:set)->float:
     if not s1 or not s2: return 0.0
     return len(s1&s2)/len(s1|s2)
 
-def semantic_sim(a: str, b: str) -> float:
+def semantic_sim(a, b ):
     if not a or not b: return 0.0
     if SEM_MODEL is None:
         return round(calculate_jaccard_similarity(preprocess_text(a), preprocess_text(b)),3)
     emb = SEM_MODEL.encode([a,b], convert_to_tensor=True)
     return round(float(util.cos_sim(emb[0],emb[1]).item()),3)
 
-def batch_similarity_matrix(a_list: List[str], b_list: List[str]) -> List[List[float]]:
+
+# a -> prompt ,b -> response
+def batch_similarity_matrix(a_list , b_list ) :
     if not a_list or not b_list: return []
     if SEM_MODEL is None:
         return [[round(calculate_jaccard_similarity(preprocess_text(a),preprocess_text(b)),3) for b in b_list] for a in a_list]
@@ -253,7 +345,7 @@ def detect_number_mismatch(prompt:str,response:str)->Dict[str,Any]:
     return {"missing_numbers":sorted(list(pnums-rnums)),"extra_numbers":sorted(list(rnums-pnums)),
              "extra_numbers_count":len(rnums-pnums)}
 
-def detect_internal_contradictions_lexical(resp:str)->Dict[str,Any]:
+def detect_internal_contradictions_lexical(resp ):
     sents=split_sentences(resp)
     if len(sents)<2: return {"contradiction_detected":False,"pair":None}
     neg_kw={"no","not","never","without","impossible","n't"}
@@ -264,14 +356,14 @@ def detect_internal_contradictions_lexical(resp:str)->Dict[str,Any]:
             return {"contradiction_detected":True,"pair":(a,b)}
     return {"contradiction_detected":False,"pair":None}
 
-def calculate_sentence_variety_score(resp:str)->float:
+def calculate_sentence_variety_score(resp ) :
     sents=split_sentences(resp)
     if len(sents)<2: return 5.0
     lengths=[len(re.findall(r'\b\w+\b',s)) for s in sents]
     mean=sum(lengths)/len(lengths); std=statistics.stdev(lengths) if len(lengths)>1 else 0
     return round(min(max((std/mean)*10,0),10),2)
 
-def calculate_repetition_penalty(resp:str)->Dict[str,Any]:
+def calculate_repetition_penalty(resp ):
     words=re.findall(r'\b\w+\b',resp.lower())
     if len(words)<2: return {"repetition_percentage":0.0,"repeated_bigrams":[]}
     bigrams=[(words[i],words[i+1]) for i in range(len(words)-1)]
@@ -284,12 +376,12 @@ def compute_instruction_coverage(prompt:str,response:str)->float:
     chunks=chunk_prompt(prompt); sents=split_sentences(response)
     _,_,cov=map_response_to_prompt_chunks(chunks,sents); return cov
 
-def compute_assumption_risk(resp:str)->float:
+def compute_assumption_risk(resp )->float:
     ass=1 if contains_assumption(resp) else 0
     ass+=len(re.findall(r'\bas you know\b|\bgiven that\b|\bsuppose\b',resp.lower()))
     denom=max(1,len(split_sentences(resp))); return round(min(1.0,ass/denom),3)
 
-def compute_user_frustration_proxy(prompt:str,response:str,mapping:List[Dict[str,Any]])->float:
+def compute_user_frustration_proxy(prompt ,response ,mapping ):
     sents=split_sentences(response);
     if not sents: return 0.0
     orphan=sum(1 for m in mapping if m.get("is_orphan"))/len(sents)
@@ -363,7 +455,7 @@ def classify_domain(prompt:str)->str:
         sims=util.cos_sim(emb,ex_emb).cpu().numpy().flatten()
         avg=sims.mean()
         if avg>best_score: best_score,best_domain=avg,d
-    return best_domain if best_score>=0.35 else "Other"
+    return best_domain if best_score>=0.10 else "Other"
 
 def _classify_domain_rules(prompt:str)->str:
     pl=prompt.lower()
@@ -513,7 +605,7 @@ def save_evaluation_results(data: Dict[str, Any]):
         with open("eval_results_full.json", "w") as f:
             json.dump([data], f, indent=2)
 
-# --- NEW: Function to display visualization and leaderboards ---
+
 def display_evaluation_trends():
     """Reads historical data and displays charts and leaderboards."""
     try:
@@ -618,7 +710,7 @@ def display_evaluation_trends():
     except FileNotFoundError:
         st.warning("No historical evaluation data found. Run an evaluation to start collecting.")
     except Exception as e:
-        st.error(f"❌ An error occurred while loading historical data: {e}")
+        st.error(f" An error occurred while loading historical data: {e}")
         st.info("The `eval_results_full.json` file may be corrupted or malformed. Try clearing the file to start fresh.")
 
 def generate_final_report(question, response_text, bert_features, bert_prediction, llm_judgment):
@@ -658,22 +750,23 @@ def generate_final_report(question, response_text, bert_features, bert_predictio
 
 def main():
     
-    st.title("Agentic Evaluation Framework")
+    st.title("Ethos-AI 🐧")
     st.sidebar.markdown("""
     ### About
-    This application evaluates the quality of an LLM response based on a given prompt. It uses:
-    - **BERT** to predict a score based on a set of calculated features.
-    - An **LLM judge** to provide a qualitative, detailed report.
+    **Hola Amigos!** This application evaluates the quality of an LLM response based on a given prompt. It uses:
+    - Contextual and Domain based Feature extraction ( diagnosis Data) using **( Regex + small LM model).**
+    - Passing the **Diagnostic features** into **BERT** to predict a **Information Accuracy score** in **response** wrt **prompt**.
+    - The **AI judge** to provide a qualitative and a  detailed report using **CoT( Chain of thought thinking )**.
     """)
     st.sidebar.markdown("---")
     #st.sidebar.info("This app relies on an external API (OpenRouter) and a pre-trained BERT model. Make sure you have your API key configured.")
-    
-    # User inputs
+
+    # Use given input here
     st.header("Enter Your Data")
     question = st.text_area("Original Prompt:", height=100)
     response_text = st.text_area("LLM Response to Evaluate:", height=200)
     
-    # Add a unique key to the button to avoid caching issues
+    # added a unique key to the button to avoid caching issues
     if st.button("Run Evaluation", key="evaluate_button", use_container_width=True):
         if not question or not response_text:
             st.warning("Please enter both a prompt and a response to run the evaluation.")
@@ -687,7 +780,7 @@ def main():
                     tokenizer = AutoTokenizer.from_pretrained(model_directory)
                     st.success("✅ Model and tokenizer loaded successfully.")
                 except Exception as e:
-                    st.error(f"❌ Error loading model or tokenizer. Please ensure you have your fine-tuned BERT model correctly configured for deployment. Error: {e}")
+                    st.error(f" Error loading model or tokenizer. Please ensure you have your fine-tuned BERT model correctly configured for deployment. Error: {e}")
                     return
 
                 classifier = pipeline("text-classification", model=model, tokenizer=tokenizer)
@@ -735,7 +828,7 @@ def main():
                     generate_final_report(question, response_text, features, bert_prediction, llm_judgment)
 
                 except Exception as e:
-                    st.error(f"❌ An error occurred during evaluation: {e}")
+                    st.error(f" An error occurred during evaluation: {e}")
             
     # Display full diagnostic JSON in an expander
     if question and response_text:
